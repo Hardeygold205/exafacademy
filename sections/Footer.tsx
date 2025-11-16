@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Linkedin,
@@ -9,12 +11,20 @@ import {
   Facebook,
 } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  const isAuthPage =
+    pathname.startsWith("/login") || pathname.startsWith("/register");
 
   return (
-    <footer className="bg-black text-gray-100 px-6 py-16 bottom-0 w-full">
+    <footer
+      className={`bg-black text-gray-100 px-6 py-16 bottom-0 w-full ${
+        isAuthPage ? "hidden" : ""
+      }`}>
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-7">
         <div className="lg:col-span-2 space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
           <Link href="/">
@@ -27,29 +37,41 @@ export default function Footer() {
               priority
             />
           </Link>
-          <p className="text-gray-300 leading-relaxed max-w-52">
+          <p className="text-gray-300 leading-relaxed max-w-72">
             Building the largest network of reliable Extension Agents across
             Africa!
           </p>
-          <div className="flex gap-4 pt-2">
+          <div className="flex gap-4 pt-2 border-t border-gray-800 items-center ">
             <Link
               href="#"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="GitHub">
               <Instagram className="w-5 h-5" />
             </Link>
+            <div
+              className="w-px h-6 bg-gray-800"
+              role="separator"
+              aria-orientation="vertical"></div>
             <Link
               href="#"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </Link>
+            <div
+              className="w-px h-6 bg-gray-800"
+              role="separator"
+              aria-orientation="vertical"></div>
             <Link
               href="#"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="Twitter">
               <Twitter className="w-5 h-5" />
             </Link>
+            <div
+              className="w-px h-6 bg-gray-800"
+              role="separator"
+              aria-orientation="vertical"></div>
             <Link
               href="#"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
@@ -140,7 +162,9 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-sm overflow-hidden text-ellipsis break-all">e-learning@extensionafrica.com</p>
+                  <p className="text-sm overflow-hidden text-ellipsis break-all">
+                    e-learning@extensionafrica.com
+                  </p>
                   <p className="text-xs text-gray-400">General inquiries</p>
                 </div>
               </li>

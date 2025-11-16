@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/sections/NavBar";
+import Footer from "@/sections/Footer";
 
 const JetBrains = Roboto_Condensed({
   subsets: ["latin"],
@@ -27,9 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${JetBrains.className} font-sans antialiased relative`}>
-        <NavBar />
-        {children}
+      <body className={`${JetBrains.className} font-sans antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          <NavBar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -1,13 +1,14 @@
 import React from "react";
 import { Metadata } from "next";
+import AuthLayout from "@/components/AuthLayout";
 
 export const metadata: Metadata = {
-  title: "Register",
+  title: "New Account",
   description: "Create an account at Africa Extension Academy",
 };
 
 function Register() {
-  return <div>Register</div>;
+  return <AuthLayout />;
 }
 
 export default Register;

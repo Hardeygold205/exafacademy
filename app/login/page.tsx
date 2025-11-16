@@ -1,15 +1,14 @@
-import React from 'react'
+import React from "react";
 import { Metadata } from "next";
+import AuthLayout from "@/components/AuthLayout";
 
 export const metadata: Metadata = {
-  title: "Welvome Back",
+  title: "Login",
   description: "Login your account at Africa Extension Academy",
 };
 
 function Login() {
-  return (
-    <div>Login</div>
-  )
+  return <AuthLayout />;
 }
 
-export default Login
+export default Login;

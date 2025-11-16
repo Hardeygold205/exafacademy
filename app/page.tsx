@@ -1,5 +1,4 @@
 import FAQ from "@/sections/FAQ";
-import Footer from "@/sections/Footer";
 import HeroSection from "@/sections/HeroSection";
 import JoinCommunity from "@/sections/JoinCommunity";
 import OverView from "@/sections/OverView";
@@ -18,10 +17,9 @@ export default function Home() {
       <HeroSection />
       <OverView />
       <Program />
-      <JoinCommunity />
       <FAQ />
+      <JoinCommunity />
       <PartnerShip />
-      <Footer />
     </div>
   );
 }

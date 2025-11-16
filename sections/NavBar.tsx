@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { RiMenu2Fill } from "react-icons/ri";
+import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -63,9 +66,60 @@ const products = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const pathname = usePathname();
+  const isAuthPage = pathname === "/login" || pathname === "/register";
+
+  useEffect(() => {
+    if (isAuthPage) {
+      setIsFixed(false);
+      setShowNavbar(true);
+      return;
+    }
+
+    let ticking = false;
+
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const navbarHeight = 100;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > navbarHeight) {
+            setIsFixed(true);
+            setTimeout(() => setShowNavbar(true), 50);
+          } else {
+            setIsFixed(false);
+            setShowNavbar(true);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", controlNavbar, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [isAuthPage]);
 
   return (
-    <header className="w-full h-auto top-0 right-0 left-0 bg-primary shadow-2xl z-50 px-2 fixed">
+    <header
+      className={cn(
+        "w-full h-auto top-0 right-0 left-0 bg-primary shadow-2xl z-50 px-2",
+        isAuthPage
+          ? "fixed opacity-100"
+          : isFixed
+          ? "fixed opacity-0 animate-fadeInDown "
+          : "relative opacity-100"
+      )}
+      style={{
+        animation:
+          !isAuthPage && isFixed ? "fadeInDown 0.8s ease-out forwards" : "none",
+      }}>
       <nav className="flex justify-between items-center max-w-7xl mx-auto z-50">
         <div>
           <Link href="/">
@@ -166,7 +220,7 @@ export default function NavBar() {
         </div>
 
         <div
-          className={`fixed top-0 left-0 h-screen w-full bg-white shadow-lg md:hidden z-40 transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 left-0 h-screen w-full bg-white shadow-lg [@media(min-width:803px)]:hidden z-40 transition-transform duration-300 ease-in-out ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}>
           <nav className="flex justify-between z-50 bg-primary items-center px-4">
