@@ -29,8 +29,8 @@ export default function Footer() {
         <div className="lg:col-span-2 space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
           <Link href="/">
             <Image
-              src="/ExAf_logo.PNG"
-              alt="Exaf Logo"
+              src="/ExAf_logo.png"
+              alt="Exaf-Logo"
               className="w-48 h-auto transition-opacity hover:opacity-90"
               width={220}
               height={220}
