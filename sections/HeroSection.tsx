@@ -76,12 +76,12 @@ export default function HeroCarousel() {
                   animationDelay: "0.2s",
                   animationFillMode: "forwards",
                 }}>
-                <span className="text-lg font-semibold tracking-wider uppercase text-gray-300">
+                <span className="text-md md:text-lg font-semibold tracking-wider uppercase text-gray-300">
                   {slide.subtitle}
                 </span>
               </div>
               <h1
-                className="text-5xl md:text-7xl font-bold mb-6 opacity-0 animate-fade-in-up"
+                className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 opacity-0 animate-fade-in-up"
                 style={{
                   animationDelay: "0.4s",
                   animationFillMode: "forwards",
@@ -89,7 +89,7 @@ export default function HeroCarousel() {
                 {slide.title}
               </h1>
               <p
-                className="text-xl md:text-2xl mb-8 opacity-0 animate-fade-in-up"
+                className="text-md md:text-xl lg:text-2xl mb-8 opacity-0 animate-fade-in-up"
                 style={{
                   animationDelay: "0.6s",
                   animationFillMode: "forwards",
@@ -98,7 +98,7 @@ export default function HeroCarousel() {
               </p>
               <button
                 onClick={() => router.push(slide.link)}
-                className="bg-primary hover:opacity-80 hover:-translate-y-0.5 cursor-pointer ease-in-out duration-300 text-white font-semibold px-20 py-4 rounded-full transition hover:scale-105 animate-fade-in-up opacity-0"
+                className="bg-primary hover:opacity-80 hover:-translate-y-0.5 cursor-pointer ease-in-out duration-300 text-white font-semibold px-12 md:px-20 py-2 md:py-4 rounded-full transition hover:scale-105 animate-fade-in-up opacity-0"
                 style={{
                   animationDelay: "0.8s",
                   animationFillMode: "forwards",

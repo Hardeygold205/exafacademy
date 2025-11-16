@@ -9,7 +9,9 @@ function Program() {
           Our Academy Programs
         </h1>
       </div>
-      <ProgramLayout />
+      <div className="mx-auto max-w-7xl">
+        <ProgramLayout />
+      </div>
     </div>
   );
 }

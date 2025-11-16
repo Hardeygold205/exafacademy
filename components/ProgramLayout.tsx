@@ -41,9 +41,11 @@ function ProgramLayout() {
               </div>
               <div className="col-span-2 p-5 gap-5 flex flex-col">
                 <div>
-                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-2 px-3 rounded-full w-fit my-5">
-                    <CalendarRange />
-                    UNDERGRADUATE STUDENTS
+                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
+                    <CalendarRange className="w-4" />
+                    <h3 className="text-sm md:text-md">
+                      UNDERGRADUATE STUDENTS
+                    </h3>
                   </div>
                   <h1 className="leading-7 text-2xl my-2">
                     Pursue a career in Agribusiness
@@ -65,9 +67,9 @@ function ProgramLayout() {
             <div className="grid grid-cols-4 items-center h-full">
               <div className="col-span-2 p-5 gap-5 flex flex-col">
                 <div>
-                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-2 px-3 rounded-full w-fit my-5">
-                    <CalendarRange />
-                    RECENT GRADUATES
+                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
+                    <CalendarRange className="w-4" />
+                    <h3 className="text-sm md:text-md">RECENT GRADUATES</h3>
                   </div>
                   <h1 className="leading-7 text-2xl my-2">
                     Unlock Your Agribusiness Potential
@@ -96,14 +98,14 @@ function ProgramLayout() {
                   alt="Academy Program"
                   width={500}
                   height={500}
-                  className="rounded-l-3xl  w-full h-auto object-cover"
+                  className="rounded-l-3xl w-full h-auto object-cover"
                 />
               </div>
               <div className="col-span-2 p-5 gap-5 flex flex-col">
                 <div>
-                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-2 px-3 rounded-full w-fit my-5">
-                    <CalendarRange />
-                    SHAPING THE FUTURE
+                  <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
+                    <CalendarRange className="w-4" />
+                    <h3 className="text-sm md:text-md">SHAPING THE FUTURE</h3>
                   </div>
                   <h1 className="leading-7 text-2xl my-2">
                     Africa Extension Academy
@@ -123,9 +125,11 @@ function ProgramLayout() {
               <div className="col-span-2 p-5 gap-5 flex flex-col">
                 <div>
                   <div>
-                    <div className="flex flex-row items-center gap-2 bg-blue-200 py-2 px-3 rounded-full w-fit my-5">
-                      <CalendarRange />
-                      AGRIBUSINESS PROFESSIONALS
+                    <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
+                      <CalendarRange className="w-4" />
+                      <h3 className="text-sm md:text-md">
+                        AGRIBUSINESS PROFESSIONALS
+                      </h3>
                     </div>
                     <h1 className="leading-7 text-2xl my-3">
                       Pursue a career in Agribusiness
@@ -161,11 +165,11 @@ function ProgramLayout() {
           }}
           viewport={{ once: true }}
           className="w-full p-2 md:p-5 bg-white rounded-3xl justify-center flex-col md:w-10/12 space-y-1 md:space-y-3 shadow-2xl ">
-          <h5 className="text-center">
+          <h5 className="text-center text-sm md:text-lg lg:text-xl p-2">
             Do not belong to any of the above category? Register now to explore
             our Self-study courses.
           </h5>
-          <h1 className="font-bold text-3xl text-center">Get started today</h1>
+          <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-center">Get started today</h1>
         </motion.div>
       </motion.div>
     </div>
