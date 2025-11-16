@@ -63,9 +63,18 @@ function ProgramLayout() {
           </motion.div>
           <motion.div
             variants={imageVariants}
-            className="flex-1 rounded-3xl bg-white shadow-md">
-            <div className="grid grid-cols-4 items-center h-full">
-              <div className="col-span-2 p-5 gap-5 flex flex-col">
+            className="flex-1 rounded-3xl bg-white shadow-md overflow-hidden">
+            <div className="flex flex-col md:flex-row h-full">
+              <div className="relative w-full md:w-1/2 order-2 md:order-1">
+                <Image
+                  src="/hero-2.png"
+                  alt="Academy Program"
+                  width={500}
+                  height={400}
+                  className="rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-full md:w-1/2 p-5 gap-5 flex flex-col order-1 md:order-2">
                 <div>
                   <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
                     <CalendarRange className="w-4" />
@@ -77,31 +86,24 @@ function ProgramLayout() {
                   <p>Unlock Your Agribusiness Potential</p>
                 </div>
               </div>
-              <Image
-                src="/hero-2.png"
-                alt="Academy Program"
-                width={500}
-                height={100}
-                className="rounded-r-3xl col-span-2 w-full h-auto object-cover"
-              />
             </div>
           </motion.div>
         </div>
         <div className="w-full md:w-5/12 p-2 flex flex-col space-y-5">
           <motion.div
             variants={imageVariants}
-            className="flex-1 rounded-3xl bg-white shadow-md">
-            <div className="grid grid-cols-4 items-center h-full">
-              <div className="col-span-2 w-ful">
+            className="flex-1 rounded-3xl bg-white shadow-md overflow-hidden">
+            <div className="flex flex-col md:flex-row h-full">
+              <div className="relative w-full md:w-1/2 order-1">
                 <Image
-                  src="/hero_img.jpg"
+                  src="/hero-4.jpg"
                   alt="Academy Program"
-                  width={500}
-                  height={500}
-                  className="rounded-l-3xl w-full h-auto object-cover"
+                  width={400}
+                  height={400}
+                  className="rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none w-full h-full object-cover"
                 />
               </div>
-              <div className="col-span-2 p-5 gap-5 flex flex-col">
+              <div className="w-full md:w-1/2 p-5 gap-5 flex flex-col order-2">
                 <div>
                   <div className="flex flex-row items-center gap-2 bg-blue-200 py-1 px-2 md:py-2 md:px-3 rounded-full w-fit my-5">
                     <CalendarRange className="w-4" />
@@ -169,7 +171,9 @@ function ProgramLayout() {
             Do not belong to any of the above category? Register now to explore
             our Self-study courses.
           </h5>
-          <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-center">Get started today</h1>
+          <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-center">
+            Get started today
+          </h1>
         </motion.div>
       </motion.div>
     </div>
