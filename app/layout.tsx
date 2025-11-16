@@ -15,9 +15,33 @@ export const metadata: Metadata = {
     default: "Afrexa",
     template: "%s | Afrexa",
   },
-  description: "Africa Extension Academy",
+  description: "Extension Africa Academy",
   icons: {
     icon: "/main-icon.png",
+  },
+  openGraph: {
+    title: "Home | Extension Africa Academy",
+    description:
+      "Building the largest network of reliable Extension Agents across Africa!",
+    url: "https://exafacademy.vercel.app",
+    siteName: "Extension Africa Academy",
+    images: [
+      {
+        url: "/exaf_Preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Extension Africa Academy",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Extension Africa Academy",
+    description:
+      "Building the largest network of reliable Extension Agents across Africa!",
+    images: ["/exaf_Preview.png"],
   },
 };
 
