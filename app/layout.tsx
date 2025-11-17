@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Home | Extension Africa Academy",
     description:
       "Building the largest network of reliable Extension Agents across Africa!",
-    url: "https://exafacademy.vercel.app",
+    url: "https://academyextensionafrica.vercel.app",
     siteName: "Extension Africa Academy",
     images: [
       {
