@@ -55,7 +55,9 @@ export default function HeroCarousel() {
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
+            index === currentSlide
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           }`}>
           <div className="absolute inset-0">
             <Image
@@ -89,7 +91,7 @@ export default function HeroCarousel() {
                 {slide.title}
               </h1>
               <p
-                className="text-md md:text-xl lg:text-2xl mb-8 opacity-0 animate-fade-in-up"
+                className="text-md md:text-xl lg:text-2xl mb-8 animate-fade-in-up opacity-0"
                 style={{
                   animationDelay: "0.6s",
                   animationFillMode: "forwards",
@@ -117,8 +119,8 @@ export default function HeroCarousel() {
             onClick={() => goToSlide(index)}
             className={`transition-all rounded-full ${
               index === currentSlide
-                ? "bg-white w-12 h-3"
-                : "bg-white bg-opacity-50 w-3 h-3 hover:bg-opacity-75"
+                ? "bg-white md:w-12 w-8 h-2 md:h-3"
+                : "bg-white bg-opacity-50 md:w-3 w-2 md:h-3 h-2 hover:bg-opacity-75"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

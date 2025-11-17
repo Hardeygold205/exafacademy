@@ -85,9 +85,11 @@ export default function OverView() {
 
             <div
               ref={statsRef}
-              className="flex flex-row justify-between gap-4 pt-6 items-center">
+              className="flex flex-row justify-between gap-4 pt-6 items-center ">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
+                <div
+                  key={index}
+                  className="text-center">
                   <div className="flex justify-center mb-2">
                     <stat.icon className="w-10 h-10 text-green-600" />
                   </div>
