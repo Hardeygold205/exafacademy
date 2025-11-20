@@ -24,7 +24,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { RegisterUserPayload, registerUser } from "@/lib/api";
 
 const countries = [
   "Nigeria",
@@ -100,10 +102,8 @@ const registerSchema = z
     password: z
       .string()
       .min(6, { message: "The password must have at least 6 characters" }),
-    email: z.string().email({ message: "Please enter a valid email address" }),
-    emailConfirm: z
-      .string()
-      .email({ message: "Please enter a valid email address" }),
+    email: z.email({ message: "Please enter a valid email address" }),
+    emailConfirm: z.email({ message: "Please enter a valid email address" }),
     firstName: z
       .string()
       .min(2, { message: "First name must be at least 2 characters" }),
@@ -122,6 +122,7 @@ type LoginValues = z.infer<typeof loginSchema>;
 type RegisterValues = z.infer<typeof registerSchema>;
 
 function AuthLayout() {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const isLogin = pathname === "/login";
@@ -153,7 +154,6 @@ function AuthLayout() {
     try {
       console.log("Login:", values);
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      // Handle login logic here
     } catch (error) {
       console.error(error);
     } finally {
@@ -164,10 +164,37 @@ function AuthLayout() {
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
     try {
-      console.log("Register:", values);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const payload: RegisterUserPayload = {
+        username: values.username,
+        password: values.password,
+        email: values.email,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        city: values.city,
+        country: values.country,
+      };
+
+      const response = await registerUser(payload);
+      console.log(response);
+
+      if (response.userid) {
+        toast.success("Registration successful!", {
+          description: `Welcome ${values.username}!`,
+        });
+        router.push("/login");
+      }
+      console.log("registeration successful");
     } catch (error) {
-      console.error(error);
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again.";
+
+      toast.error("Registration Failed", {
+        description: errorMessage,
+      });
+
+      console.error("Registration error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -220,6 +247,8 @@ function AuthLayout() {
                 {isLogin ? (
                   <Form {...loginForm}>
                     <form
+                      action="https://academy.extensionafrica.com/login/index.php"
+                      method="POST"
                       onSubmit={loginForm.handleSubmit(onLoginSubmit)}
                       className="space-y-5">
                       <FormField
@@ -267,7 +296,7 @@ function AuthLayout() {
                       <div className="flex items-center justify-end">
                         <div className="text-sm">
                           <Link
-                            href="/forgot-password"
+                            href="/https://academy.extensionafrica.com/login/forgot_password.php"
                             className="text-primary font-semibold hover:underline">
                             Forgot password?
                           </Link>
@@ -340,9 +369,6 @@ function AuthLayout() {
                                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
                               />
                             </FormControl>
-                            <p className="text-xs text-gray-600 mt-1">
-                              The password must have at least 6 characters
-                            </p>
                             <FormMessage className="text-xs" />
                           </FormItem>
                         )}

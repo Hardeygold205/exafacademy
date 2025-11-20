@@ -1,35 +1,198 @@
-import Image from "next/image";
-import React from "react";
+"use client";
 
-function JoinCommunity() {
+import React, { useState } from "react";
+import {
+  Users,
+  MessageCircle,
+  TrendingUp,
+  Award,
+  ArrowRight,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: Users,
+    title: "50K+ Members",
+    description: "Connect with professionals across Africa",
+  },
+  {
+    icon: MessageCircle,
+    title: "Live Discussions",
+    description: "Get instant answers to your questions",
+  },
+  {
+    icon: TrendingUp,
+    title: "Career Growth",
+    description: "Access exclusive opportunities",
+  },
+  {
+    icon: Award,
+    title: "Expert Mentorship",
+    description: "Learn from industry leaders",
+  },
+];
+
+export default function JoinCommunity() {
+  const [hoveredFeature, setHoveredFeature] = useState(null);
+
   return (
-    <div className="w-full min-h-5/12 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/hero_img.jpg"
-          alt="Join Community Illustration"
-          width={500}
-          height={500}
-          className="w-full h-auto"
-        />
-        <div className="text-center md:text-left gap-5 flex flex-col md:items-start justify-center items-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-primary mb-4 lg:leading-16">
-            Join the largest community of Extension Professionals
-          </h2>
-          <p className="text-md md:text-lg lg:text-xl text-black mb-6">
-            Afrexa offers many ways to get instant answers, spark discussions,
-            and find the support you need to truly thrive. Dive in and discover
-            a whole new dimension to your learning experience!
-          </p>
-          <a
-            href="/register"
-            className="inline-block bg-primary text-center max-w-md w-full text-white px-6 py-3 rounded-full text-lg font-medium hover:scale-95 transition">
-            Join Community
-          </a>
+    <div className="w-full bg-linear-to-br from-green-50 via-white to-green-10 py-16 md:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0 opacity-45"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="order-1 lg:order-2 space-y-8">
+            <div className="space-y-4">
+              <div className="inline-block">
+                <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">
+                  🌍 Africa&apos;s Largest Network
+                </span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-linear-to-r from-blue-600 via-green-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+                Join the largest community of Extension Professionals
+              </h2>
+
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                Afrexa offers many ways to get instant answers, spark
+                discussions, and find the support you need to truly thrive. Dive
+                in and discover a whole new dimension to your learning
+                experience!
+              </p>
+            </div>
+          </div>
+          <div className="order-2 lg:order-1 space-y-8">
+            <div className="grid grid-cols-2 gap-4 oo">
+              {features.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={i}
+                    onMouseEnter={() => setHoveredFeature(i)}
+                    onMouseLeave={() => setHoveredFeature(null)}
+                    className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
+                    style={{
+                      transform:
+                        hoveredFeature === i
+                          ? "translateY(-4px)"
+                          : "translateY(0)",
+                    }}>
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-300 ${
+                        hoveredFeature === i
+                          ? "bg-linear-to-br from-blue-500 to-green-500"
+                          : "bg-gray-100"
+                      }`}>
+                      <Icon
+                        className={`w-6 h-6 ${
+                          hoveredFeature === i ? "text-white" : "text-gray-600"
+                        }`}
+                      />
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {feature.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a
+                href="/register"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-blue-600 to-green-600 text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  Join Community
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 bg-linear-to-r from-green-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+
+              <a
+                href="/learn-more"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full text-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300">
+                Learn More
+              </a>
+            </div>
+
+            <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-green-400 border-2 border-white"
+                  />
+                ))}
+                <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
+                  +5K
+                </div>
+              </div>
+              <p className="text-sm text-gray-600">
+                <span className="font-bold text-gray-900">5,000+</span>{" "}
+                professionals joined this month
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Trusted by professionals across Africa
+            </h3>
+            <p className="text-gray-600">
+              Join thousands of extension agents transforming agriculture
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Sarah M.",
+                role: "Extension Officer",
+                quote: "This community transformed my career path!",
+              },
+              {
+                name: "John K.",
+                role: "Agribusiness Professional",
+                quote: "Best decision I made for my growth.",
+              },
+              {
+                name: "Amina T.",
+                role: "Agricultural Consultant",
+                quote: "The support here is unmatched!",
+              },
+            ].map((testimonial, i) => (
+              <div
+                key={i}
+                className="bg-linear-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-blue-400 to-green-400" />
+                  <div>
+                    <div className="font-bold text-gray-900">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {testimonial.role}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">{testimonial.quote}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default JoinCommunity;
