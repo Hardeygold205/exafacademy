@@ -14,8 +14,8 @@ import Image from "next/image";
 export default function OverView() {
   const [isVisible, setIsVisible] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [hoveredBenefit, setHoveredBenefit] = useState(null);
-  const statsRef = useRef(null);
+  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
+  const statsRef = useRef<HTMLDivElement | null>(null);
   const [count, setCount] = useState({ students: 0, courses: 0 });
 
   const stats = [

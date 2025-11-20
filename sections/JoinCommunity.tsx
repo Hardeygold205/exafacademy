@@ -33,7 +33,7 @@ const features = [
 ];
 
 export default function JoinCommunity() {
-  const [hoveredFeature, setHoveredFeature] = useState(null);
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
 
   return (
     <div className="w-full bg-linear-to-br from-green-50 via-white to-green-10 py-16 md:py-24 overflow-hidden">
