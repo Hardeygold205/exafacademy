@@ -1,15 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Users,
-  CheckCircle2,
-  Target,
-  Rocket,
-  BookOpen,
-  Globe,
-} from "lucide-react";
+import { Users, CheckCircle2, Rocket, BookOpen, Globe } from "lucide-react";
 import Image from "next/image";
+import { Highlight } from "@/components/ui/hero-highlight";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import { HeroHighlight } from "@/components/ui/hero-highlight";
 
 export default function OverView() {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,9 +15,9 @@ export default function OverView() {
   const [count, setCount] = useState({ students: 0, courses: 0 });
 
   const stats = [
-    { icon: Users, value: 6000, suffix: "+", label: "Active Students" },
-    { icon: BookOpen, value: 50, suffix: "+", label: "Expert Courses" },
-    { icon: Globe, value: "2", label: "Countries Reach" },
+    { icon: Users, value: 4000, suffix: "+", label: "Active Students" },
+    { icon: BookOpen, value: 16, suffix: "+", label: "Expert Courses" },
+    { icon: Globe, value: "5", label: "Countries Reach" },
   ];
 
   const benefits = [
@@ -83,7 +79,7 @@ export default function OverView() {
   }, [isVisible]);
 
   return (
-    <section className="relative py-8 md:py-12 bg-linear-to-br from-gray-50 via-white to-green-50 overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-linear-to-br from-gray-50 via-white overflow-hidden">
       <div className="absolute top-20 right-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20 -z-10" />
       <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20 -z-10" />
 
@@ -134,9 +130,9 @@ export default function OverView() {
                 Since we started in 2021, we&apos;ve believed that good business
                 is about putting humans in positions that allow them to be their
                 best. We combine
-                <span className="font-semibold text-gray-900 bg-yellow-100 px-1 rounded">
+                <Highlight className="font-semibold text-gray-900 bg-yellow-100 px-1 rounded">
                   hands-on training
-                </span>
+                </Highlight>
                 with modern technology to reshape agriculture.
               </p>
             </div>
@@ -211,38 +207,50 @@ export default function OverView() {
 
           <div className="relative">
             {!isVideoPlaying ? (
-              <div
-                className="relative aspect-video cursor-pointer"
-                onClick={() => setIsVideoPlaying(true)}>
-                <Image
-                  fill
-                  src="/afrexa-vd-overlay.png"
-                  alt="Watch Our Story"
-                  className="object-cover rounded-2xl"
-                />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform">
-                    <svg
-                      className="w-8 h-8 text-gray-900 ml-1"
-                      fill="currentColor"
-                      viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                        clipRule="evenodd"
+              <HeroHighlight
+                containerClassName="relative aspect-video cursor-pointer w-full rounded-2xl bg-transparent h-auto"
+                className="w-full">
+                <CardContainer
+                  className="relative aspect-video cursor-pointer w-full"
+                  onClick={() => setIsVideoPlaying(true)}>
+                  <CardBody className="w-full h-full">
+                    <CardItem
+                      translateZ={80}
+                      className="relative w-full h-full overflow-hidden rounded-2xl">
+                      <Image
+                        fill
+                        src="/afrexa-vd-overlay.png"
+                        alt="Watch Our Story"
+                        className="object-cover"
                       />
-                    </svg>
-                  </button>
-                </div>
 
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl font-bold mb-1">Watch Our Story</h3>
-                  <p className="text-sm opacity-90">
-                    Learn how we&apos;re transforming agriculture
-                  </p>
-                </div>
-              </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform">
+                          <svg
+                            className="w-8 h-8 text-gray-900 ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="text-2xl font-bold mb-1">
+                          Watch Our Story
+                        </h3>
+                        <p className="text-sm opacity-90">
+                          Learn how we&apos;re transforming agriculture
+                        </p>
+                      </div>
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
+              </HeroHighlight>
             ) : (
               <iframe
                 className="w-full aspect-video"

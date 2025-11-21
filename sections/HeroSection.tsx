@@ -30,7 +30,7 @@ export default function HeroSection() {
       color: "bg-primary",
     },
     {
-      image: "/hero-2.png",
+      image: "/IMG_9544.jpg",
       title: "Agripreneurship Training",
       subtitle: "UNLOCK YOUR POTENTIAL",
       description:
@@ -52,9 +52,9 @@ export default function HeroSection() {
   ];
 
   const stats = [
-    { icon: Users, label: "Active Students", value: "6000+" },
-    { icon: BookOpen, label: "Expert Courses", value: "50+" },
-    { icon: Globe, label: "Countries Reach", value: "2" },
+    { icon: Users, label: "Active Students", value: "4000+" },
+    { icon: BookOpen, label: "Expert Courses", value: "16+" },
+    { icon: Globe, label: "Countries Reach", value: "5" },
   ];
 
   const nextSlide = useCallback(() => {
@@ -94,7 +94,7 @@ export default function HeroSection() {
 
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/50 to-black/20" />
 
-          <div className="relative h-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center pt-5 sm:pt-0 pb-20">
+          <div className="relative h-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center py-10 sm:pt-0 pb-20">
             <div className="max-w-5xl mx-auto space-y-6">
               <div
                 className={`inline-block overflow-hidden ${
@@ -109,7 +109,7 @@ export default function HeroSection() {
               </div>
 
               <h1
-                className={`text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight
+                className={`text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight
                 ${
                   index === currentSlide
                     ? "animate-fade-in-up delay-200"
@@ -119,7 +119,7 @@ export default function HeroSection() {
               </h1>
 
               <p
-                className={`text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed
+                className={`text-md md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed
                 ${
                   index === currentSlide
                     ? "animate-fade-in-up delay-300"

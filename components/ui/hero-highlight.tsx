@@ -1,7 +1,12 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useMotionValue, motion, useMotionTemplate } from "motion/react";
-import React from "react";
+import {
+  useMotionValue,
+  motion,
+  useMotionTemplate,
+  useInView,
+} from "motion/react";
+import React, { useRef } from "react";
 
 export const HeroHighlight = ({
   children,
@@ -12,10 +17,14 @@ export const HeroHighlight = ({
   className?: string;
   containerClassName?: string;
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, {
+    once: true,
+    amount: 0.3,
+  });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // SVG patterns for different states and themes
   const dotPatterns = {
     light: {
       default: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
@@ -32,33 +41,56 @@ export const HeroHighlight = ({
     clientX,
     clientY,
   }: React.MouseEvent<HTMLDivElement>) {
-    if (!currentTarget) return;
+    if (!currentTarget || !isInView) return;
     const { left, top } = currentTarget.getBoundingClientRect();
 
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
   return (
-    <div
+    <motion.div
+      ref={containerRef}
       className={cn(
-        "group relative flex h-160 w-full items-center justify-center bg-white dark:bg-black",
+        "group relative flex w-full items-center justify-center overflow-hidden bg-transparent",
         containerClassName
       )}
+      initial={{ opacity: 0, y: 40 }}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              y: 0,
+            }
+          : {
+              opacity: 0,
+              y: 40,
+            }
+      }
+      transition={{ duration: 0.6, ease: "easeOut" }}
       onMouseMove={handleMouseMove}>
-      <div
+      <motion.div
         className="pointer-events-none absolute inset-0 dark:hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
         style={{
           backgroundImage: dotPatterns.light.default,
         }}
       />
-      <div
+      <motion.div
         className="pointer-events-none absolute inset-0 hidden dark:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
         style={{
           backgroundImage: dotPatterns.dark.default,
         }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 dark:hidden"
+        className="pointer-events-none absolute inset-0 dark:hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         style={{
           backgroundImage: dotPatterns.light.hover,
           WebkitMaskImage: useMotionTemplate`
@@ -78,7 +110,10 @@ export const HeroHighlight = ({
         }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-0 hidden opacity-0 transition duration-300 group-hover:opacity-100 dark:block"
+        className="pointer-events-none absolute inset-0 hidden dark:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         style={{
           backgroundImage: dotPatterns.dark.hover,
           WebkitMaskImage: useMotionTemplate`
@@ -98,8 +133,14 @@ export const HeroHighlight = ({
         }}
       />
 
-      <div className={cn("relative z-20", className)}>{children}</div>
-    </div>
+      <motion.div
+        className={cn("relative z-20 w-full", className)}
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 24 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}>
+        {children}
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -115,13 +156,14 @@ export const Highlight = ({
       initial={{
         backgroundSize: "0% 100%",
       }}
-      animate={{
+      whileInView={{
         backgroundSize: "100% 100%",
       }}
+      viewport={{ once: true, amount: 0.8 }}
       transition={{
-        duration: 2,
-        ease: "linear",
-        delay: 0.5,
+        duration: 1.6,
+        ease: "easeOut",
+        delay: 0.2,
       }}
       style={{
         backgroundRepeat: "no-repeat",

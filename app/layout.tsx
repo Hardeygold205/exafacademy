@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/sections/NavBar";
 import Footer from "@/sections/Footer";
 
-const JetBrains = Roboto_Condensed({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-JetBrains",
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -52,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${JetBrains.className} font-sans antialiased`}>
+      <body className={`${poppins.className} font-sans antialiased`}>
         <div className="flex flex-col min-h-screen">
           <NavBar />
           <main id="main-content" className="flex-1">

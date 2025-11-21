@@ -138,14 +138,14 @@ export default function NavBar() {
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <ListItem href="/about" title="Our Company">
+                  <ListItem href="#" title="Our Company">
                     Empowering African agriculture through knowledge sharing and
                     innovation.
                   </ListItem>
-                  <ListItem href="/careers" title="Careers">
+                  <ListItem href="#" title="Careers">
                     See our client success stories
                   </ListItem>
-                  <ListItem href="/clients" title="Our Team">
+                  <ListItem href="#" title="Our Team">
                     Learn about our mission and team
                   </ListItem>
                 </ul>

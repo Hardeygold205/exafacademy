@@ -1,0 +1,3812 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RESPONSE>
+    <SINGLE>
+        <KEY name="courses">
+            <MULTIPLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>14</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Sustainable Farming Excellence from Integrated Pest Management to Post</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Sustainable Farming Excellence from Integrated Pest Management to Post</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>SFEIPMP</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/1181/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60008</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;Empowering Extensionists for Sustainable Farming Excellence. This comprehensive course equips extensionists with the knowledge and confidence to train and advise growers on the integrated approach of Integrated Pest Management (IPM) and Post Harvest Loss Management (PHLM). Discover the benefits of IPM and learn how to implement it effectively in the field. The course goes beyond by providing a holistic strategy for adapting this knowledge to specific crops in diverse countries and regions, collaborating closely with local extension services and experts. Arm yourself with the skills to ensure a thriving harvest from pest control to post-harvest preservation.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>pest-management-featured-images.webp</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>135670</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/1181/course/overviewfiles/pest-management-featured-images.webp</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1726415498</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>document/unknown</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>274</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>318</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User2</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                            <VALUE>self</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1708642800</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1708597635</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1763028373</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>16</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Climate-Friendly Crop Protection Practices</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Climate-Friendly Crop Protection Practices</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>CFCPP</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/1307/course/overviewfiles/Croplife%20course%20design.png</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60007</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Croplife course design.png</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>27694</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/1307/course/overviewfiles/Croplife%20course%20design.png</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1728468278</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/png</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>296</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Mubarakah Muhammad</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>318</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User2</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1728082800</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>1759618800</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>262144000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1728032138</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1763466412</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>18</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Improving the Yield of Cowpea in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Improving the Yield of Cowpea in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>AGRA_Cowpea</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/1340/course/overviewfiles/Image_fx%20%2848%29.jpg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60006</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;This self-paced course is designed to help you increase cowpea production yields by understanding the optimal climate, soil conditions, and best farming practices. Through practical insights and guidance, you will learn how to apply proven techniques to enhance cowpea cultivation and achieve better results.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (48).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>541875</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/1340/course/overviewfiles/Image_fx%20%2848%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1762849116</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                            <VALUE>self</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1730415600</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1762849116</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1763028278</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>21</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Beetroot Production</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Beetroot Production</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>Beetroot_production</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/10181/course/overviewfiles/beet.jpg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60011</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;This concise course introduces learners to the essential principles and practices of successful beetroot production. From site selection and soil preparation to planting, crop maintenance, and harvesting, participants gain a clear, step-by-step understanding of the beetroot farming cycle. The course emphasizes the importance of good agronomic practices, pest and disease management, and post-harvest handling. Designed for extension agents, farmers, and agripreneurs, it aims to equip learners with the practical knowledge and confidence needed to enhance productivity and profitability in beetroot cultivation across various regions.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>beet.jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>45622</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/10181/course/overviewfiles/beet.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1748607384</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>318</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User2</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1733871600</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>262144000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1733850668</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1760693030</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1761908767</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>22</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Lettuce Production</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Lettuce Production</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>lettuce_production</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/10844/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60010</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;Learn the essentials of lettuce farming—from seed selection and cultivation to pest control, harvesting, and storage. Gain practical skills to grow lettuce profitably and sustainably.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>image_fx_.jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>2237331</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/10844/course/overviewfiles/image_fx_.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1738604275</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>318</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User2</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                            <VALUE>self</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1738623600</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>262144000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1733850668</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630998</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1763028492</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>32</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Improving the Yield of Rice in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Improving the Yield of Rice in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>AGRA_Rice</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/16914/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60005</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p dir=&quot;ltr&quot;&gt;This self-paced course is designed to help you increase rice production yields by understanding the optimal climate, soil conditions, and best farming practices. Through practical insights and guidance, you will learn how to apply proven techniques to enhance rice cultivation and achieve better results.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (2).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>1764790</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/16914/course/overviewfiles/Image_fx%20%282%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1756806720</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>4232</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>ITUNU ADEDOYIN</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1753225200</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1759155320</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>33</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Improving Yield of Tomato in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Improving Yield of Tomato in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>AGRA_Tomato</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/16934/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60004</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p dir=&quot;ltr&quot;&gt;This self-paced course is designed to help you increase tomatoes production yields by understanding the optimal climate, soil conditions, and best farming practices. Through practical insights and guidance, you will learn how to apply proven techniques to enhance tomatoes cultivation and achieve better results.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (3).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>1494840</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/16934/course/overviewfiles/Image_fx%20%283%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1756806948</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>6</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Oluwashore Ojo</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1753225200</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1759155320</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>34</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Improving the Yield of Maize in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Improving the Yield of Maize in Nigeria</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>AGRA_Maize</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/16941/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60003</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;This self-paced course is designed to help you increase maize production yields by understanding the optimal climate, soil conditions, and best farming practices. Through practical insights and guidance, you will learn how to apply proven techniques to enhance maize cultivation and achieve better results.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx.jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>2158985</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/16941/course/overviewfiles/Image_fx.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1756806328</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>2</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>318</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Admin User2</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1753225200</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1759155320</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>35</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Improving the Yield of Soybean</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Improving the Yield of Soybean</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>AGRA_Soybean</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/17728/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60002</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (8).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>1528199</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/17728/course/overviewfiles/Image_fx%20%288%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1756978581</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="id">
+                                    <VALUE>276</VALUE>
+                                </KEY>
+                                <KEY name="fullname">
+                                    <VALUE>Chuka Nzeih</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1756940400</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1759155320</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>36</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Cabbage Farming and Production</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Cabbage Farming and Production</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>CP_1</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/17913/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60009</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p&gt;This course provides a comprehensive guide to cabbage production, from seed to market. Learners will gain knowledge of the crop’s physical characteristics, nutritional value, and diverse varieties. The modules cover essential aspects such as climatic and soil requirements, fertilizer management, pest and disease control, and harvesting techniques. In addition, learners will explore best practices in post-harvest handling, storage, and value addition to maximize profitability and reduce losses. Through assessments, the course equips learners with the technical skills and practical know-how needed for successful cabbage farming, whether at a subsistence or commercial scale.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (15).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>2020813</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/17913/course/overviewfiles/Image_fx%20%2815%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1758627080</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1758668400</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>262144000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1733850668</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758640622</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1759155320</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+                <SINGLE>
+                    <KEY name="id">
+                        <VALUE>37</VALUE>
+                    </KEY>
+                    <KEY name="fullname">
+                        <VALUE>Broccoli Production</VALUE>
+                    </KEY>
+                    <KEY name="displayname">
+                        <VALUE>Broccoli Production</VALUE>
+                    </KEY>
+                    <KEY name="shortname">
+                        <VALUE>BrocPro</VALUE>
+                    </KEY>
+                    <KEY name="courseimage">
+                        <VALUE>https://academy.extensionafrica.com/pluginfile.php/18702/course/generated/course.svg</VALUE>
+                    </KEY>
+                    <KEY name="categoryid">
+                        <VALUE>23</VALUE>
+                    </KEY>
+                    <KEY name="categoryname">
+                        <VALUE>Technical Skills</VALUE>
+                    </KEY>
+                    <KEY name="sortorder">
+                        <VALUE>60001</VALUE>
+                    </KEY>
+                    <KEY name="summary">
+                        <VALUE>&lt;p dir=&quot;ltr&quot;&gt;This self-paced course is designed to help you increase rice production yields by understanding the optimal climate, soil conditions, and best farming practices. Through practical insights and guidance, you will learn how to apply proven techniques to enhance rice cultivation and achieve better results.&lt;/p&gt;</VALUE>
+                    </KEY>
+                    <KEY name="summaryformat">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="summaryfiles">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="overviewfiles">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filename">
+                                    <VALUE>Image_fx (2).jpg</VALUE>
+                                </KEY>
+                                <KEY name="filepath">
+                                    <VALUE>/</VALUE>
+                                </KEY>
+                                <KEY name="filesize">
+                                    <VALUE>1764790</VALUE>
+                                </KEY>
+                                <KEY name="fileurl">
+                                    <VALUE>https://academy.extensionafrica.com/webservice/pluginfile.php/18702/course/overviewfiles/Image_fx%20%282%29.jpg</VALUE>
+                                </KEY>
+                                <KEY name="timemodified">
+                                    <VALUE>1759482830</VALUE>
+                                </KEY>
+                                <KEY name="mimetype">
+                                    <VALUE>image/jpeg</VALUE>
+                                </KEY>
+                                <KEY name="isexternalfile">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="repositorytype">
+                                    <VALUE null="null"/>
+                                </KEY>
+                                <KEY name="icon">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="showactivitydates">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="showcompletionconditions">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="contacts">
+                        <MULTIPLE></MULTIPLE>
+                    </KEY>
+                    <KEY name="enrollmentmethods">
+                        <MULTIPLE>
+                            <VALUE>manual</VALUE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="customfields">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Duration</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseduration</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Course Intro Video Url (Embedded)</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwcourseintrovideourlembedded</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>text</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE></VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE null="null"/>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>Skill Level</VALUE>
+                                </KEY>
+                                <KEY name="shortname">
+                                    <VALUE>edwskilllevel</VALUE>
+                                </KEY>
+                                <KEY name="type">
+                                    <VALUE>select</VALUE>
+                                </KEY>
+                                <KEY name="valueraw">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>Beginner</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="idnumber">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="format">
+                        <VALUE>topics</VALUE>
+                    </KEY>
+                    <KEY name="showgrades">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="newsitems">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="startdate">
+                        <VALUE>1759532400</VALUE>
+                    </KEY>
+                    <KEY name="enddate">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="maxbytes">
+                        <VALUE>786432000</VALUE>
+                    </KEY>
+                    <KEY name="showreports">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="visible">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmode">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="groupmodeforce">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="defaultgroupingid">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="enablecompletion">
+                        <VALUE>1</VALUE>
+                    </KEY>
+                    <KEY name="completionnotify">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="lang">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="theme">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="marker">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="legacyfiles">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="calendartype">
+                        <VALUE></VALUE>
+                    </KEY>
+                    <KEY name="timecreated">
+                        <VALUE>1730391447</VALUE>
+                    </KEY>
+                    <KEY name="timemodified">
+                        <VALUE>1758630867</VALUE>
+                    </KEY>
+                    <KEY name="requested">
+                        <VALUE>0</VALUE>
+                    </KEY>
+                    <KEY name="cacherev">
+                        <VALUE>1762959498</VALUE>
+                    </KEY>
+                    <KEY name="filters">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserformlink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>displayh5p</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>activitynames</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mathjaxloader</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>emoticon</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>edwiserpbf</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>urltolink</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="filter">
+                                    <VALUE>mediaplugin</VALUE>
+                                </KEY>
+                                <KEY name="localstate">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                                <KEY name="inheritedstate">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="courseformatoptions">
+                        <MULTIPLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>hiddensections</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>coursedisplay</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>0</VALUE>
+                                </KEY>
+                            </SINGLE>
+                            <SINGLE>
+                                <KEY name="name">
+                                    <VALUE>indentation</VALUE>
+                                </KEY>
+                                <KEY name="value">
+                                    <VALUE>1</VALUE>
+                                </KEY>
+                            </SINGLE>
+                        </MULTIPLE>
+                    </KEY>
+                    <KEY name="communicationroomname">
+                        <VALUE null="null"/>
+                    </KEY>
+                    <KEY name="communicationroomurl">
+                        <VALUE null="null"/>
+                    </KEY>
+                </SINGLE>
+            </MULTIPLE>
+        </KEY>
+        <KEY name="warnings">
+            <MULTIPLE></MULTIPLE>
+        </KEY>
+    </SINGLE>
+</RESPONSE>

@@ -1,6 +1,8 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { Metadata } from "next";
+
 
 function CoursePage() {
   const { courseId } = useParams();

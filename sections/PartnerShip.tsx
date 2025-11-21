@@ -25,7 +25,7 @@ function PartnerShip() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-50 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <span className="text-green-600 font-bold tracking-wider uppercase text-sm">
+        <span className="text-primary font-bold tracking-wider uppercase text-sm">
           Our Ecosystem
         </span>
         <h2 className="text-3xl md:text-5xl text-primary mt-3 mb-3">
