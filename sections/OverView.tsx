@@ -31,11 +31,6 @@ export default function OverView() {
       color: "from-green-400 to-emerald-600",
     },
     {
-      icon: Target,
-      text: "Network of 500+ Hiring Partners",
-      color: "from-blue-400 to-indigo-600",
-    },
-    {
       icon: Rocket,
       text: "Practical Field Experience",
       color: "from-purple-400 to-pink-600",
