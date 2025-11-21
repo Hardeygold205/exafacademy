@@ -98,7 +98,7 @@ function CoursePage() {
       <h1 className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center">
         Explore Our Courses
       </h1>
-      <p className="text-center mt-8 text-primary/90 text-lg md:text-xl lg:text-2xl md:max-w-full max-w-72 mx-auto">
+      <p className="text-center mt-8 text-primary/90 text-lg md:text-xl lg:text-2xl md:max-w-full max-w-3xl mx-auto">
         Welcome to Afrexa, below are courses designed for agricultural and
         agribusiness professionals, and extension agents. Each course equips you
         with practical knowledge and skills for sustainable and excellent

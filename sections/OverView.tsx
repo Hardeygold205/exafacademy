@@ -262,13 +262,13 @@ export default function OverView() {
               />
             )}
 
-            <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100 max-w-[220px] hidden md:block transform hover:scale-105 transition-transform">
-              <div className="flex items-center gap-3 mb-3">
+            <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl z-50 p-2 border border-gray-100 max-w-[220px] hidden md:block transform hover:scale-105 transition-transform">
+              <div className="flex items-center gap-3 mb-1 justify-center">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="w-10 h-10 rounded-full border-2 border-white bg-cover"
+                      className="w-10 h-10 rounded-full bg-linear-to-tl from-primary to-green-200 border-2 border-white bg-cover"
                     />
                   ))}
                 </div>
@@ -277,7 +277,7 @@ export default function OverView() {
                   <div className="text-xs text-gray-600">Rating</div>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 leading-snug">
+              <p className="text-xs text-gray-600 leading-snug text-center">
                 The best agricultural training platform in Africa.
               </p>
             </div>

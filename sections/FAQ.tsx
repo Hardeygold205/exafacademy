@@ -159,7 +159,7 @@ function FAQ() {
           className="text-2xl md:text-4xl lg:text-5xl text-primary my-3 sm:my-4 lg:my-5 px-2 animate-fade-in-up">
           Have a question? We&apos;re here to help!
         </h1>
-        <p className="text-base md:text-lg lg:text-xl font-light max-w-xl px-2 text-black">
+        <p className="text-base md:text-lg lg:text-xl font-light max-w-2xl px-2 text-black">
           Check out our FAQ section for answers to common questions about our
           services, policies, and more. If you can&apos;t find what you&apos;re
           looking for, feel free to reach out to our support team for
