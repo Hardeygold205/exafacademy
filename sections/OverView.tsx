@@ -265,7 +265,7 @@ export default function OverView() {
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="w-10 h-10 rounded-full border-2 border-white bg-[url('/path/to/avatar-image.png')] bg-cover"
+                      className="w-10 h-10 rounded-full border-2 border-white bg-cover"
                     />
                   ))}
                 </div>
