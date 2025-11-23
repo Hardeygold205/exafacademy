@@ -12,12 +12,12 @@ export default function OverView() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
   const statsRef = useRef<HTMLDivElement | null>(null);
-  const [count, setCount] = useState({ students: 0, courses: 0 });
+  const [count, setCount] = useState({ students: 0, courses: 0, country: 0 });
 
   const stats = [
     { icon: Users, value: 4000, suffix: "+", label: "Active Students" },
     { icon: BookOpen, value: 16, suffix: "+", label: "Expert Courses" },
-    { icon: Globe, value: "5", label: "Countries Reach" },
+    { icon: Globe, value: 5, label: "Countries Reach" },
   ];
 
   const benefits = [
@@ -65,13 +65,14 @@ export default function OverView() {
       step++;
       const progress = step / steps;
       setCount({
-        students: Math.floor(6000 * progress),
-        courses: Math.floor(50 * progress),
+        students: Math.floor(4000 * progress),
+        courses: Math.floor(16 * progress),
+        country: Math.floor(5 * progress),
       });
 
       if (step >= steps) {
         clearInterval(timer);
-        setCount({ students: 6000, courses: 50 });
+        setCount({ students: 4000, courses: 16, country: 5 });
       }
     }, interval);
 
@@ -107,7 +108,7 @@ export default function OverView() {
 
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Developed for your
+                Developed for your <br />
                 <span className="relative inline-block">
                   <span className="relative z-10 bg-linear-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                     personal growth
@@ -183,7 +184,9 @@ export default function OverView() {
                   typeof stat.value === "number"
                     ? index === 0
                       ? count.students
-                      : count.courses
+                      : index === 1
+                      ? count.courses
+                      : count.country
                     : stat.value;
                 return (
                   <div key={index} className="text-center space-y-2">

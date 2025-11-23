@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react"; // Added Chevrons
 import { RiMenu2Fill } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 import {
@@ -17,6 +17,8 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+
+// --- DATA SECTIONS ---
 
 const services = [
   {
@@ -61,6 +63,26 @@ const products = [
     title: "ChatBox",
     href: "#",
     description: "AI-powered virtual assistant for agricultural support",
+  },
+];
+
+// Extracted About Us items for re-use in mobile menu
+const aboutItems = [
+  {
+    title: "Our Company",
+    href: "#",
+    description:
+      "Empowering African agriculture through knowledge sharing and innovation.",
+  },
+  {
+    title: "Careers",
+    href: "#",
+    description: "See our client success stories",
+  },
+  {
+    title: "Our Team",
+    href: "#",
+    description: "Learn about our mission and team",
   },
 ];
 
@@ -182,7 +204,9 @@ export default function NavBar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link className="hover:opacity-80 text-white" href="/courses">
+              <Link
+                className="hover:opacity-80 text-xs [@media(min-width:870px)]:text-sm font-medium text-white"
+                href="/courses">
                 Available Courses
               </Link>
             </NavigationMenuItem>
@@ -242,54 +266,49 @@ export default function NavBar() {
               />
             </div>
           </nav>
-          <ul className="flex flex-col space-y-6 p-6 text-black">
-            <li>
+
+          {/* --- UPDATED MOBILE MENU LIST --- */}
+          <div className="flex flex-col space-y-4 p-6 text-black overflow-y-auto h-[calc(100vh-180px)]">
+            <MobileDropdown
+              title="About Us"
+              items={aboutItems}
+              setOpen={setOpen}
+            />
+
+            <MobileDropdown
+              title="Services"
+              items={services}
+              setOpen={setOpen}
+            />
+
+            <MobileDropdown
+              title="Products"
+              items={products}
+              setOpen={setOpen}
+            />
+
+            <div className="border-b pb-2">
               <Link
-                className="hover:opacity-80 hover:font-medium text-lg"
-                href="/"
-                onClick={() => setOpen(false)}>
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="hover:opacity-80 hover:font-medium text-lg"
-                href="/programs"
-                onClick={() => setOpen(false)}>
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="hover:opacity-80 hover:font-medium text-lg"
-                href="/programs"
-                onClick={() => setOpen(false)}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="hover:opacity-80 hover:font-medium text-lg"
+                className="hover:opacity-80 hover:font-medium text-lg block py-2"
                 href="/courses"
                 onClick={() => setOpen(false)}>
                 Available Courses
               </Link>
-            </li>
-          </ul>
-
-          <div className="flex-col gap-1 items-center justify-center flex mt-4 p-4 w-full">
-            <Link
-              onClick={() => setOpen(false)}
-              href="/register"
-              className="bg-transparent text-primary border border-primary w-full py-4 text-center rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
-              Register
-            </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              href="/login"
-              className="bg-primary text-white w-full text-center py-4 rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
-              Login
-            </Link>
+            </div>
+            <div className="flex-col gap-1 items-center justify-center flex mt-4 w-full">
+              <Link
+                onClick={() => setOpen(false)}
+                href="/register"
+                className="bg-transparent text-primary border border-primary w-full py-4 text-center rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
+                Register
+              </Link>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/login"
+                className="bg-primary text-white w-full text-center py-4 rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
+                Login
+              </Link>
+            </div>
           </div>
         </div>
         {open && (
@@ -326,5 +345,46 @@ const ListItem = React.forwardRef<
     </li>
   );
 });
-
 ListItem.displayName = "ListItem";
+
+interface MobileDropdownProps {
+  title: string;
+  items: { title: string; href: string; description?: string }[];
+  setOpen: (open: boolean) => void;
+}
+
+const MobileDropdown = ({ title, items, setOpen }: MobileDropdownProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-gray-100 last:border-0">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between py-2 text-lg hover:font-medium hover:opacity-80 text-left">
+        {title}
+        {isOpen ? (
+          <ChevronUp className="h-5 w-5 text-gray-500" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-gray-500" />
+        )}
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100 mb-4" : "max-h-0 opacity-0"
+        }`}>
+        <ul className="flex flex-col space-y-3 pl-4 pt-2">
+          {items.map((item) => (
+            <li key={item.title}>
+              <Link
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block text-base text-gray-600 hover:text-primary">
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
