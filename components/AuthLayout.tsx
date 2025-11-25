@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
@@ -74,47 +74,29 @@ const countries = [
   "Guinea-Bissau",
   "Equatorial Guinea",
   "Mauritius",
-  "Eswatini",
-  "Djibouti",
   "Comoros",
   "Cape Verde",
-  "Sao Tome and Principe",
   "Seychelles",
 ];
 
-// Login Schema
 const loginSchema = z.object({
-  usernameOrEmail: z
-    .string()
-    .min(3, { message: "Username or email must be at least 3 characters" }),
-  password: z
-    .string()
-    .min(6, { message: "Password must be at least 6 characters" }),
+  usernameOrEmail: z.string().min(3, { message: "Username or email required" }),
+  password: z.string().min(6, { message: "Password required" }),
 });
 
-// Register Schema
 const registerSchema = z
   .object({
-    username: z
-      .string()
-      .min(3, { message: "Username must be at least 3 characters" })
-      .max(50, { message: "Username must not exceed 50 characters" }),
-    password: z
-      .string()
-      .min(6, { message: "The password must have at least 6 characters" }),
-    email: z.email({ message: "Please enter a valid email address" }),
-    emailConfirm: z.email({ message: "Please enter a valid email address" }),
-    firstName: z
-      .string()
-      .min(2, { message: "First name must be at least 2 characters" }),
-    lastName: z
-      .string()
-      .min(2, { message: "Last name must be at least 2 characters" }),
+    username: z.string().min(3).max(50),
+    password: z.string().min(6),
+    email: z.email(),
+    emailConfirm: z.email(),
+    firstName: z.string().min(2),
+    lastName: z.string().min(2),
     city: z.string().optional(),
-    country: z.string({ message: "Please select a country" }),
+    country: z.string({ message: "Select a country" }),
   })
   .refine((data) => data.email === data.emailConfirm, {
-    message: "Email addresses don't match",
+    message: "Emails do not match",
     path: ["emailConfirm"],
   });
 
@@ -129,10 +111,7 @@ function AuthLayout() {
 
   const loginForm = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
-    defaultValues: {
-      usernameOrEmail: "",
-      password: "",
-    },
+    defaultValues: { usernameOrEmail: "", password: "" },
   });
 
   const registerForm = useForm<RegisterValues>({
@@ -164,385 +143,408 @@ function AuthLayout() {
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
     try {
-      const payload: RegisterUserPayload = {
-        username: values.username,
-        password: values.password,
-        email: values.email,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        city: values.city,
-        country: values.country,
-      };
-
+      const payload: RegisterUserPayload = { ...values };
       const response = await registerUser(payload);
-      console.log(response);
-
       if (response.userid) {
-        toast.success("Registration successful!", {
-          description: `Welcome ${values.username}!`,
-        });
+        toast.success("Registration successful!");
         router.push("/login");
       }
-      console.log("registeration successful");
     } catch (error) {
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "Registration failed. Please try again.";
-
-      toast.error("Registration Failed", {
-        description: errorMessage,
-      });
-
-      console.error("Registration error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Failed";
+      toast.error("Registration Failed", { description: errorMessage });
     } finally {
       setIsLoading(false);
     }
   }
 
   return (
-    <div className="w-full min-h-screen h-screen overflow-hidden pt-16 lg:pt-0">
-      <div className="grid grid-cols-1 lg:grid-cols-3 h-full">
-        <div className="relative hidden lg:block h-full col-span-2">
+    <div className="min-h-screen w-full flex bg-[#FDFCF8] text-stone-800 font-sans selection:bg-green-100">
+      <div className="hidden lg:flex lg:w-1/2  bg-emerald-900 flex-col justify-between p-12 overflow-hidden h-screen sticky top-0">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/loginpage.jpg"
-            alt={isLogin ? "Login page" : "Registration page"}
+            alt="Agriculture background"
             fill
-            className="object-cover"
+            className="object-cover opacity-60 mix-blend-overlay"
             priority
           />
+          <div className="absolute inset-0 bg-linear-to-t from-emerald-950 via-emerald-900/80 to-emerald-900/40" />
         </div>
 
-        <div className="fixed inset-0 lg:hidden w-full h-full z-0">
-          <Image
-            src="/loginpage.jpg"
-            alt={isLogin ? "Login page" : "Registration page"}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
+        <div></div>
 
-        <div className="relative lg:static flex items-center justify-center h-full col-span-1 z-10 px-4 py-6 lg:py-0 lg:px-0 overflow-hidden">
-          <div className="w-full max-w-md lg:max-w-lg h-full flex items-center">
-            <div className="w-full bg-white rounded-lg shadow-2xl lg:shadow-none overflow-hidden flex flex-col max-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-140px)]">
-              <div
-                className={`px-6 pb-4 shrink-0 bg-white ${
-                  isLogin ? "pt-6" : "pt-6 lg:pt-12"
-                }`}>
-                <div className="text-center">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900">
-                    {isLogin ? "Welcome Back" : "Create Your Account"}
-                  </h2>
-                  <p className="mt-2 text-xs sm:text-sm lg:text-base text-gray-600">
-                    {isLogin
-                      ? "Enter your credentials to access your account"
-                      : "Join Africa Extension Academy today"}
-                  </p>
+        <div className="relative z-10 max-w-lg justify-center flex flex-col items-center">
+          <div className="space-y-6">
+            <h1 className="text-4xl/tight font-bold text-white">
+              Cultivating Knowledge, <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-200 to-yellow-200">
+                Growing the Future.
+              </span>
+            </h1>
+            <p className="text-emerald-100/80 text-lg leading-relaxed">
+              Join the largest network of agricultural professionals. Access
+              resources, connect with experts, and drive sustainable growth
+              across the continent.
+            </p>
+
+            <div className="flex gap-4 pt-4">
+              <div className="flex -space-x-3">
+                {[
+                  { image: "/IMG_1.jpg" },
+                  { image: "/IMG_2.jpg" },
+                  { image: "/IMG_3.jpg" },
+                  { image: "/IMG_4.jpg" },
+                ].map(({ image }, index) => (
+                  <Image
+                    key={image}
+                    src={image}
+                    alt={`Community member ${index + 1}`}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 rounded-full object-cover border-2 border-white"
+                  />
+                ))}
+                <div className="w-10 h-10 rounded-full bg-transparent border-2 border-white flex items-center justify-center text-xs font-bold text-white">
+                  +1K
                 </div>
               </div>
-
-              <div className="flex-1 overflow-y-auto px-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 pb-16 lg:pb-0">
-                {isLogin ? (
-                  <Form {...loginForm}>
-                    <form
-                      action="https://academy.extensionafrica.com/login/index.php"
-                      method="POST"
-                      onSubmit={loginForm.handleSubmit(onLoginSubmit)}
-                      className="space-y-5">
-                      <FormField
-                        control={loginForm.control}
-                        name="usernameOrEmail"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-sm">
-                              Username or Email{" "}
-                              <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your username or email"
-                                {...field}
-                                className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={loginForm.control}
-                        name="password"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-sm">
-                              Password <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="password"
-                                placeholder="Enter your password"
-                                {...field}
-                                className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <div className="flex items-center justify-end">
-                        <div className="text-sm">
-                          <Link
-                            href="/https://academy.extensionafrica.com/login/forgot_password.php"
-                            className="text-primary font-semibold hover:underline">
-                            Forgot password?
-                          </Link>
-                        </div>
-                      </div>
-
-                      <Button
-                        type="submit"
-                        disabled={isLoading}
-                        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-4 rounded-md transition duration-300 text-sm">
-                        {isLoading ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Logging in...
-                          </>
-                        ) : (
-                          "Login"
-                        )}
-                      </Button>
-
-                      <p className="text-center text-xs sm:text-sm text-gray-600 mt-4">
-                        Don&apos;t have an account?{" "}
-                        <Link
-                          href="/register"
-                          className="text-primary font-semibold hover:underline">
-                          Register here
-                        </Link>
-                      </p>
-                    </form>
-                  </Form>
-                ) : (
-                  /* Register Form */
-                  <Form {...registerForm}>
-                    <form
-                      onSubmit={registerForm.handleSubmit(onRegisterSubmit)}
-                      className="space-y-3">
-                      <FormField
-                        control={registerForm.control}
-                        name="username"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Username <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your username"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="password"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Password <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="password"
-                                placeholder="Enter your password"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Email address{" "}
-                              <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="Enter your email"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="emailConfirm"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Email (again){" "}
-                              <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="Confirm your email"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="firstName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              First name <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your first name"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="lastName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Last name <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your last name"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="city"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              City/town
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your city"
-                                {...field}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={registerForm.control}
-                        name="country"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-900 font-semibold text-xs">
-                              Country <span className="text-red-500">*</span>
-                            </FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
-                                  <SelectValue placeholder="Select a country" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="max-h-60">
-                                {countries.map((country) => (
-                                  <SelectItem key={country} value={country}>
-                                    {country}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage className="text-xs" />
-                          </FormItem>
-                        )}
-                      />
-
-                      <div className="flex flex-col sm:flex-row gap-2 pt-3">
-                        <Button
-                          type="submit"
-                          disabled={isLoading}
-                          className="flex-1 bg-green-700 hover:bg-green-800 text-white font-semibold py-2.5 px-4 rounded-md transition duration-300 text-sm">
-                          {isLoading ? (
-                            <>
-                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              Creating account...
-                            </>
-                          ) : (
-                            "Create my new account"
-                          )}
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={() => registerForm.reset()}
-                          className="flex-1 border-2 border-gray-300 bg-white text-gray-700 font-semibold py-2.5 px-4 rounded-md hover:bg-gray-50 transition duration-300 text-sm">
-                          Cancel
-                        </Button>
-                      </div>
-
-                      <p className="text-center text-xs text-gray-600 mt-3">
-                        Already have an account?{" "}
-                        <Link
-                          href="/login"
-                          className="text-primary font-semibold hover:underline">
-                          Login here
-                        </Link>
-                      </p>
-                    </form>
-                  </Form>
-                )}
+              <div className="flex flex-col justify-center">
+                <span className="text-emerald-200 text-sm">
+                  Joined this month
+                </span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex justify-between text-emerald-200/60 text-sm">
+          <p>© 2025 Extension Africa Academy</p>
+          <p>Privacy Policy</p>
+        </div>
+      </div>
+
+      <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-6 md:p-12 lg:p-20 overflow-y-auto">
+        <div className="w-full max-w-[500px] space-y-8">
+          <div
+            className={`text-center ${
+              isLogin ? "" : "mt-16 lg:mt-0"
+            }  lg:text-left space-y-2`}>
+            <h2 className="text-3xl font-bold tracking-tight text-stone-900">
+              {isLogin ? "Welcome back," : "Plant your roots"}
+            </h2>
+            <p className="text-stone-500">
+              {isLogin
+                ? "Enter your details to access your dashboard."
+                : "Create an account to start your journey with us."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 p-1 bg-stone-100 rounded-xl">
+            <Link
+              href="/login"
+              className={`flex items-center justify-center py-2.5 text-sm font-medium rounded-lg transition-all ${
+                isLogin
+                  ? "bg-white text-stone-900 shadow-sm"
+                  : "text-stone-500 hover:text-stone-900"
+              }`}>
+              Sign In
+            </Link>
+            <Link
+              href="/register"
+              className={`flex items-center justify-center py-2.5 text-sm font-medium rounded-lg transition-all ${
+                !isLogin
+                  ? "bg-white text-stone-900 shadow-sm"
+                  : "text-stone-500 hover:text-stone-900"
+              }`}>
+              Register
+            </Link>
+          </div>
+
+          {isLogin ? (
+            <Form {...loginForm}>
+              <form
+                onSubmit={loginForm.handleSubmit(onLoginSubmit)}
+                className="space-y-5">
+                <FormField
+                  control={loginForm.control}
+                  name="usernameOrEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-stone-700 font-medium">
+                        Username or Email
+                      </FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            placeholder="name@example.com"
+                            {...field}
+                            className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={loginForm.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex items-center justify-between">
+                        <FormLabel className="text-stone-700 font-medium">
+                          Password
+                        </FormLabel>
+                        <Link
+                          href="#"
+                          className="text-xs font-medium text-emerald-600 hover:text-emerald-700 hover:underline">
+                          Forgot Password?
+                        </Link>
+                      </div>
+                      <FormControl>
+                        <Input
+                          type="password"
+                          placeholder="••••••••"
+                          {...field}
+                          className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full h-12 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
+                  {isLoading ? (
+                    <Loader2 className="animate-spin mr-2" />
+                  ) : (
+                    "Sign In"
+                  )}
+                </Button>
+              </form>
+            </Form>
+          ) : (
+            <Form {...registerForm}>
+              <form
+                onSubmit={registerForm.handleSubmit(onRegisterSubmit)}
+                className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={registerForm.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          First Name
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="John"
+                            {...field}
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={registerForm.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          Last Name
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Doe"
+                            {...field}
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={registerForm.control}
+                  name="username"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                        Username
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="farmer_john"
+                          {...field}
+                          className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={registerForm.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                        Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="john@farm.com"
+                          {...field}
+                          className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={registerForm.control}
+                  name="emailConfirm"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="Confirm email"
+                          {...field}
+                          className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={registerForm.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                        Password
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          type="password"
+                          placeholder="••••••••"
+                          {...field}
+                          className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={registerForm.control}
+                    name="country"
+                    render={({ field }) => (
+                      <FormItem className="col-span-1">
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          Country
+                        </FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
+                              <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="max-h-60 ">
+                            {countries.map((c) => (
+                              <SelectItem key={c} value={c}>
+                                {c}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={registerForm.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          City
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Lagos"
+                            {...field}
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="pt-4 flex gap-3">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => registerForm.reset()}
+                    className="flex-1 border-stone-300 text-stone-600 hover:bg-stone-50 hover:text-stone-900 rounded-xl h-12">
+                    Reset
+                  </Button>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="flex-2 h-12 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 group">
+                    {isLoading ? (
+                      <Loader2 className="animate-spin" />
+                    ) : (
+                      <>
+                        Create Account{" "}
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          )}
+
+          <div className="mt-8 pt-6 border-t border-stone-100 text-center">
+            <p className="text-stone-500 text-sm">
+              By clicking submit, you agree to our{" "}
+              <Link
+                href="#"
+                className="underline decoration-stone-300 hover:text-emerald-700">
+                Terms of Use
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="#"
+                className="underline decoration-stone-300 hover:text-emerald-700">
+                Privacy Policy
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </div>

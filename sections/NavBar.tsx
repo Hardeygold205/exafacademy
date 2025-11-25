@@ -18,8 +18,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-// --- DATA SECTIONS ---
-
 const services = [
   {
     title: "E-Learning Platform",
@@ -66,7 +64,6 @@ const products = [
   },
 ];
 
-// Extracted About Us items for re-use in mobile menu
 const aboutItems = [
   {
     title: "Our Company",
