@@ -24,8 +24,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
-import { toast } from "sonner";
+import { usePathname } from "next/navigation";
+import { toast } from "react-toastify";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
 
 const countries = [
@@ -103,8 +103,10 @@ const registerSchema = z
 type LoginValues = z.infer<typeof loginSchema>;
 type RegisterValues = z.infer<typeof registerSchema>;
 
+// Dashboard URL constant
+const DASHBOARD_URL = "https://academy.extensionafrica.com/my";
+
 function AuthLayout() {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const isLogin = pathname === "/login";
@@ -128,14 +130,18 @@ function AuthLayout() {
     },
   });
 
+  const selectedCountry = registerForm.watch("country");
+
   async function onLoginSubmit(values: LoginValues) {
     setIsLoading(true);
     try {
-      console.log("Login:", values);
       await new Promise((resolve) => setTimeout(resolve, 2000));
+      window.location.href = DASHBOARD_URL;
     } catch (error) {
       console.error(error);
-    } finally {
+      const errorMessage =
+        error instanceof Error ? error.message : "Login failed";
+      toast.error(errorMessage);
       setIsLoading(false);
     }
   }
@@ -146,13 +152,13 @@ function AuthLayout() {
       const payload: RegisterUserPayload = { ...values };
       const response = await registerUser(payload);
       if (response.userid) {
-        toast.success("Registration successful!");
-        router.push("/login");
+        toast.success("Registration successful! Redirecting...");
+        window.location.href = DASHBOARD_URL;
       }
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Failed";
-      toast.error("Registration Failed", { description: errorMessage });
-    } finally {
+      const errorMessage =
+        error instanceof Error ? error.message : "Registration Failed";
+      toast.error(errorMessage);
       setIsLoading(false);
     }
   }
@@ -463,7 +469,10 @@ function AuthLayout() {
                           Country
                         </FormLabel>
                         <Select
-                          onValueChange={field.onChange}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            registerForm.setValue("city", "");
+                          }}
                           defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
@@ -494,6 +503,7 @@ function AuthLayout() {
                           <Input
                             placeholder="Lagos"
                             {...field}
+                            disabled={!selectedCountry}
                             className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
                           />
                         </FormControl>

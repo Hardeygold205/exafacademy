@@ -265,7 +265,7 @@ export default function OverView() {
               />
             )}
 
-            <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl z-50 p-2 border border-gray-100 max-w-[220px] hidden md:block transform hover:scale-105 transition-transform">
+            <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl z-40 p-2 border border-gray-100 max-w-[220px] hidden md:block transform hover:scale-105 transition-transform">
               <div className="flex items-center gap-3 mb-1 justify-center">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
@@ -281,7 +281,7 @@ export default function OverView() {
                 </div>
               </div>
               <p className="text-xs text-gray-600 leading-snug text-center">
-                The best agricultural training platform in Africa.
+                The best agricultural Extension training platform in Africa.
               </p>
             </div>
 
