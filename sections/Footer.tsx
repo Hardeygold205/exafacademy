@@ -22,7 +22,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-black text-gray-100 px-6 py-16 bottom-0 w-full ${
+      className={`bg-black text-gray-100 px-6 py-16 w-full relative lg:fixed bottom-0 right-0 left-0 z-30 ${
         isAuthPage ? "hidden" : ""
       }`}>
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-7">

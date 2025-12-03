@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 function Courses() {
-  return <CoursePage />;
+  return (
+    <div className="relative min-h-screen z-40 bg-zinc-50 mb-120">
+      <CoursePage />
+    </div>
+  );
 }
 
 export default Courses;

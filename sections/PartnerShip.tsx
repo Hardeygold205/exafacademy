@@ -21,7 +21,7 @@ const row2 = partners.slice(partners.length / 2);
 
 function PartnerShip() {
   return (
-    <section className="w-full py-20 bg-white relative overflow-hidden">
+    <section className="w-full py-20 bg-white relative overflow-hidden z-30 lg:z-50 mb-0 lg:mb-140">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-50 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">

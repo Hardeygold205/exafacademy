@@ -11,11 +11,11 @@ import {
 import { stripHtml, getCustomField } from "@/lib/utils";
 import type { Course } from "@/lib/api";
 
-interface CourseCardProps {
+interface CoursePageProps {
   course: Course;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
   const skillLevel = getCustomField(course, "edwskilllevel", "All Levels");
   const duration = getCustomField(course, "edwcourseduration");
 
@@ -118,4 +118,4 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   );
 };
 
-export default CourseCard;
+export default CoursePage;

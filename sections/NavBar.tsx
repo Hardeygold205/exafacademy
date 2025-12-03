@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X, ChevronDown, ChevronUp } from "lucide-react"; // Added Chevrons
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 import { RiMenu2Fill } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 import {
