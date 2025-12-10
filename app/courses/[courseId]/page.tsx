@@ -1,18 +1,75 @@
-"use client";
-
-import { useParams } from "next/navigation";
+import React from "react";
 import { Metadata } from "next";
+import { getCoursesByField } from "@/lib/api";
+import CourseDetail from "@/components/CourseDetails";
 
+type CoursePageParams = { courseId: string | string[] };
 
-function CoursePage() {
-  const { courseId } = useParams();
-  console.log(courseId);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<CoursePageParams>; 
+}): Promise<Metadata> {
+  const fallbackTitle = "Course Information";
 
-  return (
-    <div>
-      <h1>Course {courseId}</h1>
-    </div>
-  );
+  try {
+    const resolvedParams = await params;
+    const courseIdValue = Array.isArray(resolvedParams.courseId)
+      ? resolvedParams.courseId[0]
+      : resolvedParams.courseId;
+
+    console.log("🔍 [Metadata] Fetching course with ID:", courseIdValue);
+
+    const response = await getCoursesByField({
+      field: "id",
+      value: courseIdValue,
+    });
+
+    console.log(
+      "📦 [Metadata] API Response:",
+      JSON.stringify(response, null, 2)
+    );
+
+    if (!response.courses || response.courses.length === 0) {
+      console.warn("⚠️ [Metadata] No courses found for ID:", courseIdValue);
+      return {
+        title: fallbackTitle,
+        description: "Browse course Info",
+      };
+    }
+
+    const course = response.courses[0];
+
+    const courseName =
+      course?.shortname || course?.displayname || course?.fullname || null;
+
+    if (!courseName) {
+      console.warn(
+        "⚠️ [Metadata] Course name is null/undefined, using fallback"
+      );
+      return {
+        title: fallbackTitle,
+        description: "Browse course Info",
+      };
+    }
+
+    return {
+      title: courseName,
+      description:
+        course?.summary?.replace(/<[^>]*>/g, "").substring(0, 160) ||
+        "Browse course Info",
+    };
+  } catch (error) {
+    console.error("❌ [Metadata] Failed to build course metadata:", error);
+    return {
+      title: fallbackTitle,
+      description: "Browse course Info",
+    };
+  }
 }
 
-export default CoursePage;
+function CourseInfo() {
+  return <CourseDetail />;
+}
+
+export default CourseInfo;

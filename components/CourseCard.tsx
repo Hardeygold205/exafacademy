@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -11,20 +11,36 @@ import {
 import { stripHtml, getCustomField } from "@/lib/utils";
 import type { Course } from "@/lib/api";
 
-interface CoursePageProps {
+interface CourseCardProps {
   course: Course;
 }
 
-const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   const skillLevel = getCustomField(course, "edwskilllevel", "All Levels");
   const duration = getCustomField(course, "edwcourseduration");
 
-  const rawImage =
-    course.overviewfiles.length > 0
-      ? course.overviewfiles[0].fileurl
-      : course.courseimage;
+  const defaultImage = "/agra-default.png";
 
-  const imageUrl = rawImage;
+  const rawImage =
+    course.courseimage || course.overviewfiles?.[0]?.fileurl || "";
+
+  const isValidImageUrl = (url: string) => {
+    if (!url) return false;
+    if (url.includes("/generated")) return false;
+    const imagePattern = /\.(png|jpe?g|gif|webp|svg|avif)$/i;
+    if (imagePattern.test(url)) return true;
+
+    try {
+      const parsed = new URL(url);
+      return imagePattern.test(parsed.pathname);
+    } catch {
+      return false;
+    }
+  };
+
+  const [imageUrl, setImageUrl] = useState(
+    isValidImageUrl(rawImage) ? rawImage : defaultImage
+  );
 
   const isAvailable = course.visible === 1;
   const isSelfEnroll = course.enrollmentmethods.includes("self");
@@ -33,11 +49,12 @@ const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
     <div className="group flex flex-col bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
       <div className="relative h-52 w-full overflow-hidden bg-gray-100">
         <Image
-          src={imageUrl}
+          src={imageUrl || "/agra-default.png"}
           alt={course.fullname}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={() => setImageUrl(defaultImage)}
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
@@ -49,16 +66,21 @@ const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
         </div>
 
         {course.contacts.length > 0 && (
-          <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2">
+          <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
             <div className="flex -space-x-2">
               {course.contacts.slice(0, 3).map((contact) => (
                 <div
                   key={contact.id}
-                  className="w-8 h-8 rounded-full bg-white border-2 border-white overflow-hidden flex items-center justify-center"
+                  className="w-8 h-8 rounded-full bg-white border-2 border-white overflow-hidden flex items-center justify-center tooltip"
                   title={contact.fullname}>
-                  <span className="text-[10px] font-bold text-indigo-600">
+                  <div className="tooltip-content">
+                    <div className="animate-bounce -rotate-10 text-2xl font-black">
+                      {contact.fullname}
+                    </div>
+                  </div>
+                  <button className="text-[10px] font-bold text-green-600 btn bg-transparent">
                     {contact.fullname.charAt(0)}
-                  </span>
+                  </button>
                 </div>
               ))}
             </div>
@@ -118,4 +140,4 @@ const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
   );
 };
 
-export default CoursePage;
+export default CourseCard;

@@ -30,8 +30,8 @@ export interface Course {
   summary: string;
   startdate: number;
   enddate: number;
-  visible: number; // 1 = Available, 0 = Hidden
-  enrollmentmethods: string[]; // e.g., ['manual', 'self']
+  visible: number; 
+  enrollmentmethods: string[];
   customfields: CustomField[];
   contacts: Contact[];
   overviewfiles: OverviewFile[];
