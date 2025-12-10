@@ -233,7 +233,7 @@ function AuthLayout() {
         <div className="w-full max-w-[500px] space-y-8">
           <div
             className={`text-center ${
-              isLogin ? "" : "mt-16 lg:mt-0"
+              isLogin ? "mt-14 lg:mt-0" : "mt-16 lg:mt-0"
             }  lg:text-left space-y-2`}>
             <h2 className="text-3xl font-bold tracking-tight text-stone-900">
               {isLogin ? "Welcome back," : "Plant your roots"}
@@ -304,7 +304,7 @@ function AuthLayout() {
                         </FormLabel>
                         <Link
                           href="#"
-                          className="text-xs font-medium text-emerald-600 hover:text-emerald-700 hover:underline">
+                          className="text-xs font-medium text-primary hover:text-emerald-700 hover:underline">
                           Forgot Password?
                         </Link>
                       </div>
@@ -324,7 +324,7 @@ function AuthLayout() {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-12 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
+                  className="w-full h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
                   {isLoading ? (
                     <Loader2 className="animate-spin mr-2" />
                   ) : (
@@ -524,7 +524,7 @@ function AuthLayout() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="flex-2 h-12 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 group">
+                    className="flex-2 h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 group">
                     {isLoading ? (
                       <Loader2 className="animate-spin" />
                     ) : (

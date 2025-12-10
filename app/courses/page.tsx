@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function Courses() {
   return (
-    <div className="relative min-h-screen z-40 bg-zinc-50 mb-120">
+    <div className="relative min-h-screen z-40 bg-zinc-50 mb-0 lg:mb-120">
       <CoursePage />
     </div>
   );
