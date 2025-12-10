@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CourseCard from "@/components/CourseCard";
 import { getCoursesByField } from "@/lib/api";
@@ -22,7 +22,7 @@ const CATEGORIES = {
 
 type SectionHeaderProps = {
   title: string;
-  icon: any;
+  icon: ReactNode;
 };
 
 const containerVariants = {
@@ -230,7 +230,6 @@ export default function CoursePage() {
               exit={{ opacity: 0, y: 20 }}
               variants={containerVariants}
               className="space-y-16">
-
               {/* Technical Section */}
               <motion.div variants={sectionVariants}>
                 <SectionHeader
