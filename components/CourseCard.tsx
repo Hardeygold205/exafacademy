@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -19,12 +19,27 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   const skillLevel = getCustomField(course, "edwskilllevel", "All Levels");
   const duration = getCustomField(course, "edwcourseduration");
 
-  const rawImage =
-    course.courseimage ||
-    course.overviewfiles[0].fileurl ||
-    "/agra-default.png";
+   const defaultImage = "/agra-default.png";
 
-  const imageUrl = rawImage;
+  const rawImage =
+    course.courseimage || course.overviewfiles?.[0]?.fileurl || "";
+
+  const isValidImageUrl = (url: string) => {
+    if (!url) return false;
+    if (url.includes("/generated")) return false;
+    const imagePattern = /\.(png|jpe?g|gif|webp|svg|avif)$/i;
+    if (imagePattern.test(url)) return true;
+ try {
+      const parsed = new URL(url);
+      return imagePattern.test(parsed.pathname);
+    } catch {
+      return false;
+    }
+  };
+
+  const [imageUrl, setImageUrl] = useState(
+    isValidImageUrl(rawImage) ? rawImage : defaultImage
+  );
 
   const isAvailable = course.visible === 1;
   const isSelfEnroll = course.enrollmentmethods.includes("self");
@@ -38,6 +53,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={() => setImageUrl(defaultImage)}
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
