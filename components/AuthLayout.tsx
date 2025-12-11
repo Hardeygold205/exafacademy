@@ -104,7 +104,7 @@ type LoginValues = z.infer<typeof loginSchema>;
 type RegisterValues = z.infer<typeof registerSchema>;
 
 // Dashboard URL constant
-const DASHBOARD_URL = "https://academy.extensionafrica.com/my";
+const DASHBOARD_URL = "https://academy.extensionafrica.com/lms/my";
 
 function AuthLayout() {
   const [isLoading, setIsLoading] = useState(false);
