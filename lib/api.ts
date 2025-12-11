@@ -110,6 +110,8 @@ export async function registerUser(
   const wsfunction = process.env.NEXT_PUBLIC_WS_FUNCTION;
   const moodlewsrestformat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT;
 
+  console.log("base url:", base_url);
+
   if (!base_url || !wstoken || !wsfunction || !moodlewsrestformat) {
     throw new Error("Missing required environment variables");
   }
