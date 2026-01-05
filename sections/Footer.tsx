@@ -1,17 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Linkedin,
-  Twitter,
-  Mail,
-  Phone,
-  Clock,
-  Instagram,
-  Facebook,
-} from "lucide-react";
+import { Mail, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import {
+  RiTwitterXFill,
+  RiFacebookFill,
+  RiLinkedinFill,
+  RiInstagramFill,
+} from "react-icons/ri";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +20,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-black text-gray-100 px-6 py-16 w-full relative lg:fixed bottom-0 right-0 left-0 z-30 ${
+      className={`bg-black text-gray-100 px-6 py-16 w-full relative bottom-0 right-0 left-0 z-40 ${
         isAuthPage ? "hidden" : ""
       }`}>
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-7">
@@ -43,40 +41,40 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 pt-2 border-t border-gray-800 items-center ">
             <Link
-              href="#"
+              href="https://www.instagram.com/extensionafrica"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="GitHub">
-              <Instagram className="w-5 h-5" />
+              <RiInstagramFill className="w-5 h-5" />
             </Link>
             <div
               className="w-px h-6 bg-gray-800"
               role="separator"
               aria-orientation="vertical"></div>
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/extension-africa/posts/?feedView=all"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="LinkedIn">
-              <Linkedin className="w-5 h-5" />
+              <RiLinkedinFill className="w-5 h-5" />
             </Link>
             <div
               className="w-px h-6 bg-gray-800"
               role="separator"
               aria-orientation="vertical"></div>
             <Link
-              href="#"
+              href="https://x.com/extensionafrica"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="Twitter">
-              <Twitter className="w-5 h-5" />
+              <RiTwitterXFill className="w-5 h-5" />
             </Link>
             <div
               className="w-px h-6 bg-gray-800"
               role="separator"
               aria-orientation="vertical"></div>
             <Link
-              href="#"
+              href="https://web.facebook.com/extensionafrica"
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
               aria-label="Twitter">
-              <Facebook className="w-5 h-5" />
+              <RiFacebookFill className="w-5 h-5" />
             </Link>
           </div>
         </div>

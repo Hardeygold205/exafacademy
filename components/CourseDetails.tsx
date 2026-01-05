@@ -143,7 +143,7 @@ export default function CourseDetail() {
   const duration = getCustomValue(course, "edwcourseduration") || "Self-paced";
 
   return (
-    <div className="min-h-screen bg-white text-primary selection:bg-green-500/30 z-30 lg:z-50 mb-0 lg:mb-125">
+    <div className="min-h-screen bg-white text-primary selection:bg-green-500/30">
       {/* --- HERO SECTION --- */}
       <div className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">

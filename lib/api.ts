@@ -146,6 +146,7 @@ export async function registerUser(
     });
 
     const data = response.data;
+    console.log(data);
 
     if (data.exception || data.errorcode) {
       throw new Error(data.message || "Registration failed");
@@ -250,8 +251,8 @@ export async function getCoursesByField(
       },
     });
 
-    console.log("Raw API Response Type:", typeof response.data);
-    console.log("Courses by Field Response:", response.data);
+    // console.log("Raw API Response Type:", typeof response.data);
+    // console.log("Courses by Field Response:", response.data);
 
     if (typeof response.data === "string" && response.data.includes("<?xml")) {
       throw new Error(

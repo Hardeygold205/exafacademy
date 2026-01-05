@@ -79,11 +79,6 @@ const countries = [
   "Seychelles",
 ];
 
-const loginSchema = z.object({
-  usernameOrEmail: z.string().min(3, { message: "Username or email required" }),
-  password: z.string().min(6, { message: "Password required" }),
-});
-
 const registerSchema = z
   .object({
     username: z.string().min(3).max(50),
@@ -100,21 +95,15 @@ const registerSchema = z
     path: ["emailConfirm"],
   });
 
-type LoginValues = z.infer<typeof loginSchema>;
 type RegisterValues = z.infer<typeof registerSchema>;
 
-// Dashboard URL constant
-const DASHBOARD_URL = "https://academy.extensionafrica.com/lms/my";
+const DASHBOARD_URL = "https://academy.extensionafrica.com/my";
+const LOGIN_ENDPOINT = "https://academy.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const isLogin = pathname === "/login";
-
-  const loginForm = useForm<LoginValues>({
-    resolver: zodResolver(loginSchema),
-    defaultValues: { usernameOrEmail: "", password: "" },
-  });
 
   const registerForm = useForm<RegisterValues>({
     resolver: zodResolver(registerSchema),
@@ -131,20 +120,6 @@ function AuthLayout() {
   });
 
   const selectedCountry = registerForm.watch("country");
-
-  async function onLoginSubmit(values: LoginValues) {
-    setIsLoading(true);
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      window.location.href = DASHBOARD_URL;
-    } catch (error) {
-      console.error(error);
-      const errorMessage =
-        error instanceof Error ? error.message : "Login failed";
-      toast.error(errorMessage);
-      setIsLoading(false);
-    }
-  }
 
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
@@ -224,7 +199,7 @@ function AuthLayout() {
         </div>
 
         <div className="relative z-10 flex justify-between text-emerald-200/60 text-sm">
-          <p>© 2025 Extension Africa Academy</p>
+          <p>© {new Date().getFullYear()} Extension Africa Academy</p>
           <p>Privacy Policy</p>
         </div>
       </div>
@@ -267,72 +242,53 @@ function AuthLayout() {
           </div>
 
           {isLogin ? (
-            <Form {...loginForm}>
-              <form
-                onSubmit={loginForm.handleSubmit(onLoginSubmit)}
-                className="space-y-5">
-                <FormField
-                  control={loginForm.control}
-                  name="usernameOrEmail"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-stone-700 font-medium">
-                        Username or Email
-                      </FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Input
-                            placeholder="name@example.com"
-                            {...field}
-                            className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
-                          />
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+            <form action={LOGIN_ENDPOINT} method="POST" className="space-y-5">
+              <div className="space-y-2">
+                <label
+                  htmlFor="username"
+                  className="text-stone-700 font-medium block">
+                  Username or Email
+                </label>
+                <Input
+                  id="username"
+                  name="username"
+                  type="text"
+                  placeholder="name@example.com"
+                  required
+                  className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
                 />
+              </div>
 
-                <FormField
-                  control={loginForm.control}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="password"
+                    className="text-stone-700 font-medium">
+                    Password
+                  </label>
+                  <Link
+                    href="https://academy.extensionafrica.com/login/forgot_password.php"
+                    target="_blank"
+                    className="text-xs font-medium text-primary hover:text-emerald-700 hover:underline">
+                    Forgot Password?
+                  </Link>
+                </div>
+                <Input
+                  id="password"
                   name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="flex items-center justify-between">
-                        <FormLabel className="text-stone-700 font-medium">
-                          Password
-                        </FormLabel>
-                        <Link
-                          href="#"
-                          className="text-xs font-medium text-primary hover:text-emerald-700 hover:underline">
-                          Forgot Password?
-                        </Link>
-                      </div>
-                      <FormControl>
-                        <Input
-                          type="password"
-                          placeholder="••••••••"
-                          {...field}
-                          className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  type="password"
+                  placeholder="password"
+                  required
+                  className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
                 />
+              </div>
 
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
-                  {isLoading ? (
-                    <Loader2 className="animate-spin mr-2" />
-                  ) : (
-                    "Sign In"
-                  )}
-                </Button>
-              </form>
-            </Form>
+              <Button
+                type="submit"
+                className="w-full h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
+                Sign In
+              </Button>
+            </form>
           ) : (
             <Form {...registerForm}>
               <form
