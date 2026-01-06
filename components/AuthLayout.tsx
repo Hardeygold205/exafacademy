@@ -97,8 +97,8 @@ const registerSchema = z
 
 type RegisterValues = z.infer<typeof registerSchema>;
 
-const DASHBOARD_URL = "https://academy.extensionafrica.com/my";
-const LOGIN_ENDPOINT = "https://academy.extensionafrica.com/login/index.php";
+const DASHBOARD_URL = "https://lms.extensionafrica.com/my";
+const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
   const [isLoading, setIsLoading] = useState(false);
@@ -267,7 +267,7 @@ function AuthLayout() {
                     Password
                   </label>
                   <Link
-                    href="https://academy.extensionafrica.com/login/forgot_password.php"
+                    href="https://lms.extensionafrica.com/login/forgot_password.php"
                     target="_blank"
                     className="text-xs font-medium text-primary hover:text-emerald-700 hover:underline">
                     Forgot Password?
