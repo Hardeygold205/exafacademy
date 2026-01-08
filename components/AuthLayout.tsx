@@ -78,21 +78,22 @@ const countries = [
   "Seychelles",
 ];
 
-//const occupations = ["Students", "Extension Agent"];
-
 const registerSchema = z
   .object({
-    username: z.string().min(3).max(50),
-    password: z.string().min(6),
-    email: z.email(),
-    emailConfirm: z.email(),
-    firstName: z.string().min(2),
-    lastName: z.string().min(2),
+    username: z
+      .string()
+      .min(3, "Username must be at least 3 characters")
+      .max(50),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    email: z.string().email("Invalid email address"),
+    emailConfirm: z.string().email("Invalid email address"),
+    firstName: z.string().min(2, "First name must be at least 2 characters"),
+    lastName: z.string().min(2, "Last name must be at least 2 characters"),
     city: z.string().optional(),
-    country: z.string({ message: "Select a country" }),
-    gender: z.string(),
-    occupation: z.string({ message: "Please select an occupation" }),
-    institution: z.string().optional(),
+    country: z.string().min(1, "Please select a country"),
+    // gender: z.string().optional(),
+    // occupation: z.string().optional(),
+    // institution: z.string().optional(),
   })
   .refine((data) => data.email === data.emailConfirm, {
     message: "Emails do not match",
@@ -101,7 +102,7 @@ const registerSchema = z
 
 type RegisterValues = z.infer<typeof registerSchema>;
 
-const DASHBOARD_URL = "https://lms.extensionafrica.com/my";
+const DASHBOARD_URL = "/login";
 const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
@@ -120,37 +121,44 @@ function AuthLayout() {
       lastName: "",
       city: "",
       country: "",
-      // institution: "",
       // gender: "",
       // occupation: "",
+      // institution: "",
     },
   });
 
-  // eslint-disable-next-line react-hooks/incompatible-library
   const selectedCountry = registerForm.watch("country");
-
-  // if user select the occupation as students, the institution field should be open and if otherwise, it should disable
-  //const selectedOccupation = registerForm.watch("occupation");
 
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
+
     try {
       const payload: RegisterUserPayload = { ...values };
       const response = await registerUser(payload);
-      if (response.userid) {
-        window.location.href = DASHBOARD_URL;
+
+      const userCreated = Array.isArray(response) ? response[0] : response;
+
+      if (userCreated && (userCreated.id || userCreated.userid)) {
+        console.log("Registration Successful:", userCreated);
+        setTimeout(() => {
+          window.location.href = DASHBOARD_URL;
+        }, 1500);
+      } else {
+        throw new Error("Registration failed. No user ID returned.");
       }
     } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Registration Failed";
       setIsLoading(false);
-      return errorMessage;
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again.";
+      console.log("error", errorMessage);
     }
   }
 
   return (
     <div className="min-h-screen w-full flex bg-[#FDFCF8] text-stone-800 font-sans selection:bg-green-100">
-      <div className="hidden lg:flex lg:w-1/2  bg-emerald-900 flex-col justify-between p-12 overflow-hidden h-screen sticky top-0">
+      <div className="hidden lg:flex lg:w-1/2 bg-emerald-900 flex-col justify-between p-12 overflow-hidden h-screen sticky top-0">
         <div className="absolute inset-0 z-0">
           <Image
             src="/loginpage.jpg"
@@ -219,7 +227,7 @@ function AuthLayout() {
           <div
             className={`text-center ${
               isLogin ? "mt-14 lg:mt-0" : "mt-16 lg:mt-0"
-            }  lg:text-left space-y-2`}>
+            } lg:text-left space-y-2`}>
             <h2 className="text-3xl font-bold tracking-tight text-stone-900">
               {isLogin ? "Welcome back," : "Plant your roots"}
             </h2>
@@ -523,17 +531,14 @@ function AuthLayout() {
                           Country
                         </FormLabel>
                         <Select
-                          onValueChange={(value) => {
-                            field.onChange(value);
-                            registerForm.setValue("city", "");
-                          }}
-                          defaultValue={field.value}>
+                          onValueChange={field.onChange}
+                          value={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
                               <SelectValue placeholder="Select" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="max-h-60 ">
+                          <SelectContent className="max-h-60">
                             {countries.map((c) => (
                               <SelectItem key={c} value={c}>
                                 {c}
@@ -558,7 +563,7 @@ function AuthLayout() {
                             placeholder="Lagos"
                             {...field}
                             disabled={!selectedCountry}
-                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
                           />
                         </FormControl>
                         <FormMessage />
@@ -572,15 +577,19 @@ function AuthLayout() {
                     type="button"
                     variant="outline"
                     onClick={() => registerForm.reset()}
+                    disabled={isLoading}
                     className="flex-1 border-stone-300 text-stone-600 hover:bg-stone-50 hover:text-stone-900 rounded-xl h-12">
                     Reset
                   </Button>
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="flex-2 h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 group">
+                    className="flex-1 h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed">
                     {isLoading ? (
-                      <Loader2 className="animate-spin" />
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Creating...</span>
+                      </>
                     ) : (
                       <>
                         Create Account{" "}

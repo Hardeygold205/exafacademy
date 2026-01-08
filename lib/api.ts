@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export interface RegisterUserPayload {
+  id?: number;
   username: string;
   password: string;
   email: string;
@@ -16,6 +17,7 @@ export interface RegisterUserPayload {
 
 export interface MoodleAPIResponse {
   success?: boolean;
+  id?: number;
   userid?: number;
   username?: string;
   exception?: string;
@@ -128,7 +130,7 @@ export async function registerUser(
   formData.append("users[0][firstname]", userData.firstName);
   formData.append("users[0][lastname]", userData.lastName);
   formData.append("users[0][email]", userData.email);
-  
+
   // formData.append("users[0][gender]", userData.gender);
 
   // if (userData.school) {
