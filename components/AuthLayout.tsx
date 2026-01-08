@@ -78,7 +78,7 @@ const countries = [
   "Seychelles",
 ];
 
-const occupations = ["Students", "Extension Agent"];
+//const occupations = ["Students", "Extension Agent"];
 
 const registerSchema = z
   .object({
@@ -120,9 +120,9 @@ function AuthLayout() {
       lastName: "",
       city: "",
       country: "",
-      institution: "",
-      gender: "",
-      occupation: "",
+      // institution: "",
+      // gender: "",
+      // occupation: "",
     },
   });
 
@@ -130,7 +130,7 @@ function AuthLayout() {
   const selectedCountry = registerForm.watch("country");
 
   // if user select the occupation as students, the institution field should be open and if otherwise, it should disable
-  const selectedOccupation = registerForm.watch("occupation");
+  //const selectedOccupation = registerForm.watch("occupation");
 
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
@@ -364,7 +364,8 @@ function AuthLayout() {
                     </FormItem>
                   )}
                 />
-                <FormField
+
+                {/* <FormField
                   control={registerForm.control}
                   name="gender"
                   render={({ field }) => (
@@ -396,7 +397,7 @@ function AuthLayout() {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
 
                 <FormField
                   control={registerForm.control}
@@ -458,7 +459,7 @@ function AuthLayout() {
                   )}
                 />
 
-                <div className="grid grid-cols-2 gap-4">
+                {/* <div className="grid grid-cols-2 gap-4">
                   <FormField
                     control={registerForm.control}
                     name="occupation"
@@ -510,7 +511,7 @@ function AuthLayout() {
                       </FormItem>
                     )}
                   />
-                </div>
+                </div> */}
 
                 <div className="grid grid-cols-2 gap-4">
                   <FormField
