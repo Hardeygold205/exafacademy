@@ -9,6 +9,9 @@ export interface RegisterUserPayload {
   city?: string;
   country: string;
   auth?: string;
+  // occupation: string;
+  // gender: string;
+  // school?: string;
 }
 
 export interface MoodleAPIResponse {
@@ -125,6 +128,16 @@ export async function registerUser(
   formData.append("users[0][firstname]", userData.firstName);
   formData.append("users[0][lastname]", userData.lastName);
   formData.append("users[0][email]", userData.email);
+  
+  // formData.append("users[0][gender]", userData.gender);
+
+  // if (userData.school) {
+  //   formData.append("users[0][occupation]", userData.occupation);
+  // }
+
+  // if (userData.school) {
+  //   formData.append("users[0][school]", userData.school);
+  // }
 
   if (userData.city) {
     formData.append("users[0][city]", userData.city);

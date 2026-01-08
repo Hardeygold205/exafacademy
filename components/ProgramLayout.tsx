@@ -21,7 +21,7 @@ const timelineData = [
     description:
       "Are you unsure about your career path in agricultural business? We provide the foundational knowledge to kickstart your journey while you study.",
     image: "/IMG_1.jpg",
-    link: "/undergrad",
+    link: "/under-graduate",
     icon: Sprout,
     tags: ["Mentorship", "Internships"],
     color: "bg-green-100 text-green-600",
@@ -33,7 +33,7 @@ const timelineData = [
     description:
       "Unlock your potential. Bridge the gap between academic theory and practical industry requirements with our intensive bootcamps.",
     image: "/IMG_9533.jpg",
-    link: "/graduates",
+    link: "/recent-graduate",
     icon: GraduationCap,
     tags: ["Job Placement", "Skill Building"],
     color: "bg-blue-100 text-blue-600",
@@ -45,10 +45,10 @@ const timelineData = [
     description:
       "Already in the field? Sharpen your management skills and expand your network to scale your agribusiness operations.",
     image: "/FIRMEX_IMG1.jpg",
-    link: "/pros",
+    link: "/agribusiness",
     icon: Briefcase,
     tags: ["Networking", "Advanced Certs"],
-    color: "bg-amber-100 text-amber-600",
+    color: "bg-green-100 text-green-600",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const timelineData = [
     description:
       "Join the Africa Extension Academy network. We are building the largest community of reliable Extension Agents across the continent.",
     image: "/IMG_8382.jpg",
-    link: "/community",
+    link: "/ecosystem",
     icon: Users,
     tags: ["Community", "Impact"],
     color: "bg-purple-100 text-purple-600",

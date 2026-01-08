@@ -20,29 +20,27 @@ import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "E-Learning Platform",
-    href: "#",
-    description: "Comprehensive online courses for agricultural education",
+    title: "Undergraduate Students",
+    href: "/under-graduate",
+    description: "Pursue a career in Agribusiness",
   },
   {
-    title: "Agripreneurship Training",
-    href: "#",
-    description: "Hands-on training for aspiring agricultural entrepreneurs",
+    title: "Recent Graduates",
+    href: "/recent-graduate",
+    description:
+      "Unlock your potential. Bridge the gap between academic theory and practical industry requirements with our intensive bootcamps.",
   },
   {
-    title: "Agribusiness",
-    href: "#",
-    description: "Market analysis and business development services",
+    title: "Agribusiness Professionals",
+    href: "/agribusiness",
+    description:
+      "Already in the field? Sharpen your management skills and expand your network to scale your agribusiness operations.",
   },
   {
-    title: "Leadership Training",
-    href: "#",
-    description: "Building effective leadership skills in agriculture",
-  },
-  {
-    title: "Digital Skills",
-    href: "#",
-    description: "Empowering farmers with essential digital literacy",
+    title: "Shaping The Future",
+    href: "ecosystem",
+    description:
+      "Join the Africa Extension Academy network. We are building the largest community of reliable Extension Agents across the continent.",
   },
 ];
 
@@ -58,9 +56,14 @@ const products = [
     description: "Marketplace connecting farmers with buyers and suppliers",
   },
   {
-    title: "ChatBox",
+    title: "AbokiNoma",
     href: "#",
     description: "AI-powered virtual assistant for agricultural support",
+  },
+  {
+    title: "CASE",
+    href: "#",
+    description: "commercial agent search engine",
   },
 ];
 
@@ -73,7 +76,7 @@ const aboutItems = [
   },
   {
     title: "Careers",
-    href: "#",
+    href: "#testimonials",
     description: "See our client success stories",
   },
   {
@@ -161,7 +164,7 @@ export default function NavBar() {
                     Empowering African agriculture through knowledge sharing and
                     innovation.
                   </ListItem>
-                  <ListItem href="#" title="Careers">
+                  <ListItem href="#testimonials" title="Careers">
                     See our client success stories
                   </ListItem>
                   <ListItem href="#" title="Our Team">
@@ -264,7 +267,6 @@ export default function NavBar() {
             </div>
           </nav>
 
-          {/* --- UPDATED MOBILE MENU LIST --- */}
           <div className="flex flex-col space-y-4 p-6 text-black overflow-y-auto h-[calc(100vh-180px)]">
             <MobileDropdown
               title="About Us"
@@ -273,7 +275,7 @@ export default function NavBar() {
             />
 
             <MobileDropdown
-              title="Services"
+              title="Programs"
               items={services}
               setOpen={setOpen}
             />

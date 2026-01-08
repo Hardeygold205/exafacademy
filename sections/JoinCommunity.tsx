@@ -146,7 +146,7 @@ export default function JoinCommunity() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
+        <div id="testimonials" className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Trusted by professionals across Africa

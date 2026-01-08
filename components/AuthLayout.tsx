@@ -25,7 +25,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { toast } from "react-toastify";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
 
 const countries = [
@@ -79,6 +78,8 @@ const countries = [
   "Seychelles",
 ];
 
+const occupations = ["Students", "Extension Agent"];
+
 const registerSchema = z
   .object({
     username: z.string().min(3).max(50),
@@ -89,6 +90,9 @@ const registerSchema = z
     lastName: z.string().min(2),
     city: z.string().optional(),
     country: z.string({ message: "Select a country" }),
+    gender: z.string(),
+    occupation: z.string({ message: "Please select an occupation" }),
+    institution: z.string().optional(),
   })
   .refine((data) => data.email === data.emailConfirm, {
     message: "Emails do not match",
@@ -116,10 +120,17 @@ function AuthLayout() {
       lastName: "",
       city: "",
       country: "",
+      institution: "",
+      gender: "",
+      occupation: "",
     },
   });
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const selectedCountry = registerForm.watch("country");
+
+  // if user select the occupation as students, the institution field should be open and if otherwise, it should disable
+  const selectedOccupation = registerForm.watch("occupation");
 
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
@@ -127,14 +138,13 @@ function AuthLayout() {
       const payload: RegisterUserPayload = { ...values };
       const response = await registerUser(payload);
       if (response.userid) {
-        toast.success("Registration successful! Redirecting...");
         window.location.href = DASHBOARD_URL;
       }
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Registration Failed";
-      toast.error(errorMessage);
       setIsLoading(false);
+      return errorMessage;
     }
   }
 
@@ -354,6 +364,39 @@ function AuthLayout() {
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={registerForm.control}
+                  name="gender"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                        Gender
+                      </FormLabel>
+                      <FormControl>
+                        <Select
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            registerForm.setValue("gender", "");
+                          }}
+                          defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
+                              <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="max-h-60 ">
+                            {["Male", "Female", "Other"].map((c) => (
+                              <SelectItem key={c} value={c}>
+                                {c}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
                 <FormField
                   control={registerForm.control}
@@ -414,6 +457,60 @@ function AuthLayout() {
                     </FormItem>
                   )}
                 />
+
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={registerForm.control}
+                    name="occupation"
+                    render={({ field }) => (
+                      <FormItem className="col-span-1">
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          Occupation
+                        </FormLabel>
+                        <Select
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            registerForm.setValue("occupation", "");
+                          }}
+                          defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
+                              <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="max-h-60 ">
+                            {occupations.map((c) => (
+                              <SelectItem key={c} value={c}>
+                                {c}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={registerForm.control}
+                    name="institution"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                          Institution
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="University of Ibadan"
+                            {...field}
+                            disabled={!selectedOccupation}
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <FormField

@@ -19,7 +19,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   const skillLevel = getCustomField(course, "edwskilllevel", "All Levels");
   const duration = getCustomField(course, "edwcourseduration");
 
-   const defaultImage = "/agra-default.png";
+  const defaultImage = "/agra-default.png";
 
   const rawImage =
     course.courseimage || course.overviewfiles?.[0]?.fileurl || "";
@@ -29,7 +29,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     if (url.includes("/generated")) return false;
     const imagePattern = /\.(png|jpe?g|gif|webp|svg|avif)$/i;
     if (imagePattern.test(url)) return true;
- try {
+    try {
       const parsed = new URL(url);
       return imagePattern.test(parsed.pathname);
     } catch {
@@ -90,7 +90,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       <div className="flex flex-col grow p-5">
         <div className="flex items-center gap-3 mb-3 text-xs text-gray-500 font-medium">
           <div className="flex items-center gap-1">
-            <Award className="w-3.5 h-3.5 text-amber-500" />
+            <Award className="w-3.5 h-3.5 text-green-500" />
             {skillLevel}
           </div>
           {duration && (
