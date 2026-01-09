@@ -20,7 +20,7 @@ export default function UnderGraduate() {
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
         <div className="relative z-10 text-center text-white px-6 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             Undergraduate Students
           </h1>
           <p className="text-xl md:text-2xl font-light mb-8">
@@ -46,65 +46,53 @@ export default function UnderGraduate() {
             careers in agribusiness while still studying.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 my-8 md:my-12 px-4 md:px-0">
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-green-100">
-              <h3 className="text-xl md:text-2xl font-semibold text-green-700 mb-4">
+          <div className="grid md:grid-cols-2 gap-8 my-12">
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-green-100">
+              <h3 className="text-2xl font-semibold text-green-700 mb-4">
                 Program Structure
               </h3>
-              <ul className="space-y-3 text-gray-700 text-sm md:text-base">
-                <li className="flex items-start gap-2 md:gap-3">
-                  <span className="text-green-600 font-bold shrink-0">•</span>
-                  <div>
-                    <strong>Theory Phase</strong> – Core agribusiness &
-                    agricultural science fundamentals
-                  </div>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold">•</span>{" "}
+                  <strong>Theory Phase</strong> – Core agribusiness &
+                  agricultural science fundamentals
                 </li>
-                <li className="flex items-start gap-2 md:gap-3">
-                  <span className="text-green-600 font-bold shrink-0">•</span>
-                  <div>
-                    <strong>Practical Phase</strong> – Hands-on farm experience
-                    & internships
-                  </div>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold">•</span>{" "}
+                  <strong>Practical Phase</strong> – Hands-on farm experience &
+                  internships
                 </li>
-                <li className="flex items-start gap-2 md:gap-3">
-                  <span className="text-green-600 font-bold shrink-0">•</span>
-                  <div>
-                    <strong>Entrepreneurship Phase</strong> – Idea development &
-                    business basics
-                  </div>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold">•</span>{" "}
+                  <strong>Entrepreneurship Phase</strong> – Idea development &
+                  business basics
                 </li>
-                <li className="flex items-start gap-2 md:gap-3">
-                  <span className="text-green-600 font-bold shrink-0">•</span>
-                  <div>
-                    <strong>Online Phase</strong> – Flexible e-learning modules
-                  </div>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold">•</span>{" "}
+                  <strong>Online Phase</strong> – Flexible e-learning modules
                 </li>
               </ul>
             </div>
 
-            <div className="space-y-4 md:space-y-6">
-              <div className="bg-green-50 p-5 md:p-6 rounded-xl">
-                <h4 className="font-semibold text-green-800 text-base md:text-lg mb-2">
+            <div className="space-y-6">
+              <div className="bg-green-50 p-6 rounded-xl">
+                <h4 className="font-semibold text-green-800">
                   Who can participate?
                 </h4>
-                <p className="text-gray-700 text-sm md:text-base">
+                <p className="text-gray-700">
                   Current undergraduate students passionate about agriculture &
                   business.
                 </p>
               </div>
-              <div className="bg-green-50 p-5 md:p-6 rounded-xl">
-                <h4 className="font-semibold text-green-800 text-base md:text-lg mb-2">
-                  Duration
-                </h4>
-                <p className="text-gray-700 text-sm md:text-base">
+              <div className="bg-green-50 p-6 rounded-xl">
+                <h4 className="font-semibold text-green-800">Duration</h4>
+                <p className="text-gray-700">
                   Flexible – typically 12–24 months (integrated with studies)
                 </p>
               </div>
-              <div className="bg-green-50 p-5 md:p-6 rounded-xl">
-                <h4 className="font-semibold text-green-800 text-base md:text-lg mb-2">
-                  Certification
-                </h4>
-                <p className="text-gray-700 text-sm md:text-base">
+              <div className="bg-green-50 p-6 rounded-xl">
+                <h4 className="font-semibold text-green-800">Certification</h4>
+                <p className="text-gray-700">
                   Yes – Certificate of Completion + digital badge
                 </p>
               </div>
@@ -112,27 +100,23 @@ export default function UnderGraduate() {
           </div>
 
           {/* Supporting Images */}
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
             <Image
-              width={800}
-              height={600}
-              src="/agra-default.png"
+              src="https://blog.plantwise.org/wp-content/uploads/sites/7/2022/08/Youth-dicussing-in-a-group-diagnosis-of-plant-health-problems-of-beans-1-scaled.jpg"
               alt="Students in group discussion"
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
             <Image
-              width={800}
-              height={600}
-              src="/agra-default.png"
+              src="https://www.umnews.org/-/media/umc-media/2025/06/23/21/47/zimbabwe-hanwa-farmer-1-tafadz-chingosho-1200x800px-2.jpg?h=319&iar=0&mw=478&w=478&hash=2284D9E625AA28C84EFD23C4B0A8D960"
               alt="Young farmer training"
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
-          </div> */}
+          </div>
 
           <div className="text-center mt-12">
             <button
               onClick={() => router.push("/register")}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-lg transition-colors duration-200 w-full sm:w-auto">
+              className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full text-lg font-semibold shadow-lg transition">
               Apply Now & Plant Your Future
             </button>
           </div>

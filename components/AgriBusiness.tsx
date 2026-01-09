@@ -13,20 +13,18 @@ export default function AgriBusiness() {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
-          width={1920}
-          height={1080}
           src="/FIRMEX_IMG1.jpg"
           alt="Agribusiness professionals with farmers"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
         <div className="relative z-10 text-center text-white px-6 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             Agribusiness Professionals
           </h1>
           <p className="text-xl md:text-2xl font-light mb-8">
             Harvesting Success in the Field
           </p>
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-full">
+          <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
             <Briefcase className="w-8 h-8 text-green-300" />
             <span className="text-lg">Scale Your Operations</span>
           </div>
@@ -101,16 +99,12 @@ export default function AgriBusiness() {
           {/* Supporting Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
             <Image
-              width={800}
-              height={600}
-              src="/agr-business.jpg"
+              src="https://farmingfirst.org/wp-content/uploads/2023/08/HM85529.jpg"
               alt="Professionals training farmers"
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
             <Image
-              width={800}
-              height={600}
-              src="/agr-business2.jpg"
+              src="https://static.wixstatic.com/media/aff899_cbf722d466e94127bb9c3762db7e4dc4~mv2.jpg/v1/fill/w_914,h_554,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PHOTO-2024-07-27-07-42-56.jpg"
               alt="Agribusiness workshop"
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
@@ -119,7 +113,7 @@ export default function AgriBusiness() {
           <div className="text-center mt-12">
             <button
               onClick={() => router.push("/register")}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-lg transition-colors duration-200 w-full sm:w-auto">
+              className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full text-lg font-semibold shadow-lg transition">
               Apply Now & Harvest Success
             </button>
           </div>

@@ -10,9 +10,9 @@ export interface RegisterUserPayload {
   city?: string;
   country: string;
   auth?: string;
-  // occupation: string;
-  // gender: string;
-  // school?: string;
+  occupation?: string;
+  gender?: string;
+  school?: string;
 }
 
 export interface MoodleAPIResponse {
@@ -115,8 +115,6 @@ export async function registerUser(
   const wsfunction = process.env.NEXT_PUBLIC_WS_FUNCTION;
   const moodlewsrestformat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT;
 
-  console.log("base url:", base_url);
-
   if (!base_url || !wstoken || !wsfunction || !moodlewsrestformat) {
     throw new Error("Missing required environment variables");
   }
@@ -131,16 +129,6 @@ export async function registerUser(
   formData.append("users[0][lastname]", userData.lastName);
   formData.append("users[0][email]", userData.email);
 
-  // formData.append("users[0][gender]", userData.gender);
-
-  // if (userData.school) {
-  //   formData.append("users[0][occupation]", userData.occupation);
-  // }
-
-  // if (userData.school) {
-  //   formData.append("users[0][school]", userData.school);
-  // }
-
   if (userData.city) {
     formData.append("users[0][city]", userData.city);
   }
@@ -151,6 +139,21 @@ export async function registerUser(
 
   if (userData.auth) {
     formData.append("users[0][auth]", userData.auth);
+  }
+
+  if (userData.gender) {
+    formData.append("users[0][customfields][0][type]", "gender");
+    formData.append("users[0][customfields][0][value]", userData.gender);
+  }
+
+  if (userData.occupation) {
+    formData.append("users[0][customfields][1][type]", "occupation");
+    formData.append("users[0][customfields][1][value]", userData.occupation);
+  }
+
+  if (userData.school) {
+    formData.append("users[0][customfields][2][type]", "school");
+    formData.append("users[0][customfields][2][value]", userData.school);
   }
 
   try {

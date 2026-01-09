@@ -27,6 +27,8 @@ import { Loader2, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
 
+const options = ["Student", "Extension Agent"];
+
 const countries = [
   "Nigeria",
   "Ghana",
@@ -91,9 +93,9 @@ const registerSchema = z
     lastName: z.string().min(2, "Last name must be at least 2 characters"),
     city: z.string().optional(),
     country: z.string().min(1, "Please select a country"),
-    // gender: z.string().optional(),
-    // occupation: z.string().optional(),
-    // institution: z.string().optional(),
+    gender: z.string().optional(),
+    school: z.string().optional(),
+    occupation: z.string().optional(),
   })
   .refine((data) => data.email === data.emailConfirm, {
     message: "Emails do not match",
@@ -121,13 +123,15 @@ function AuthLayout() {
       lastName: "",
       city: "",
       country: "",
-      // gender: "",
-      // occupation: "",
-      // institution: "",
+      school: "",
+      gender: "",
+      occupation: "",
     },
   });
 
   const selectedCountry = registerForm.watch("country");
+
+  const selectedOccupation = registerForm.watch("occupation");
 
   async function onRegisterSubmit(values: RegisterValues) {
     setIsLoading(true);
@@ -373,7 +377,7 @@ function AuthLayout() {
                   )}
                 />
 
-                {/* <FormField
+                <FormField
                   control={registerForm.control}
                   name="gender"
                   render={({ field }) => (
@@ -385,7 +389,6 @@ function AuthLayout() {
                         <Select
                           onValueChange={(value) => {
                             field.onChange(value);
-                            registerForm.setValue("gender", "");
                           }}
                           defaultValue={field.value}>
                           <FormControl>
@@ -405,7 +408,7 @@ function AuthLayout() {
                       <FormMessage />
                     </FormItem>
                   )}
-                /> */}
+                />
 
                 <FormField
                   control={registerForm.control}
@@ -467,7 +470,7 @@ function AuthLayout() {
                   )}
                 />
 
-                {/* <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <FormField
                     control={registerForm.control}
                     name="occupation"
@@ -477,18 +480,15 @@ function AuthLayout() {
                           Occupation
                         </FormLabel>
                         <Select
-                          onValueChange={(value) => {
-                            field.onChange(value);
-                            registerForm.setValue("occupation", "");
-                          }}
-                          defaultValue={field.value}>
+                          onValueChange={field.onChange}
+                          value={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
                               <SelectValue placeholder="Select" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="max-h-60 ">
-                            {occupations.map((c) => (
+                            {options.map((c) => (
                               <SelectItem key={c} value={c}>
                                 {c}
                               </SelectItem>
@@ -501,7 +501,7 @@ function AuthLayout() {
                   />
                   <FormField
                     control={registerForm.control}
-                    name="institution"
+                    name="school"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
@@ -511,7 +511,7 @@ function AuthLayout() {
                           <Input
                             placeholder="University of Ibadan"
                             {...field}
-                            disabled={!selectedOccupation}
+                            disabled={selectedOccupation !== "Student"}
                             className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
                           />
                         </FormControl>
@@ -519,7 +519,7 @@ function AuthLayout() {
                       </FormItem>
                     )}
                   />
-                </div> */}
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <FormField
