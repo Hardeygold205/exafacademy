@@ -409,7 +409,6 @@ function AuthLayout() {
                     </FormItem>
                   )}
                 />
-
                 <FormField
                   control={registerForm.control}
                   name="email"

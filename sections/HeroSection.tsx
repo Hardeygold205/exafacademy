@@ -144,7 +144,7 @@ export default function HeroSection() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/about")}
+                  onClick={() => router.push("/#learnmore")}
                   className="px-8 py-4 rounded-full font-bold text-white border border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
                   Learn More
                 </button>

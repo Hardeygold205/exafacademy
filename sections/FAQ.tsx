@@ -149,7 +149,7 @@ function FAQ() {
   };
 
   return (
-    <div className="w-full" ref={faqRef}>
+    <div id="learnmore" className="w-full" ref={faqRef}>
       <div className="mx-auto max-w-7xl justify-center flex flex-col items-center text-center py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8">
         <h1
           style={{
