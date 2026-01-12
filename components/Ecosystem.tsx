@@ -9,21 +9,25 @@ export default function Ecosystem() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-green-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
       {/* Hero */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] sm:h-[65vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://www.ifpri.org/wp-content/uploads/2025/04/44317977882-scaled.jpg" // vibrant community/extension agents
+          width={500}
+          height={500}
+          src="/eco1.jpg"
           alt="African extension agents and community"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
-        <div className="relative z-10 text-center text-white px-6 max-w-5xl">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
             Shaping The Future
           </h1>
-          <p className="text-2xl font-light mb-8">Ecosystem Impact</p>
-          <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur-md px-8 py-4 rounded-full text-xl">
-            <Users className="w-10 h-10 text-green-300" />
+          <p className="text-lg sm:text-xl md:text-2xl font-light mb-6 sm:mb-8">
+            Ecosystem Impact
+          </p>
+          <div className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 bg-white/20 backdrop-blur-md px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg lg:text-xl">
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-green-300" />
             <span>Join Africas Largest Extension Agents Network</span>
           </div>
         </div>
@@ -69,20 +73,25 @@ export default function Ecosystem() {
             </div>
           </div>
 
-          {/* Gallery */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-16">
             <Image
-              src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=768237499547354"
+              width={800}
+              height={600}
+              src="/eco2.jpg"
               alt="Agroforestry community"
               className="rounded-2xl shadow-lg w-full aspect-4/3 object-cover"
             />
             <Image
-              src="https://growingafrica.pub/wp-content/uploads/2022/04/Chikowo-GA.png"
+              width={800}
+              height={600}
+              src="/eco3.JPG"
               alt="Extension training group"
               className="rounded-2xl shadow-lg w-full aspect-4/3 object-cover"
             />
             <Image
-              src="https://media.istockphoto.com/id/543185364/photo/young-african-male-and-adult-african-woman-working-in-garden.jpg?s=612x612&w=0&k=20&c=guwG7IudOUwIDYypM3-ivbcg8jfGVHwhNQByhA22raY="
+              width={800}
+              height={600}
+              src="/eco4.jpg"
               alt="Vibrant farmland community"
               className="rounded-2xl shadow-lg w-full aspect-4/3 object-cover"
             />
@@ -91,7 +100,7 @@ export default function Ecosystem() {
           <div className="text-center mt-16">
             <button
               onClick={() => router.push("/register")}
-              className="bg-green-600 hover:bg-green-700 text-white px-12 py-6 rounded-full text-xl font-bold shadow-xl transition transform hover:scale-105">
+              className="bg-green-600 hover:bg-green-700 text-white px-3 md:px-6 py-3 md:py-6 rounded-full text-sm md:text-xl font-bold shadow-xl transition transform hover:scale-105">
               Join the Ecosystem Today
             </button>
           </div>

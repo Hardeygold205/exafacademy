@@ -12,23 +12,27 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://academy.extensionafrica.com"),
+
   title: {
     default: "Afrexa",
     template: "%s | Afrexa",
   },
   description: "Extension Africa Academy",
+
   icons: {
     icon: "/main-icon.png",
   },
+
   openGraph: {
     title: "Home | Extension Africa Academy",
     description:
       "Building the largest network of reliable Extension Agents across Africa!",
-    url: "https://academyextensionafrica.vercel.app",
+    url: "https://academy.extensionafrica.com",
     siteName: "Extension Africa Academy",
     images: [
       {
-        url: "/exaf_Preview.png",
+        url: "/exaf_preview2.png",
         width: 1200,
         height: 630,
         alt: "Extension Africa Academy",
@@ -37,6 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Extension Africa Academy",
