@@ -190,7 +190,7 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Aftrica Extension Academy. All rights reserved.
+            &copy; {currentYear} Extension Aftrica Academy. All rights reserved.
           </p>
         </div>
       </div>

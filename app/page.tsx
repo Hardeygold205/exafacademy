@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home | Afrexa",
-  description: "Africa Extension Academy",
+  description: "Extension Africa Academy",
 };
 
 export default function Home() {

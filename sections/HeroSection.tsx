@@ -21,7 +21,7 @@ export default function HeroSection() {
   const slides = [
     {
       image: "/hero-1.jpg",
-      title: "Africa Extension Academy",
+      title: "Extension Africa Academy",
       subtitle: "PURSUE A CAREER IN AGRIBUSINESS",
       description:
         "Building the largest network of reliable Extension Agents across Africa. Join the revolution in modern farming.",

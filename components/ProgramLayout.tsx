@@ -55,7 +55,7 @@ const timelineData = [
     title: "Shaping The Future",
     subtitle: "Ecosystem Impact",
     description:
-      "Join the Africa Extension Academy network. We are building the largest community of reliable Extension Agents across the continent.",
+      "Join the Extension Africa Academy network. We are building the largest community of reliable Extension Agents across the continent.",
     image: "/IMG_8382.jpg",
     link: "/ecosystem",
     icon: Users,

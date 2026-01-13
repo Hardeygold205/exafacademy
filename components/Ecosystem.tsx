@@ -9,14 +9,14 @@ export default function Ecosystem() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className="min-h-screen bg-linear-to-b from-green-50 to-white">
       {/* Hero */}
       <section className="relative h-[60vh] sm:h-[65vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
           width={500}
           height={500}
           src="/eco1.jpg"
-          alt="African extension agents and community"
+          alt="Extension African agents and community"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
         <div className="relative z-10 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto">

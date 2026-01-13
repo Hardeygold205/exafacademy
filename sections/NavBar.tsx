@@ -40,7 +40,7 @@ const services = [
     title: "Shaping The Future",
     href: "ecosystem",
     description:
-      "Join the Africa Extension Academy network. We are building the largest community of reliable Extension Agents across the continent.",
+      "Join the Extension Africa Academy network. We are building the largest community of reliable Extension Agents across the continent.",
   },
 ];
 

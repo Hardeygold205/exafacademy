@@ -1,5 +1,9 @@
 import RecentGraduate from "@/components/RecentGraduate";
-import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Recent Graduates",
+};
 
 function page() {
   return <RecentGraduate />;
