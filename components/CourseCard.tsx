@@ -64,10 +64,10 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </span>
         </div>
 
-        {course.contacts.length > 0 && (
+        {/* {course.contacts.length > 0 && (
           <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
             <div className="flex -space-x-2">
-              {course.contacts.slice(0, 3).map((contact) => (
+              {course.contacts.map((contact) => (
                 <div
                   key={contact.id}
                   className="w-8 h-8 rounded-full bg-white border-2 border-white overflow-hidden flex items-center justify-center tooltip"
@@ -84,7 +84,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="flex flex-col grow p-5">

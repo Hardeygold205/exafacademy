@@ -110,7 +110,13 @@ export default function Footer() {
               {["About Us", "Our Team", "Careers"].map((item) => (
                 <li key={item}>
                   <Link
-                    href="#"
+                    href={
+                      item === "Careers"
+                        ? "https://career.extensionafrica.com"
+                        : item === "Our Team"
+                        ? "/our-team"
+                        : "/about-us"
+                    }
                     className="text-gray-300 hover:opacity-80 transition-colors text-sm">
                     {item}
                   </Link>
@@ -124,23 +130,31 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#"
+                  href="https://academy.extensionafrica.com"
                   className="text-gray-300 hover:opacity-80 transition-colors text-sm">
                   AfrExa
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="https://farmex.extensionafrica.com"
                   className="text-gray-300 hover:opacity-80 transition-colors text-sm">
                   FarmEx
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="https://chatbox.extensionafrica.com"
                   className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                  ChatBox
+                  AbokiNoma
+                </Link>
+              </li>
+              <li>
+                <Link
+                  target="_blank"
+                  href="https://case.extensionafrica.com"
+                  className="text-gray-300 hover:opacity-80 transition-colors text-sm">
+                  CASE
                 </Link>
               </li>
             </ul>

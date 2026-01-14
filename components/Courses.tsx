@@ -164,7 +164,6 @@ export default function CoursePage() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
-        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,7 +196,6 @@ export default function CoursePage() {
           </p>
         </motion.div>
 
-        {/* Tabs Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

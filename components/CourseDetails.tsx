@@ -144,7 +144,6 @@ export default function CourseDetail() {
 
   return (
     <div className="min-h-screen bg-white text-primary selection:bg-green-500/30">
-      {/* --- HERO SECTION --- */}
       <div className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
@@ -223,16 +222,13 @@ export default function CourseDetail() {
         </div>
       </div>
 
-      {/* --- MAIN CONTENT GRID --- */}
       <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* LEFT COLUMN: Description & Modules */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="lg:col-span-2 space-y-12">
-            {/* About Course */}
             <section className="bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm ">
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 sticky top-18 shadow-md p-5 z-40 bg-white">
                 <BookOpen className="w-6 h-6 text-green-500" />
@@ -277,14 +273,12 @@ export default function CourseDetail() {
             </section>
           </motion.div>
 
-          {/* RIGHT COLUMN: Sticky Sidebar */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
             className="lg:col-span-1">
             <div className="sticky top-20 space-y-6">
-              {/* Enrollment Card */}
               <div className="bg-white backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-2xl shadow-green-900/10">
                 <div className="mb-6 pb-6 border-b border-white/10">
                   <p className="text-sm font-bold text-black mb-1">
@@ -320,28 +314,17 @@ export default function CourseDetail() {
                   </div>
                 </div>
 
-                <button className="sticky top-40 w-full py-4 bg-linear-to-r from-primary to-green-500 hover:opacity-80 text-white font-bold rounded-xl shadow-lg shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1">
-                  Enroll Now
+                <button
+                  onClick={() => router.push("/login")}
+                  className="sticky top-40 w-full py-4 bg-linear-to-r from-primary to-green-500 hover:opacity-80 text-white font-bold rounded-xl shadow-lg shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                  Login to Enroll Now
                 </button>
               </div>
-
-              {/* Share Card
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between">
-                <span className="text-gray-400 font-medium">
-                  Share this course
-                </span>
-                <div className="flex gap-2">
-                  <button className="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
-                    <Share2 className="w-5 h-5" />
-                  </button>
-                </div>
-              </div> */}
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* --- RELATED COURSES SECTION --- */}
       {relatedCourses.length > 0 && (
         <div className="relative border-t border-white/10 bg-white">
           <div className="max-w-7xl mx-auto px-6 py-20">

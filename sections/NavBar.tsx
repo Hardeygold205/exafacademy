@@ -47,22 +47,22 @@ const services = [
 const products = [
   {
     title: "Afrexa",
-    href: "#",
+    href: "https://academy.extensionafrica.com",
     description: "All-in-one farm management software solution",
   },
   {
     title: "FarmEx",
-    href: "#",
+    href: "https://farmex.extensionafrica.com",
     description: "Marketplace connecting farmers with buyers and suppliers",
   },
   {
     title: "AbokiNoma",
-    href: "#",
+    href: "https://chatbox.extensionafrica.com",
     description: "AI-powered virtual assistant for agricultural support",
   },
   {
     title: "CASE",
-    href: "#",
+    href: "https://case.extensionafrica.com",
     description: "commercial agent search engine",
   },
 ];
@@ -70,18 +70,18 @@ const products = [
 const aboutItems = [
   {
     title: "Our Company",
-    href: "#",
+    href: "/about-us",
     description:
       "Empowering African agriculture through knowledge sharing and innovation.",
   },
   {
     title: "Careers",
-    href: "#testimonials",
+    href: "https://career.extensionafrica.com",
     description: "See our client success stories",
   },
   {
     title: "Our Team",
-    href: "#",
+    href: "/our-team",
     description: "Learn about our mission and team",
   },
 ];
@@ -160,14 +160,17 @@ export default function NavBar() {
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <ListItem href="#" title="Our Company">
+                  <ListItem href="/about-us" title="Our Company">
                     Empowering African agriculture through knowledge sharing and
                     innovation.
                   </ListItem>
-                  <ListItem href="#testimonials" title="Careers">
+                  <ListItem
+                    target="_blank"
+                    href="https://career.extensionafrica.com"
+                    title="Careers">
                     See our client success stories
                   </ListItem>
-                  <ListItem href="#" title="Our Team">
+                  <ListItem href="/our-team" title="Our Team">
                     Learn about our mission and team
                   </ListItem>
                 </ul>
@@ -194,6 +197,7 @@ export default function NavBar() {
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   {products.map((product) => (
                     <ListItem
+                      target="_blank"
                       key={product.title}
                       title={product.title}
                       href={product.href}>
