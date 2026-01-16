@@ -84,11 +84,11 @@ const registerSchema = z
   .object({
     username: z
       .string()
-      .min(3, "Username must be at least 3 characters")
+      .min(3, "Username must be at least 3 characters and lowercase")
       .max(50)
       .regex(
-        /^[a-zA-Z0-9._@-]+$/,
-        "Username can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
+        /^[a-z0-9._@-]+$/,
+        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
       )
       .refine((val) => !/\s/.test(val), {
         message: "Username cannot contain spaces",
