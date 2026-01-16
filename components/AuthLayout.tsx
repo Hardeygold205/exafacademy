@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Loader2, ArrowRight } from "lucide-react";
+import { Loader2, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
 
@@ -85,12 +85,39 @@ const registerSchema = z
     username: z
       .string()
       .min(3, "Username must be at least 3 characters")
-      .max(50),
+      .max(50)
+      .regex(
+        /^[a-zA-Z0-9._@-]+$/,
+        "Username can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
+      )
+      .refine((val) => !/\s/.test(val), {
+        message: "Username cannot contain spaces",
+      }),
     password: z.string().min(6, "Password must be at least 6 characters"),
-    email: z.string().email("Invalid email address"),
-    emailConfirm: z.string().email("Invalid email address"),
-    firstName: z.string().min(2, "First name must be at least 2 characters"),
-    lastName: z.string().min(2, "Last name must be at least 2 characters"),
+    email: z
+      .string()
+      .email("Invalid email address")
+      .refine((val) => !/\s/.test(val), {
+        message: "Email cannot contain spaces",
+      }),
+    emailConfirm: z
+      .string()
+      .email("Invalid email address")
+      .refine((val) => !/\s/.test(val), {
+        message: "Email cannot contain spaces",
+      }),
+    firstName: z
+      .string()
+      .min(2, "First name must be at least 2 characters")
+      .refine((val) => !/\s/.test(val), {
+        message: "First name cannot contain spaces",
+      }),
+    lastName: z
+      .string()
+      .min(2, "Last name must be at least 2 characters")
+      .refine((val) => !/\s/.test(val), {
+        message: "Last name cannot contain spaces",
+      }),
     city: z.string().optional(),
     country: z.string().min(1, "Please select a country"),
     gender: z.string().optional(),
@@ -108,6 +135,7 @@ const DASHBOARD_URL = "/login";
 const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const isLogin = pathname === "/login";
@@ -295,14 +323,26 @@ function AuthLayout() {
                     Forgot Password?
                   </Link>
                 </div>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="password"
-                  required
-                  className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
-                />
+                <div className="relative">
+                  <Input
+                    id="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="password"
+                    required
+                    className="h-12 pl-4 pr-12 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                    {showPassword ? (
+                      <EyeOff className="h-5 w-5" />
+                    ) : (
+                      <Eye className="h-5 w-5" />
+                    )}
+                  </button>
+                </div>
               </div>
 
               <Button
@@ -457,12 +497,24 @@ function AuthLayout() {
                         Password
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          type="password"
-                          placeholder="••••••••"
-                          {...field}
-                          className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg"
-                        />
+                        <div className="relative">
+                          <Input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="••••••••"
+                            {...field}
+                            className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg pr-10"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                            {showPassword ? (
+                              <EyeOff className="h-5 w-5" />
+                            ) : (
+                              <Eye className="h-5 w-5" />
+                            )}
+                          </button>
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
