@@ -29,7 +29,7 @@ export default function OverView() {
     {
       icon: Rocket,
       text: "Practical Field Experience",
-      color: "from-purple-400 to-pink-600",
+      color: "from-green-400 to-emerald-600",
     },
   ];
 
@@ -287,7 +287,8 @@ export default function OverView() {
 
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-green-200 rounded-full blur-3xl opacity-30 -z-10" />
             <div className="absolute -top-8 -left-8 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-30 -z-10" />
-          </div>
+          </div> 
+
         </div>
       </div>
     </section>

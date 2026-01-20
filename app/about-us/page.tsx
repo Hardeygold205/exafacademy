@@ -33,7 +33,7 @@ const AboutUs = () => {
         <div className="flex items-center space-x-4 mb-12">
           <div className="h-1 w-12 bg-green-600 rounded-full" />
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Our <span className="italic text-green-600">&quot;Why&quot;</span>
+            What is <span className="italic text-green-600">&quot;AFREXA&quot;</span> ?
           </h1>
         </div>
 
@@ -45,17 +45,12 @@ const AboutUs = () => {
             className="space-y-8">
             <div className="border-l-4 border-green-500 pl-6">
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-medium">
-                &quot;Africa is uniquely positioned to meet the challenge of
-                feeding itself and the world, and spur economic growth.&quot;
+                &quot;Afrexa is a digital learning and capacity-building platform developed by Extension Africa to support farmers, agribusiness professionals, and agricultural extension agents across Africa.&quot;
               </p>
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed">
-              However, this potential is still met by a declining efficiency in
-              production by rural farmers. The link to these farmers is still
-              weak and innovations are barely adopted. This creates an urgency
-              for an efficient system to deliver life-saving innovations to the
-              last mile.
+              We deliver structured, practical courses focused on modern farming practices, agribusiness management, technology adoption, and extension service delivery through online modules, assessments, certifications, and digital badges. Providing accessible and scalable agricultural education designed to improve knowledge, skills, and productivity within the agricultural value chain.
             </p>
 
             <div className="bg-orange-50/50 backdrop-blur-sm border border-orange-100 p-8 rounded-2xl shadow-sm italic">

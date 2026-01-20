@@ -165,6 +165,7 @@ function FAQ() {
           looking for, feel free to reach out to our support team for
           assistance.
         </p>
+        
         <div className="w-full max-w-xl flex items-center relative mt-6 mx-auto justify-center">
           <input
             type="text"

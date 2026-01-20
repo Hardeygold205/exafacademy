@@ -111,7 +111,7 @@ export default function JoinCommunity() {
               </a>
 
               <a
-                href="#"
+                href="#learnmore"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full text-lg font-semibold hover:border-primary hover:text-primary transition-all duration-300">
                 Learn More
               </a>

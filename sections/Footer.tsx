@@ -10,6 +10,7 @@ import {
   RiLinkedinFill,
   RiInstagramFill,
 } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-black text-gray-100 px-6 py-16 w-full relative bottom-0 right-0 left-0 z-40 ${
+      className={`bg-primary text-gray-100 px-6 py-16 w-full relative bottom-0 right-0 left-0 z-40 ${
         isAuthPage ? "hidden" : ""
       }`}>
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-7">
@@ -39,43 +40,67 @@ export default function Footer() {
             Building the largest network of reliable Extension Agents across
             Africa!
           </p>
-          <div className="flex gap-4 pt-2 border-t border-gray-800 items-center ">
-            <Link
+          <div className="flex gap-4 pt-2 border-t border-gray-500 items-center ">
+            <motion.a
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                viewport={{ once: true }}
               href="https://www.instagram.com/extensionafrica"
-              className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
+              className="bg-primary/10 border border-gray-500 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
               aria-label="GitHub">
               <RiInstagramFill className="w-5 h-5" />
-            </Link>
+            </motion.a>
             <div
-              className="w-px h-6 bg-gray-800"
+              className="w-px h-6 bg-gray-500"
               role="separator"
               aria-orientation="vertical"></div>
-            <Link
+            <motion.a
+            whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
               href="https://www.linkedin.com/company/extension-africa/posts/?feedView=all"
-              className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
+              className="bg-primary/10 border border-gray-500 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
               aria-label="LinkedIn">
               <RiLinkedinFill className="w-5 h-5" />
-            </Link>
+            </motion.a>
             <div
-              className="w-px h-6 bg-gray-800"
+              className="w-px h-6 bg-gray-500"
               role="separator"
               aria-orientation="vertical"></div>
-            <Link
+            <motion.a
+            whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
               href="https://x.com/extensionafrica"
-              className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
+              className="bg-primary/10 border border-gray-500 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
               aria-label="Twitter">
               <RiTwitterXFill className="w-5 h-5" />
-            </Link>
+            </motion.a>
             <div
-              className="w-px h-6 bg-gray-800"
+              className="w-px h-6 bg-gray-500"
               role="separator"
               aria-orientation="vertical"></div>
-            <Link
+            <motion.a
+            whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
               href="https://web.facebook.com/extensionafrica"
-              className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors"
+              className="bg-primary/10 border border-gray-500 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
               aria-label="Twitter">
               <RiFacebookFill className="w-5 h-5" />
-            </Link>
+            </motion.a>
           </div>
         </div>
 
@@ -191,7 +216,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-16 border-t border-gray-800 pt-8">
+      <div className="mt-16 border-t border-gray-500 pt-8 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col md:flex-row gap-6 text-sm text-gray-400 justify-center text-center">
             <Link href="#" className="hover:text-white transition-colors">
