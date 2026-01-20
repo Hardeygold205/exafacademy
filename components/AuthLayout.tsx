@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight, Eye, EyeOff } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { RegisterUserPayload, registerUser } from "@/lib/api";
 
 const options = ["Student", "Extension Agent"];
@@ -131,10 +131,11 @@ const registerSchema = z
 
 type RegisterValues = z.infer<typeof registerSchema>;
 
-const DASHBOARD_URL = "/login";
+const VERIFY_EMAIL = "/verify-email";
 const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
+  const router = useRouter()
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
@@ -161,32 +162,56 @@ function AuthLayout() {
 
   const selectedOccupation = registerForm.watch("occupation");
 
-  async function onRegisterSubmit(values: RegisterValues) {
-    setIsLoading(true);
+ async function onRegisterSubmit(values: RegisterValues) {
+  setIsLoading(true);
 
-    try {
-      const payload: RegisterUserPayload = { ...values };
-      const response = await registerUser(payload);
+  try {
+    const payload: RegisterUserPayload = { ...values };
+    const response = await registerUser(payload);
 
-      const userCreated = Array.isArray(response) ? response[0] : response;
+    // 1. Handle Moodle Field Errors (success: false)
+    if (response.success === false && response.warnings) {
+      response.warnings.forEach((warning) => {
+        const fieldName = warning.item as keyof RegisterValues;
+        let displayMessage = warning.message.replace(/<[^>]*>?/gm, '');
 
-      if (userCreated && (userCreated.id || userCreated.userid)) {
-        console.log("Registration Successful:", userCreated);
-        setTimeout(() => {
-          window.location.href = DASHBOARD_URL;
-        }, 1500);
-      } else {
-        throw new Error("Registration failed. No user ID returned.");
-      }
-    } catch (error) {
+        if (fieldName === "email") {
+          displayMessage = "This email address is already registered.";
+        } else if (fieldName === "username") {
+          displayMessage = "This username already exists. choose another";
+        } else {
+          displayMessage = displayMessage.substring(0, 50);
+        }
+        
+        registerForm.setError(fieldName, {
+          type: "manual",
+          message: displayMessage, 
+        });
+      });
       setIsLoading(false);
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "Registration failed. Please try again.";
-      console.log("error", errorMessage);
+      return;
     }
+
+    if (response.success === true) {
+      console.log("Registration Successful, email sent.");
+      router.push(VERIFY_EMAIL);
+    } else {
+      throw new Error("Registration failed. Please check your details.");
+    }
+  } catch (error) {
+    setIsLoading(false);
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "An unexpected error occurred.";
+    
+        
+    registerForm.setError("root", {
+      message: errorMessage,
+    });
+    console.log("error", errorMessage);
   }
+}
 
   return (
     <div className="min-h-screen w-full flex bg-[#FDFCF8] text-stone-800 font-sans selection:bg-green-100">
@@ -650,6 +675,11 @@ function AuthLayout() {
                   </Button>
                 </div>
               </form>
+              {registerForm.formState.errors.root && (
+              <p className="text-red-500 text-sm mb-4 font-medium">
+                {registerForm.formState.errors.root.message}
+              </p>
+            )}
             </Form>
           )}
 

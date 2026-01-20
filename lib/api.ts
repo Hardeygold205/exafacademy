@@ -15,6 +15,13 @@ export interface RegisterUserPayload {
   school?: string;
 }
 
+export interface MoodleWarning {
+  item: string;
+  itemid: number;
+  warningcode: string;
+  message: string;
+}
+
 export interface MoodleAPIResponse {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   courses: any[];
@@ -25,6 +32,7 @@ export interface MoodleAPIResponse {
   exception?: string;
   errorcode?: string;
   message?: string;
+  warnings?: MoodleWarning[];
 }
 
 interface CategoryCriteria {
@@ -125,37 +133,45 @@ export async function registerUser(
   formData.append("wstoken", wstoken);
   formData.append("moodlewsrestformat", moodlewsrestformat);
   formData.append("wsfunction", wsfunction);
-  formData.append("users[0][username]", userData.username);
-  formData.append("users[0][password]", userData.password);
-  formData.append("users[0][firstname]", userData.firstName);
-  formData.append("users[0][lastname]", userData.lastName);
-  formData.append("users[0][email]", userData.email);
+  formData.append("username", userData.username);
+  formData.append("password", userData.password);
+  formData.append("firstname", userData.firstName);
+  formData.append("lastname", userData.lastName);
+  formData.append("email", userData.email);
 
   if (userData.city) {
-    formData.append("users[0][city]", userData.city);
+    formData.append("city", userData.city);
   }
 
   if (userData.country) {
-    formData.append("users[0][country]", userData.country);
+    formData.append("country", userData.country);
   }
 
   if (userData.auth) {
-    formData.append("users[0][auth]", userData.auth);
+    formData.append("auth", userData.auth);
   }
 
+  let customFieldIndex = 0;
+  
   if (userData.gender) {
-    formData.append("users[0][customfields][0][type]", "gender");
-    formData.append("users[0][customfields][0][value]", userData.gender);
+    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_gender");
+    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_gender");
+    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.gender);
+    customFieldIndex++;
   }
 
   if (userData.occupation) {
-    formData.append("users[0][customfields][1][type]", "occupation");
-    formData.append("users[0][customfields][1][value]", userData.occupation);
+    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_occupation");
+    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_occupation");
+    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.occupation);
+    customFieldIndex++;
   }
 
   if (userData.school) {
-    formData.append("users[0][customfields][2][type]", "school");
-    formData.append("users[0][customfields][2][value]", userData.school);
+    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_school");
+    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_school");
+    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.school);
+    customFieldIndex++;
   }
 
   try {
@@ -170,10 +186,6 @@ export async function registerUser(
 
     if (data.exception || data.errorcode) {
       throw new Error(data.message || "Registration failed");
-    }
-
-    if (data.courses) {
-      data.courses = data.courses.filter((course: { visible: number; }) => course.visible === 1);
     }
 
     return data;
@@ -238,6 +250,7 @@ export async function getCourseCategories(
     }
 
     console.log("Course Categories Response:", data);
+
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -290,7 +303,6 @@ export async function getCoursesByField(
       console.warn("API Warnings:", data.warnings);
     }
 
-    // Filter courses to only return those with visible === 1
     if (data.courses) {
       data.courses = data.courses.filter((course) => course.visible === 1);
     }
