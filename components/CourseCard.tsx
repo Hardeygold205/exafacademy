@@ -63,28 +63,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
             {course.categoryname}
           </span>
         </div>
-
-        {/* {course.contacts.length > 0 && (
-          <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
-            <div className="flex -space-x-2">
-              {course.contacts.map((contact) => (
-                <div
-                  key={contact.id}
-                  className="w-8 h-8 rounded-full bg-white border-2 border-white overflow-hidden flex items-center justify-center tooltip"
-                  title={contact.fullname}>
-                  <div className="tooltip-content">
-                    <div className="animate-bounce -rotate-10 text-2xl font-black">
-                      {contact.fullname}
-                    </div>
-                  </div>
-                  <button className="text-[10px] font-bold text-green-600 btn bg-transparent">
-                    {contact.fullname.charAt(0)}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )} */}
       </div>
 
       <div className="flex flex-col grow p-5">

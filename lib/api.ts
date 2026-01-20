@@ -16,6 +16,8 @@ export interface RegisterUserPayload {
 }
 
 export interface MoodleAPIResponse {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  courses: any[];
   success?: boolean;
   id?: number;
   userid?: number;
@@ -170,6 +172,10 @@ export async function registerUser(
       throw new Error(data.message || "Registration failed");
     }
 
+    if (data.courses) {
+      data.courses = data.courses.filter((course: { visible: number; }) => course.visible === 1);
+    }
+
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -282,6 +288,11 @@ export async function getCoursesByField(
 
     if (data.warnings && data.warnings.length > 0) {
       console.warn("API Warnings:", data.warnings);
+    }
+
+    // Filter courses to only return those with visible === 1
+    if (data.courses) {
+      data.courses = data.courses.filter((course) => course.visible === 1);
     }
 
     return data;

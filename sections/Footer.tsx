@@ -82,21 +82,20 @@ export default function Footer() {
         {/* Links Grid */}
         <div className="lg:col-span-5 grid gap-8 gap-y-8 md:gap-5 grid-cols-2 lg:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div>
-            <h6 className="text-lg font-semibold mb-4 text-white">Services</h6>
+            <h6 className="text-lg font-semibold mb-4 text-white">Programs</h6>
             <ul className="space-y-3">
               {[
-                "E-Learning Platform",
-                "Agripreneurship Training",
-                "Agribusiness",
-                "Leadership Training",
-                "Digital Skills",
-              ].map((service) => (
+                { name: "Recent Graduate", link: "/recent-graduate" },
+                { name: "Undergraduate Training", link: "/under-graduate" },
+                { name: "Agribusiness", link: "/agribusiness" },
+                { name: "Shaping The Future", link: "/ecosystem" },
+              ].map((index, service) => (
                 <li key={service}>
                   <Link
-                    href="#"
+                    href={index.link}
                     className="text-gray-300 hover:opacity-80 transition-colors text-sm flex items-start">
                     <span className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-2 shrink-0"></span>
-                    {service}
+                    {index.name}
                   </Link>
                 </li>
               ))}

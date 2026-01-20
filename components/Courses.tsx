@@ -235,13 +235,13 @@ export default function CoursePage() {
                   icon={<Cpu className="w-6 h-6" />}
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {technicalCourses.length > 0 ? (
+                  {technicalCourses.length > 0  ? (
                     technicalCourses.map((course) => (
                       <motion.div
                         key={course.id}
                         variants={itemVariants}
                         className="h-full">
-                        <CourseCard course={course} />
+                        <CourseCard course={course}  />
                       </motion.div>
                     ))
                   ) : (
