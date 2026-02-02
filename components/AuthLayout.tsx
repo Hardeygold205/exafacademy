@@ -88,7 +88,7 @@ const registerSchema = z
       .max(50)
       .regex(
         /^[a-z0-9._@-]+$/,
-        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
+        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)",
       )
       .refine((val) => !/\s/.test(val), {
         message: "Username cannot contain spaces",
@@ -131,11 +131,18 @@ const registerSchema = z
 
 type RegisterValues = z.infer<typeof registerSchema>;
 
+const loginSchema = z.object({
+  username: z.string().min(1, "Username or email is required"),
+  password: z.string().min(1, "Password is required"),
+});
+
+type LoginValues = z.infer<typeof loginSchema>;
+
 const VERIFY_EMAIL = "/verify-email";
-const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
+//const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
-  const router = useRouter()
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
@@ -158,60 +165,121 @@ function AuthLayout() {
     },
   });
 
+  const loginForm = useForm<LoginValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
+
   const selectedCountry = registerForm.watch("country");
 
   const selectedOccupation = registerForm.watch("occupation");
 
- async function onRegisterSubmit(values: RegisterValues) {
-  setIsLoading(true);
+  async function onRegisterSubmit(values: RegisterValues) {
+    setIsLoading(true);
 
-  try {
-    const payload: RegisterUserPayload = { ...values };
-    const response = await registerUser(payload);
+    try {
+      const payload: RegisterUserPayload = { ...values };
+      const response = await registerUser(payload);
 
-    // 1. Handle Moodle Field Errors (success: false)
-    if (response.success === false && response.warnings) {
-      response.warnings.forEach((warning) => {
-        const fieldName = warning.item as keyof RegisterValues;
-        let displayMessage = warning.message.replace(/<[^>]*>?/gm, '');
+      if (response.success === false && response.warnings) {
+        response.warnings.forEach((warning) => {
+          const fieldName = warning.item as keyof RegisterValues;
+          let displayMessage = warning.message.replace(/<[^>]*>?/gm, "");
 
-        if (fieldName === "email") {
-          displayMessage = "This email address is already registered.";
-        } else if (fieldName === "username") {
-          displayMessage = "This username already exists. choose another";
-        } else {
-          displayMessage = displayMessage.substring(0, 50);
-        }
-        
-        registerForm.setError(fieldName, {
-          type: "manual",
-          message: displayMessage, 
+          if (fieldName === "email") {
+            displayMessage = "This email address is already registered.";
+          } else if (fieldName === "username") {
+            displayMessage = "This username already exists. choose another";
+          } else {
+            displayMessage = displayMessage.substring(0, 50);
+          }
+
+          registerForm.setError(fieldName, {
+            type: "manual",
+            message: displayMessage,
+          });
         });
-      });
-      setIsLoading(false);
-      return;
-    }
+        setIsLoading(false);
+        return;
+      }
 
-    if (response.success === true) {
-      console.log("Registration Successful, email sent.");
-      router.push(VERIFY_EMAIL);
-    } else {
-      throw new Error("Registration failed. Please check your details.");
+      if (response.success === true) {
+        console.log("Registration Successful, email sent.");
+        router.push(VERIFY_EMAIL);
+      } else {
+        throw new Error("Registration failed. Please check your details.");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An unexpected error occurred.";
+
+      registerForm.setError("root", {
+        message: errorMessage,
+      });
+      console.log("error", errorMessage);
     }
-  } catch (error) {
-    setIsLoading(false);
-    const errorMessage =
-      error instanceof Error
-        ? error.message
-        : "An unexpected error occurred.";
-    
-        
-    registerForm.setError("root", {
-      message: errorMessage,
-    });
-    console.log("error", errorMessage);
   }
-}
+
+  async function onLoginSubmit(values: LoginValues) {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Invalid credentials");
+      }
+
+      // After successful Moodle login (token + privatetoken), get one-time login URL by email
+      const email =
+        result.email ?? (values.username.includes("@") ? values.username : null);
+      if (!email) {
+        throw new Error(
+          "Could not determine email for redirect. Please try logging in with your email."
+        );
+      }
+
+      const loginUrlRes = await fetch("/api/moodle-login-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const loginUrlData = await loginUrlRes.json();
+
+      if (!loginUrlRes.ok) {
+        throw new Error(
+          loginUrlData.error || "Could not get login URL from Moodle"
+        );
+      }
+
+      const loginUrl = loginUrlData.loginurl;
+      if (!loginUrl) {
+        throw new Error("No login URL returned from Moodle");
+      }
+
+      window.location.href = loginUrl;
+    } catch (error) {
+      setIsLoading(false);
+      const errorMessage =
+        error instanceof Error ? error.message : "Invalid username or password";
+
+      loginForm.setError("root", {
+        type: "manual",
+        message: errorMessage,
+      });
+    }
+  }
 
   return (
     <div className="min-h-screen w-full flex bg-[#FDFCF8] text-stone-800 font-sans selection:bg-green-100">
@@ -317,65 +385,95 @@ function AuthLayout() {
           </div>
 
           {isLogin ? (
-            <form action={LOGIN_ENDPOINT} method="POST" className="space-y-5">
-              <div className="space-y-2">
-                <label
-                  htmlFor="username"
-                  className="text-stone-700 font-medium block">
-                  Username or Email
-                </label>
-                <Input
-                  id="username"
+            <Form {...loginForm}>
+              <form
+                onSubmit={loginForm.handleSubmit(onLoginSubmit)}
+                className="space-y-6">
+                <FormField
+                  control={loginForm.control}
                   name="username"
-                  type="text"
-                  placeholder="name@example.com"
-                  required
-                  className="h-12 pl-4 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-stone-700 font-medium">
+                        Username or Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your username or email"
+                          {...field}
+                          className="h-12 border-stone-300 focus:border-green-500 focus:ring-green-500 rounded-xl"
+                          disabled={isLoading}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor="password"
-                    className="text-stone-700 font-medium">
-                    Password
-                  </label>
-                  <Link
-                    href="https://lms.extensionafrica.com/login/forgot_password.php"
-                    target="_blank"
-                    className="text-xs font-medium text-primary hover:text-emerald-700 hover:underline">
-                    Forgot Password?
-                  </Link>
-                </div>
-                <div className="relative">
-                  <Input
-                    id="password"
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="password"
-                    required
-                    className="h-12 pl-4 pr-12 bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-xl"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
-                    {showPassword ? (
-                      <EyeOff className="h-5 w-5" />
-                    ) : (
-                      <Eye className="h-5 w-5" />
-                    )}
-                  </button>
-                </div>
-              </div>
+                <FormField
+                  control={loginForm.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex items-center justify-between">
+                        <FormLabel className="text-stone-700 font-medium">
+                          Password
+                        </FormLabel>
+                        <Link
+                          href="https://lms.extensionafrica.com/login/forgot_password.php"
+                          className="text-sm text-green-600 hover:text-green-700 hover:underline">
+                          Forgot Password?
+                        </Link>
+                      </div>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Enter your password"
+                            {...field}
+                            className="h-12 border-stone-300 focus:border-green-500 focus:ring-green-500 rounded-xl pr-12"
+                            disabled={isLoading}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                            {showPassword ? (
+                              <EyeOff className="h-5 w-5" />
+                            ) : (
+                              <Eye className="h-5 w-5" />
+                            )}
+                          </button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <Button
-                type="submit"
-                className="w-full h-12 bg-primary hover:bg-emerald-800 text-white rounded-xl font-semibold shadow-lg shadow-emerald-700/20 transition-all">
-                Sign In
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full h-12 bg-primary hover:bg-green-700 text-white rounded-xl font-semibold text-base shadow-sm hover:shadow transition-all">
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Signing in...
+                    </>
+                  ) : (
+                    "Sign In"
+                  )}
+                </Button>
+
+                {loginForm.formState.errors.root && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-sm text-red-600">
+                      {loginForm.formState.errors.root.message}
+                    </p>
+                  </div>
+                )}
+              </form>
+            </Form>
           ) : (
             <Form {...registerForm}>
               <form
@@ -676,10 +774,10 @@ function AuthLayout() {
                 </div>
               </form>
               {registerForm.formState.errors.root && (
-              <p className="text-red-500 text-sm mb-4 font-medium">
-                {registerForm.formState.errors.root.message}
-              </p>
-            )}
+                <p className="text-red-500 text-sm mb-4 font-medium">
+                  {registerForm.formState.errors.root.message}
+                </p>
+              )}
             </Form>
           )}
 

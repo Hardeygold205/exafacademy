@@ -15,6 +15,20 @@ export interface RegisterUserPayload {
   school?: string;
 }
 
+export interface LoginUserPayload {
+  username: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  token?: string;
+  privatetoken?: string;
+  errorcode?: string;
+  error?: string;
+  exception?: string;
+  message?: string;
+}
+
 export interface MoodleWarning {
   item: string;
   itemid: number;
@@ -118,7 +132,7 @@ export interface GetCoursesByFieldResponse {
 }
 
 export async function registerUser(
-  userData: RegisterUserPayload
+  userData: RegisterUserPayload,
 ): Promise<MoodleAPIResponse> {
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
   const wstoken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -152,25 +166,52 @@ export async function registerUser(
   }
 
   let customFieldIndex = 0;
-  
+
   if (userData.gender) {
-    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_gender");
-    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_gender");
-    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.gender);
+    formData.append(
+      `customprofilefields[${customFieldIndex}][type]`,
+      "profile_field_gender",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][name]`,
+      "profile_field_gender",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][value]`,
+      userData.gender,
+    );
     customFieldIndex++;
   }
 
   if (userData.occupation) {
-    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_occupation");
-    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_occupation");
-    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.occupation);
+    formData.append(
+      `customprofilefields[${customFieldIndex}][type]`,
+      "profile_field_occupation",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][name]`,
+      "profile_field_occupation",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][value]`,
+      userData.occupation,
+    );
     customFieldIndex++;
   }
 
   if (userData.school) {
-    formData.append(`customprofilefields[${customFieldIndex}][type]`, "profile_field_school");
-    formData.append(`customprofilefields[${customFieldIndex}][name]`, "profile_field_school");
-    formData.append(`customprofilefields[${customFieldIndex}][value]`, userData.school);
+    formData.append(
+      `customprofilefields[${customFieldIndex}][type]`,
+      "profile_field_school",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][name]`,
+      "profile_field_school",
+    );
+    formData.append(
+      `customprofilefields[${customFieldIndex}][value]`,
+      userData.school,
+    );
     customFieldIndex++;
   }
 
@@ -200,8 +241,23 @@ export async function registerUser(
   }
 }
 
+export async function loginUser(credentials: LoginUserPayload) {
+  const response = await fetch("/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(credentials),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error || "Login failed");
+  }
+
+  return response.json();
+}
+
 export async function getCourseCategories(
-  params: GetCategoriesParams = {}
+  params: GetCategoriesParams = {},
 ): Promise<CourseCategory[]> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -230,7 +286,7 @@ export async function getCourseCategories(
     "addsubcategories",
     params.addsubcategories !== undefined
       ? String(Number(params.addsubcategories))
-      : ""
+      : "",
   );
 
   try {
@@ -264,7 +320,7 @@ export async function getCourseCategories(
 }
 
 export async function getCoursesByField(
-  params: CoursesByFieldParams
+  params: CoursesByFieldParams,
 ): Promise<GetCoursesByFieldResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -293,7 +349,7 @@ export async function getCoursesByField(
 
     if (typeof response.data === "string" && response.data.includes("<?xml")) {
       throw new Error(
-        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'."
+        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'.",
       );
     }
 
