@@ -9,7 +9,7 @@ import {
   Award,
 } from "lucide-react";
 import { stripHtml, getCustomField } from "@/lib/utils";
-import type { Course } from "@/lib/api";
+import type { Course } from "@/types/course";
 
 interface CourseCardProps {
   course: Course;

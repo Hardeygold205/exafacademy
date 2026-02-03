@@ -25,7 +25,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { RegisterUserPayload, registerUser } from "@/lib/api";
+import { registerUser } from "@/lib/api";
+import type { RegisterUserPayload } from "@/types/register-login";
 
 const options = ["Student", "Extension Agent"];
 
@@ -132,14 +133,26 @@ const registerSchema = z
 type RegisterValues = z.infer<typeof registerSchema>;
 
 const loginSchema = z.object({
-  username: z.string().min(3, "Email is required"),
-  password: z.string().min(6, "Password is required"),
+  username: z
+    .string()
+    .nonempty({
+      message: "Email is required",
+    })
+    .email("Invalid email address")
+    .refine((val) => !/\s/.test(val), {
+      message: "Email cannot contain spaces",
+    }),
+  password: z
+    .string()
+    .nonempty({
+      message: "Password is required",
+    })
+    .min(6, "Password must be at least 6 characters"),
 });
 
 type LoginValues = z.infer<typeof loginSchema>;
 
 const VERIFY_EMAIL = "/verify-email";
-//const LOGIN_ENDPOINT = "https://lms.extensionafrica.com/login/index.php";
 
 function AuthLayout() {
   const router = useRouter();

@@ -16,8 +16,8 @@ import {
   Loader2,
   AlertCircle,
 } from "lucide-react";
-
-import { getCoursesByField, type Course } from "@/lib/api";
+import { getCoursesByField } from "@/lib/api";
+import type { Course } from "@/types/course";
 import CourseCard from "@/components/CourseCard";
 
 const getCustomValue = (

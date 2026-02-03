@@ -13,41 +13,57 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://academy.extensionafrica.com"),
-
   title: {
     default: "Afrexa",
     template: "%s | Afrexa",
   },
-  description: "Extension Africa Academy",
-
-  icons: {
-    icon: "/main-icon.png",
-  },
-
+  keywords: [
+    "Agriculture",
+    "Agricultural Extension",
+    "Agro-Business",
+    "Academy",
+    "E-learning",
+    "IT Company",
+  ],
+  description:
+    "Building the largest network of reliable Extension Agents across Africa!",
   openGraph: {
-    title: "Home | Extension Africa Academy",
+    title: "Afrexa | Extension Africa Academy",
     description:
       "Building the largest network of reliable Extension Agents across Africa!",
     url: "https://academy.extensionafrica.com",
-    siteName: "Extension Africa Academy",
+    siteName: "Afrexa |Extension Africa Academy",
     images: [
       {
-        url: "/exaf_preview2.png",
+        url: "/afrexa_preview.png",
         width: 1200,
         height: 630,
-        alt: "Extension Africa Academy",
+        alt: "Afrexa Preview",
       },
     ],
     locale: "en_US",
     type: "website",
   },
-
+  icons: {
+    icon: "/main-icon.png",
+    shortcut: "/main-icon.png",
+    apple: "/main-icon.png",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/main-icon.png",
+        color: "#5bbad5",
+      },
+    ],
+  },
   twitter: {
+    site: "@Afrexa",
     card: "summary_large_image",
-    title: "Extension Africa Academy",
+    title: "Afrexa | Extension Africa Academy",
     description:
       "Building the largest network of reliable Extension Agents across Africa!",
-    images: ["/exaf_Preview.png"],
+    images: ["/afrexa_preview.png"],
+    creator: "@Hardeygold205",
   },
 };
 

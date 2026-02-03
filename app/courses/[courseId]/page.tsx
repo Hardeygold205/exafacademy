@@ -8,7 +8,7 @@ type CoursePageParams = { courseId: string | string[] };
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<CoursePageParams>; 
+  params: Promise<CoursePageParams>;
 }): Promise<Metadata> {
   const fallbackTitle = "Course Information";
 
@@ -18,17 +18,10 @@ export async function generateMetadata({
       ? resolvedParams.courseId[0]
       : resolvedParams.courseId;
 
-    console.log("🔍 [Metadata] Fetching course with ID:", courseIdValue);
-
     const response = await getCoursesByField({
       field: "id",
       value: courseIdValue,
     });
-
-    console.log(
-      "📦 [Metadata] API Response:",
-      JSON.stringify(response, null, 2)
-    );
 
     if (!response.courses || response.courses.length === 0) {
       console.warn("⚠️ [Metadata] No courses found for ID:", courseIdValue);

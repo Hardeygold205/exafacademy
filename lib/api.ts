@@ -1,138 +1,18 @@
 import axios from "axios";
-
-export interface RegisterUserPayload {
-  id?: number;
-  username: string;
-  password: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  city?: string;
-  country: string;
-  auth?: string;
-  occupation?: string;
-  gender?: string;
-  school?: string;
-}
-
-export interface LoginUserPayload {
-  username: string;
-  password: string;
-}
-
-export interface LoginResponse {
-  token?: string;
-  privatetoken?: string;
-  errorcode?: string;
-  error?: string;
-  exception?: string;
-  message?: string;
-}
-
-export interface MoodleWarning {
-  item: string;
-  itemid: number;
-  warningcode: string;
-  message: string;
-}
-
-export interface MoodleAPIResponse {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  courses: any[];
-  success?: boolean;
-  id?: number;
-  userid?: number;
-  username?: string;
-  exception?: string;
-  errorcode?: string;
-  message?: string;
-  warnings?: MoodleWarning[];
-}
-
-interface CategoryCriteria {
-  key: string;
-  value: string;
-}
-
-interface GetCategoriesParams {
-  criteria?: CategoryCriteria[];
-  addsubcategories?: boolean;
-}
-
-export interface Contact {
-  id: number;
-  fullname: string;
-}
-
-export interface CustomField {
-  name: string;
-  shortname: string;
-  type: string;
-  valueraw: string;
-  value: string | null;
-}
-
-export interface OverviewFile {
-  filename: string;
-  filepath: string;
-  filesize: number;
-  fileurl: string;
-  timemodified: number;
-  mimetype: string;
-}
-
-export interface Course {
-  id: number;
-  fullname: string;
-  displayname: string;
-  shortname: string;
-  courseimage: string;
-  categoryid: number;
-  categoryname: string;
-  sortorder: number;
-  summary: string;
-  summaryformat: number;
-  overviewfiles: OverviewFile[];
-  contacts: Contact[];
-  enrollmentmethods: string[];
-  customfields: CustomField[];
-  showactivitydates: number;
-  showcompletionconditions: number;
-  startdate: number;
-  enddate: number;
-  visible: number;
-  enablecompletion: number;
-  timecreated: number;
-  timemodified: number;
-}
-
-interface CourseCategory {
-  id: number;
-  name: string;
-  description: string;
-  descriptionformat: number;
-  parent: number;
-  sortorder: number;
-  coursecount: number;
-  depth: number;
-  path: string;
-  exception?: string;
-  errorcode?: string;
-  message?: string;
-}
-
-export interface CoursesByFieldParams {
-  field: "id" | "ids" | "shortname" | "idnumber" | "category";
-  value: string;
-}
-
-export interface GetCoursesByFieldResponse {
-  courses: Course[];
-  warnings: string[];
-}
+import type {
+  MoodleAPIResponse,
+  GetCategoriesParams,
+  CourseCategory,
+  CoursesByFieldParams,
+  GetCoursesByFieldResponse,
+} from "@/types/course";
+import type {
+  RegisterUserPayload,
+  LoginUserPayload,
+} from "@/types/register-login";
 
 export async function registerUser(
-  userData: RegisterUserPayload,
+  userData: RegisterUserPayload
 ): Promise<MoodleAPIResponse> {
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
   const wstoken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -170,15 +50,15 @@ export async function registerUser(
   if (userData.gender) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_gender",
+      "profile_field_gender"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_gender",
+      "profile_field_gender"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.gender,
+      userData.gender
     );
     customFieldIndex++;
   }
@@ -186,15 +66,15 @@ export async function registerUser(
   if (userData.occupation) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_occupation",
+      "profile_field_occupation"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_occupation",
+      "profile_field_occupation"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.occupation,
+      userData.occupation
     );
     customFieldIndex++;
   }
@@ -202,15 +82,15 @@ export async function registerUser(
   if (userData.school) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_school",
+      "profile_field_school"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_school",
+      "profile_field_school"
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.school,
+      userData.school
     );
     customFieldIndex++;
   }
@@ -257,7 +137,7 @@ export async function loginUser(credentials: LoginUserPayload) {
 }
 
 export async function getCourseCategories(
-  params: GetCategoriesParams = {},
+  params: GetCategoriesParams = {}
 ): Promise<CourseCategory[]> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -286,7 +166,7 @@ export async function getCourseCategories(
     "addsubcategories",
     params.addsubcategories !== undefined
       ? String(Number(params.addsubcategories))
-      : "",
+      : ""
   );
 
   try {
@@ -320,7 +200,7 @@ export async function getCourseCategories(
 }
 
 export async function getCoursesByField(
-  params: CoursesByFieldParams,
+  params: CoursesByFieldParams
 ): Promise<GetCoursesByFieldResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
@@ -344,12 +224,9 @@ export async function getCoursesByField(
       },
     });
 
-    // console.log("Raw API Response Type:", typeof response.data);
-    // console.log("Courses by Field Response:", response.data);
-
     if (typeof response.data === "string" && response.data.includes("<?xml")) {
       throw new Error(
-        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'.",
+        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'."
       );
     }
 

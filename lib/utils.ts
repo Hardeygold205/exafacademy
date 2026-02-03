@@ -1,9 +1,9 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-import type { Course } from "@/lib/api";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import type { Course } from "@/types/course";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 /**
@@ -24,7 +24,6 @@ export const stripHtml = (html: string): string => {
  */
 export const formatDate = (timestamp: number): string => {
   if (!timestamp || timestamp === 0) return "Self-paced";
-  // Multiply by 1000 because JS uses milliseconds
   return new Date(timestamp * 1000).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "short",
@@ -39,6 +38,7 @@ export const formatDate = (timestamp: number): string => {
  * @param fallback Fallback text if not found
  * @returns The value string
  */
+
 export const getCustomField = (
   course: Course,
   fieldName: string,
