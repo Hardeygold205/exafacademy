@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 import {
   Form,
   FormControl,
@@ -27,132 +26,11 @@ import { Loader2, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { registerUser } from "@/lib/api";
 import type { RegisterUserPayload } from "@/types/register-login";
+import { registerSchema, loginSchema } from "@/types/validation";
+import type { RegisterValues, LoginValues } from "@/types/validation";
+import { countries } from "@/types/country";
 
 const options = ["Student", "Extension Agent"];
-
-const countries = [
-  "Nigeria",
-  "Ghana",
-  "Kenya",
-  "South Africa",
-  "Egypt",
-  "Ethiopia",
-  "Tanzania",
-  "Uganda",
-  "Algeria",
-  "Morocco",
-  "Angola",
-  "Mozambique",
-  "Madagascar",
-  "Cameroon",
-  "Ivory Coast",
-  "Niger",
-  "Burkina Faso",
-  "Mali",
-  "Malawi",
-  "Zambia",
-  "Somalia",
-  "Senegal",
-  "Chad",
-  "Zimbabwe",
-  "Guinea",
-  "Rwanda",
-  "Benin",
-  "Tunisia",
-  "Burundi",
-  "South Sudan",
-  "Togo",
-  "Sierra Leone",
-  "Libya",
-  "Liberia",
-  "Mauritania",
-  "Central African Republic",
-  "Eritrea",
-  "Gambia",
-  "Botswana",
-  "Namibia",
-  "Gabon",
-  "Lesotho",
-  "Guinea-Bissau",
-  "Equatorial Guinea",
-  "Mauritius",
-  "Comoros",
-  "Cape Verde",
-  "Seychelles",
-];
-
-const registerSchema = z
-  .object({
-    username: z
-      .string()
-      .min(3, "Username must be at least 3 characters and lowercase")
-      .max(50)
-      .regex(
-        /^[a-z0-9._@-]+$/,
-        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
-      )
-      .refine((val) => !/\s/.test(val), {
-        message: "Username cannot contain spaces",
-      }),
-    password: z.string().min(6, "Password must be at least 6 characters"),
-    email: z
-      .string()
-      .email("Invalid email address")
-      .refine((val) => !/\s/.test(val), {
-        message: "Email cannot contain spaces",
-      }),
-    emailConfirm: z
-      .string()
-      .email("Invalid email address")
-      .refine((val) => !/\s/.test(val), {
-        message: "Email cannot contain spaces",
-      }),
-    firstName: z
-      .string()
-      .min(2, "First name must be at least 2 characters")
-      .refine((val) => !/\s/.test(val), {
-        message: "First name cannot contain spaces",
-      }),
-    lastName: z
-      .string()
-      .min(2, "Last name must be at least 2 characters")
-      .refine((val) => !/\s/.test(val), {
-        message: "Last name cannot contain spaces",
-      }),
-    city: z.string().optional(),
-    country: z.string().min(1, "Please select a country"),
-    gender: z.string().optional(),
-    school: z.string().optional(),
-    occupation: z.string().optional(),
-  })
-  .refine((data) => data.email === data.emailConfirm, {
-    message: "Emails do not match",
-    path: ["emailConfirm"],
-  });
-
-type RegisterValues = z.infer<typeof registerSchema>;
-
-const loginSchema = z.object({
-  username: z
-    .string()
-    .nonempty({
-      message: "Email is required",
-    })
-    .email("Invalid email address")
-    .refine((val) => !/\s/.test(val), {
-      message: "Email cannot contain spaces",
-    }),
-  password: z
-    .string()
-    .nonempty({
-      message: "Password is required",
-    })
-    .min(6, "Password must be at least 6 characters"),
-});
-
-type LoginValues = z.infer<typeof loginSchema>;
-
-const VERIFY_EMAIL = "/verify-email";
 
 function AuthLayout() {
   const router = useRouter();
@@ -221,7 +99,7 @@ function AuthLayout() {
 
       if (response.success === true) {
         console.log("Registration Successful, email sent.");
-        router.push(VERIFY_EMAIL);
+        router.push(`/verify-email?email=${encodeURIComponent(values.email)}`);
       } else {
         throw new Error("Registration failed. Please check your details.");
       }
@@ -666,7 +544,12 @@ function AuthLayout() {
                           Occupation
                         </FormLabel>
                         <Select
-                          onValueChange={field.onChange}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            if (value === "Extension Agent") {
+                              registerForm.setValue("school", "");
+                            }
+                          }}
                           value={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-white border-stone-200 focus:ring-emerald-500/20 rounded-lg w-full">
@@ -692,6 +575,9 @@ function AuthLayout() {
                       <FormItem>
                         <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
                           Institution
+                          {selectedOccupation === "Student" && (
+                            <span className="text-red-500 ml-0.5">*</span>
+                          )}
                         </FormLabel>
                         <FormControl>
                           <Input
@@ -743,10 +629,13 @@ function AuthLayout() {
                       <FormItem>
                         <FormLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
                           City
+                          {selectedCountry && (
+                            <span className="text-red-500 ml-0.5">*</span>
+                          )}
                         </FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Lagos"
+                            placeholder="Kano"
                             {...field}
                             disabled={!selectedCountry}
                             className="bg-white border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
@@ -757,7 +646,6 @@ function AuthLayout() {
                     )}
                   />
                 </div>
-
                 <div className="pt-4 flex gap-3">
                   <Button
                     type="button"
