@@ -88,7 +88,7 @@ const registerSchema = z
       .max(50)
       .regex(
         /^[a-z0-9._@-]+$/,
-        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)",
+        "Username must be lowercase, can only contain letters, numbers, and symbols: (.) (_) (@) (-)"
       )
       .refine((val) => !/\s/.test(val), {
         message: "Username cannot contain spaces",
@@ -132,8 +132,8 @@ const registerSchema = z
 type RegisterValues = z.infer<typeof registerSchema>;
 
 const loginSchema = z.object({
-  username: z.string().min(1, "Username or email is required"),
-  password: z.string().min(1, "Password is required"),
+  username: z.string().min(3, "Email is required"),
+  password: z.string().min(6, "Password is required"),
 });
 
 type LoginValues = z.infer<typeof loginSchema>;
@@ -241,9 +241,9 @@ function AuthLayout() {
         throw new Error(result.error || "Invalid credentials");
       }
 
-      // After successful Moodle login (token + privatetoken), get one-time login URL by email
       const email =
-        result.email ?? (values.username.includes("@") ? values.username : null);
+        result.email ??
+        (values.username.includes("@") ? values.username : null);
       if (!email) {
         throw new Error(
           "Could not determine email for redirect. Please try logging in with your email."
@@ -395,11 +395,11 @@ function AuthLayout() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-stone-700 font-medium">
-                        Username or Email
+                        Email
                       </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Enter your username or email"
+                          placeholder="Enter your email"
                           {...field}
                           className="h-12 border-stone-300 focus:border-green-500 focus:ring-green-500 rounded-xl"
                           disabled={isLoading}
@@ -450,7 +450,6 @@ function AuthLayout() {
                     </FormItem>
                   )}
                 />
-
                 <Button
                   type="submit"
                   disabled={isLoading}
