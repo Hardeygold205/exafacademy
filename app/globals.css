@@ -30,7 +30,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
+  --color-secondary: var(--secondaries);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primaries);
   --color-tetiary: var(--tetiary);
@@ -61,7 +61,8 @@ html {
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
-  --primaries: rgb(10, 58, 18);
+  --primaries: rgb(32, 101, 66);
+  --secondaries: rgb(179, 192, 62);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -97,7 +98,7 @@ html {
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
-  --primaries: rgb(10, 58, 18);
+  --primaries: rgb(32, 101, 66);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -142,4 +143,31 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  background: #90ee90;
+  color: #1a472a;
+  transform: translateY(-3px);
+  border-color: #90ee90;
 }

@@ -46,7 +46,7 @@ export default function OverView() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(currentRef);
@@ -185,8 +185,8 @@ export default function OverView() {
                     ? index === 0
                       ? count.students
                       : index === 1
-                      ? count.courses
-                      : count.country
+                        ? count.courses
+                        : count.country
                     : stat.value;
                 return (
                   <div key={index} className="text-center space-y-2">
@@ -287,8 +287,7 @@ export default function OverView() {
 
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-green-200 rounded-full blur-3xl opacity-30 -z-10" />
             <div className="absolute -top-8 -left-8 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-30 -z-10" />
-          </div> 
-
+          </div>
         </div>
       </div>
     </section>

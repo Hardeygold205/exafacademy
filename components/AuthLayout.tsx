@@ -137,7 +137,7 @@ function AuthLayout() {
         (values.username.includes("@") ? values.username : null);
       if (!email) {
         throw new Error(
-          "Could not determine email for redirect. Please try logging in with your email."
+          "Could not determine email for redirect. Please try logging in with your email.",
         );
       }
 
@@ -150,7 +150,7 @@ function AuthLayout() {
 
       if (!loginUrlRes.ok) {
         throw new Error(
-          loginUrlData.error || "Could not get login URL from Moodle"
+          loginUrlData.error || "Could not get login URL from Moodle",
         );
       }
 

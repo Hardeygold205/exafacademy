@@ -38,7 +38,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   };
 
   const [imageUrl, setImageUrl] = useState(
-    isValidImageUrl(rawImage) ? rawImage : defaultImage
+    isValidImageUrl(rawImage) ? rawImage : defaultImage,
   );
 
   const isAvailable = course.visible === 1;

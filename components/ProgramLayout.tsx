@@ -155,7 +155,7 @@ export default function ProgramLayout() {
       stiffness: 50,
       damping: 30,
       restDelta: 0.001,
-    }
+    },
   );
 
   return (

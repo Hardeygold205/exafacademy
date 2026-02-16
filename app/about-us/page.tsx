@@ -33,7 +33,8 @@ const AboutUs = () => {
         <div className="flex items-center space-x-4 mb-12">
           <div className="h-1 w-12 bg-green-600 rounded-full" />
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-            What is <span className="italic text-green-600">&quot;AFREXA&quot;</span> ?
+            What is{" "}
+            <span className="italic text-green-600">&quot;AFREXA&quot;</span> ?
           </h1>
         </div>
 
@@ -45,12 +46,20 @@ const AboutUs = () => {
             className="space-y-8">
             <div className="border-l-4 border-green-500 pl-6">
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-medium">
-                &quot;Afrexa is a digital learning and capacity-building platform developed by Extension Africa to support farmers, agribusiness professionals, and agricultural extension agents across Africa.&quot;
+                &quot;Afrexa is a digital learning and capacity-building
+                platform developed by Extension Africa to support farmers,
+                agribusiness professionals, and agricultural extension agents
+                across Africa.&quot;
               </p>
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed">
-              We deliver structured, practical courses focused on modern farming practices, agribusiness management, technology adoption, and extension service delivery through online modules, assessments, certifications, and digital badges. Providing accessible and scalable agricultural education designed to improve knowledge, skills, and productivity within the agricultural value chain.
+              We deliver structured, practical courses focused on modern farming
+              practices, agribusiness management, technology adoption, and
+              extension service delivery through online modules, assessments,
+              certifications, and digital badges. Providing accessible and
+              scalable agricultural education designed to improve knowledge,
+              skills, and productivity within the agricultural value chain.
             </p>
 
             <div className="bg-orange-50/50 backdrop-blur-sm border border-orange-100 p-8 rounded-2xl shadow-sm italic">

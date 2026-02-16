@@ -37,7 +37,7 @@ export default function HeroSection() {
         "Empowering Farmers, Transforming Lives. Master the business side of agriculture with expert-led modules.",
       cta: "Explore Courses",
       link: "/courses",
-      color: "bg-yellow-600",
+      color: "bg-secondary",
     },
     {
       image: "/hero-3.jpg",
@@ -47,7 +47,7 @@ export default function HeroSection() {
         "Join a community of forward-thinkers creating meaningful impact in the food security sector.",
       cta: "Join Community",
       link: "/register",
-      color: "bg-green-600",
+      color: "bg-primary",
     },
   ];
 

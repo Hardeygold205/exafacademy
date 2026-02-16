@@ -130,13 +130,12 @@ const TeamMemberCard = ({
           className={`group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 
             ${isExecutive ? "border-green-500 p-2 md:p-4 lg:p-8" : "border-gray-100"} 
             lg:hover:border-green-300 lg:hover:-translate-y-2`}>
-          
           {isExecutive && (
             <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10 hidden md:block">
               Executive
             </div>
           )}
-        
+
           <div
             className={`flex ${
               isExecutive ? "md:flex-row flex-col" : "flex-col"
@@ -225,7 +224,7 @@ const OurTeam = () => {
       stiffness: 50,
       damping: 30,
       restDelta: 0.001,
-    }
+    },
   );
 
   return (
