@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     }
 
     const baseUrl = process.env.NEXT_PUBLIC_LOGIN_BASE_URL;
-    const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN_AUTH_USERKEY;
+    const wsToken = process.env.MOODLE_WS_TOKEN_AUTH_USERKEY;
 
     if (!baseUrl || !wsToken) {
       return NextResponse.json(
@@ -39,6 +39,7 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
+    console.log("data", data);
 
     if (data.exception || !data.loginurl) {
       return NextResponse.json(

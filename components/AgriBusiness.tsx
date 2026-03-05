@@ -10,7 +10,6 @@ export default function AgriBusiness() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-green-50 to-white">
-      {/* Hero Section */}
       <section className="relative h-[60vh] sm:h-[65vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
           width={500}

@@ -129,6 +129,15 @@ function AuthLayout() {
       const result = await response.json();
 
       if (!response.ok) {
+        if (result.code === "emailnotconfirmed") {
+          const emailForRedirect = values.username.includes("@")
+            ? values.username
+            : "";
+          router.push(
+            `/pending-confirm${emailForRedirect ? `?email=${encodeURIComponent(emailForRedirect)}` : ""}`,
+          );
+          return;
+        }
         throw new Error(result.error || "Invalid credentials");
       }
 

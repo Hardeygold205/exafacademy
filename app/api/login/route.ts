@@ -44,7 +44,6 @@ export async function POST(request: Request) {
     }
 
     if (data.token) {
-
       let email: string | undefined;
       const restUrl = `${baseUrl}/webservice/rest/server.php`;
 
@@ -90,7 +89,7 @@ export async function POST(request: Request) {
     console.error("Moodle Error:", data.errorcode || data.error);
     return NextResponse.json(
       {
-        error: data.error || "Invalid login credentials",
+        error: "Wrong credentials" + (data.error ? `: ${data.error}` : ""),
         code: data.errorcode,
       },
       { status: 401 },
