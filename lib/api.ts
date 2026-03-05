@@ -12,10 +12,10 @@ import type {
 } from "@/types/register-login";
 
 export async function registerUser(
-  userData: RegisterUserPayload
+  userData: RegisterUserPayload,
 ): Promise<MoodleAPIResponse> {
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-  const wstoken = process.env.NEXT_PUBLIC_WS_TOKEN;
+  const wstoken = process.env.MOODLE_WS_TOKEN;
   const wsfunction = process.env.NEXT_PUBLIC_WS_FUNCTION;
   const moodlewsrestformat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT;
 
@@ -50,15 +50,15 @@ export async function registerUser(
   if (userData.gender) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_gender"
+      "profile_field_gender",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_gender"
+      "profile_field_gender",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.gender
+      userData.gender,
     );
     customFieldIndex++;
   }
@@ -66,15 +66,15 @@ export async function registerUser(
   if (userData.occupation) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_occupation"
+      "profile_field_occupation",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_occupation"
+      "profile_field_occupation",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.occupation
+      userData.occupation,
     );
     customFieldIndex++;
   }
@@ -82,15 +82,15 @@ export async function registerUser(
   if (userData.school) {
     formData.append(
       `customprofilefields[${customFieldIndex}][type]`,
-      "profile_field_school"
+      "profile_field_school",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][name]`,
-      "profile_field_school"
+      "profile_field_school",
     );
     formData.append(
       `customprofilefields[${customFieldIndex}][value]`,
-      userData.school
+      userData.school,
     );
     customFieldIndex++;
   }
@@ -103,7 +103,6 @@ export async function registerUser(
     });
 
     const data = response.data;
-    console.log(data);
 
     if (data.exception || data.errorcode) {
       throw new Error(data.message || "Registration failed");
@@ -137,10 +136,10 @@ export async function loginUser(credentials: LoginUserPayload) {
 }
 
 export async function getCourseCategories(
-  params: GetCategoriesParams = {}
+  params: GetCategoriesParams = {},
 ): Promise<CourseCategory[]> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
+  const wsToken = process.env.MOODLE_WS_TOKEN;
   const moodleRestFormat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT_COURSE;
 
   if (!baseUrl || !wsToken || !moodleRestFormat) {
@@ -166,7 +165,7 @@ export async function getCourseCategories(
     "addsubcategories",
     params.addsubcategories !== undefined
       ? String(Number(params.addsubcategories))
-      : ""
+      : "",
   );
 
   try {
@@ -185,8 +184,6 @@ export async function getCourseCategories(
       }
     }
 
-    console.log("Course Categories Response:", data);
-
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -200,10 +197,10 @@ export async function getCourseCategories(
 }
 
 export async function getCoursesByField(
-  params: CoursesByFieldParams
+  params: CoursesByFieldParams,
 ): Promise<GetCoursesByFieldResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
+  const wsToken = process.env.MOODLE_WS_TOKEN;
   const moodleRestFormat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT_COURSE;
 
   if (!baseUrl || !wsToken || !moodleRestFormat) {
@@ -226,7 +223,7 @@ export async function getCoursesByField(
 
     if (typeof response.data === "string" && response.data.includes("<?xml")) {
       throw new Error(
-        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'."
+        "API returned XML instead of JSON. Please check your NEXT_PUBLIC_MOODLE_REST_FORMAT environment variable. It should be set to 'json', not 'xml'.",
       );
     }
 

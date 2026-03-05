@@ -7,9 +7,39 @@ export async function POST(request: Request) {
 
     const rawBaseUrl = process.env.NEXT_PUBLIC_LOGIN_BASE_URL || "";
     const baseUrl = rawBaseUrl.replace(/\/$/, "");
-    const targetUrl = `${baseUrl}/login/token.php`;
+
+    const adminToken = process.env.MOODLE_WS_TOKEN;
     const service =
       process.env.NEXT_PUBLIC_MOODLE_SERVICE || "moodle_mobile_app";
+
+    const restUrl = `${baseUrl}/webservice/rest/server.php`;
+
+    const checkParams = new URLSearchParams({
+      wstoken: adminToken ?? "",
+      moodlewsrestformat: "json",
+      wsfunction: "core_user_get_users_by_field",
+      field: "email",
+      "values[0]": username,
+    });
+
+    const checkRes = await fetch(`${restUrl}?${checkParams.toString()}`, {
+      method: "POST",
+    });
+
+    const users = await checkRes.json();
+
+    if (Array.isArray(users) && users.length > 0) {
+      const user = users[0];
+
+      if (user.confirmed === false) {
+        return NextResponse.json(
+          { error: "email_not_confirmed", email: user.email },
+          { status: 403 },
+        );
+      }
+    }
+
+    const targetUrl = `${baseUrl}/login/token.php`;
 
     const params = new URLSearchParams();
     params.append("username", username);
@@ -24,50 +54,9 @@ export async function POST(request: Request) {
       body: params.toString(),
     });
 
-    const responseText = await response.text();
-
-    let data;
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      console.error(
-        "FAILED TO PARSE MOODLE RESPONSE. Raw content:",
-        responseText,
-      );
-      return NextResponse.json(
-        {
-          error:
-            "Moodle returned an invalid format (likely HTML/XML). Check your Base URL.",
-        },
-        { status: 500 },
-      );
-    }
+    const data = await response.json();
 
     if (data.token) {
-      let email: string | undefined;
-      const restUrl = `${baseUrl}/webservice/rest/server.php`;
-
-      const userParams = new URLSearchParams({
-        wstoken: data.token,
-        moodlewsrestformat: "json",
-        wsfunction: "core_user_get_users_by_field",
-        field: "id",
-        "values[0]": String(data.userid ?? ""),
-      });
-
-      try {
-        const userRes = await fetch(`${restUrl}?${userParams.toString()}`, {
-          method: "POST",
-        });
-        const userData = await userRes.json();
-        const users = Array.isArray(userData) ? userData : userData?.users;
-        if (users?.length > 0 && users[0].email) {
-          email = users[0].email;
-        }
-      } catch (e) {
-        console.warn("Could not fetch user email:", e);
-      }
-
       const cookieStore = await cookies();
 
       cookieStore.set("moodle_token", data.token, {
@@ -82,21 +71,19 @@ export async function POST(request: Request) {
         token: data.token,
         userid: data.userid,
         privatetoken: data.privatetoken,
-        email: email ?? username,
       });
     }
 
-    console.error("Moodle Error:", data.errorcode || data.error);
     return NextResponse.json(
       {
-        error: "Wrong credentials" + (data.error ? `: ${data.error}` : ""),
-        code: data.errorcode,
+        error: "Invalid login credentials",
+        message: "Invalid login credentials",
       },
       { status: 401 },
     );
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
-    console.error("SERVER-SIDE CRASH:", message);
+
     return NextResponse.json(
       { error: "Internal Server Error", details: message },
       { status: 500 },

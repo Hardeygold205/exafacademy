@@ -98,7 +98,6 @@ function AuthLayout() {
       }
 
       if (response.success === true) {
-        console.log("Registration Successful, email sent.");
         router.push(`/verify-email?email=${encodeURIComponent(values.email)}`);
       } else {
         throw new Error("Registration failed. Please check your details.");
@@ -129,10 +128,10 @@ function AuthLayout() {
       const result = await response.json();
 
       if (!response.ok) {
-        if (result.code === "emailnotconfirmed") {
-          const emailForRedirect = values.username.includes("@")
-            ? values.username
-            : "";
+        if (result.error === "email_not_confirmed") {
+          const emailForRedirect =
+            result.email ||
+            (values.username.includes("@") ? values.username : "");
           router.push(
             `/pending-confirm${emailForRedirect ? `?email=${encodeURIComponent(emailForRedirect)}` : ""}`,
           );

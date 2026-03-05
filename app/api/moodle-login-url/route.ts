@@ -39,7 +39,6 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
-    console.log("data", data);
 
     if (data.exception || !data.loginurl) {
       return NextResponse.json(
