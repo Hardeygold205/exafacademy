@@ -112,7 +112,6 @@ function AuthLayout() {
       registerForm.setError("root", {
         message: errorMessage,
       });
-      console.log("error", errorMessage);
     }
   }
 

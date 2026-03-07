@@ -15,7 +15,7 @@ export async function registerUser(
   userData: RegisterUserPayload,
 ): Promise<MoodleAPIResponse> {
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-  const wstoken = process.env.MOODLE_WS_TOKEN;
+  const wstoken = process.env.NEXT_PUBLIC_WS_TOKEN;
   const wsfunction = process.env.NEXT_PUBLIC_WS_FUNCTION;
   const moodlewsrestformat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT;
 
@@ -139,7 +139,7 @@ export async function getCourseCategories(
   params: GetCategoriesParams = {},
 ): Promise<CourseCategory[]> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const wsToken = process.env.MOODLE_WS_TOKEN;
+  const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
   const moodleRestFormat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT_COURSE;
 
   if (!baseUrl || !wsToken || !moodleRestFormat) {
@@ -200,7 +200,7 @@ export async function getCoursesByField(
   params: CoursesByFieldParams,
 ): Promise<GetCoursesByFieldResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const wsToken = process.env.MOODLE_WS_TOKEN;
+  const wsToken = process.env.NEXT_PUBLIC_WS_TOKEN;
   const moodleRestFormat = process.env.NEXT_PUBLIC_MOODLE_REST_FORMAT_COURSE;
 
   if (!baseUrl || !wsToken || !moodleRestFormat) {
