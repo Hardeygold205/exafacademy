@@ -22,7 +22,7 @@ import CourseCard from "@/components/CourseCard";
 
 const getCustomValue = (
   course: Course,
-  fieldShortName: string
+  fieldShortName: string,
 ): string | null => {
   if (!course.customfields) return null;
   const field = course.customfields.find((f) => f.shortname === fieldShortName);
@@ -87,7 +87,7 @@ export default function CourseDetail() {
           currentCourse.overviewfiles?.[0]?.fileurl ||
           "";
         setImageUrl(
-          isValidImageUrl(nextRawImage) ? nextRawImage : defaultImage
+          isValidImageUrl(nextRawImage) ? nextRawImage : defaultImage,
         );
 
         if (currentCourse.categoryid) {
@@ -314,11 +314,13 @@ export default function CourseDetail() {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => router.push("/login")}
-                  className="sticky top-40 w-full py-4 bg-linear-to-r from-primary to-green-500 hover:opacity-80 text-white font-bold rounded-xl shadow-lg shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1">
-                  Login to Enroll Now
-                </button>
+                {course.visible === 1 && (
+                  <button
+                    onClick={() => router.push("/login")}
+                    className="sticky top-40 w-full py-4 bg-linear-to-r from-primary to-green-500 hover:opacity-80 text-white font-bold rounded-xl shadow-lg shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                    Login to Enroll Now
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>

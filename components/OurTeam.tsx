@@ -1,274 +1,303 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Linkedin, Mail, Award, Users } from "lucide-react";
+import React from "react";
 import Image from "next/image";
+import { motion, Variants } from "framer-motion";
 
 const teamMembers = [
   {
     name: "Tajudeen Yahaya",
     role: "Chief Executive Officer",
-    image: "/md.jpg",
+    image: "/teams/md.jpg",
     linkedin: "https://www.linkedin.com/in/tajudeen-yahaya-67a61b106",
     tier: "executive",
   },
   {
     name: "Abdulsamad Isah",
     role: "Chief Operations Officer",
-    image: "/coo.jpg",
+    image: "/teams/coo.jpg",
     linkedin: "https://www.linkedin.com/in/abdulsamad-isah-138456ba",
     tier: "executive",
   },
   {
     name: "Fatima Abdullahi",
     role: "Human Resource",
-    image: "/hr.jpg",
+    image: "/teams/hr.jpg",
     linkedin: "https://www.linkedin.com/in/isah-fatima-436020238",
   },
   {
     name: "Nura Lawal",
     role: "Finance Lead",
-    image: "/fl.jpg",
+    image: "/teams/fl.jpg",
     linkedin: "https://www.linkedin.com/in/nura-lawal-24ab8222a/",
   },
   {
     name: "Nasiru Darma",
     role: "Operations Lead",
-    image: "/ol.jpg",
+    image: "/teams/ol.jpg",
     linkedin: "https://www.linkedin.com/in/nasiru-darma-0373339b",
   },
   {
     name: "Ezra Kolo",
     role: "Technology Lead",
-    image: "/cto.jpg",
+    image: "/teams/cto.jpg",
     linkedin: "https://www.linkedin.com/in/zhiriezra",
   },
   {
-    name: "Ifeoma Okoro",
+    name: "Abdulwahab Bello",
     role: "Business Development",
-    image: "/bd.jpg",
-    linkedin: "https://www.linkedin.com/in/ifeoma-okoro-5a156537",
+    image: "/teams/bd.png",
+    linkedin: "https://www.linkedin.com/in/bello-abdulwahab-4b7a141a8",
   },
   {
     name: "Hadiza Bala",
     role: "Thematic Coordinator",
-    image: "/tc.jpg",
+    image: "/teams/tc.jpg",
     linkedin: "https://www.linkedin.com/in/hadiza-bala-aliyu-a57abb232",
   },
   {
     name: "Nazeer Ahmad",
     role: "Rural Structure Development",
-    image: "/rs.jpg",
+    image: "/teams/rs.jpg",
     linkedin:
       "https://www.linkedin.com/in/nazeer-ahmad-phd-candidate-in-agronomy-6417b5126",
   },
   {
     name: "Alex Ochigbo",
     role: "Rural Structure Utilisation",
-    image: "/rsu.jpg",
+    image: "/teams/rsu.jpg",
     linkedin: "https://www.linkedin.com/in/alexander-ochigbo-76306b1a9",
   },
   {
     name: "Taofiqah Ajetunmobi",
     role: "Academic Coordinator",
-    image: "/ac.jpeg",
+    image: "/teams/ac.jpeg",
     linkedin:
       "https://www.linkedin.com/in/taofiqah-ajetunmobi-pmd-pro-0253031b6",
   },
   {
     name: "Joyce Okoro",
     role: "Monitoring & Evaluation",
-    image: "/me.jpeg",
+    image: "/teams/me.jpeg",
     linkedin: "https://www.linkedin.com/in/joyce-okoro-811097157",
   },
   {
-    name: "Joy Abodiya",
+    name: "Elizabeth Soladoye",
     role: "Communications & Media",
-    image: "/co.jpeg",
-    linkedin: "https://www.linkedin.com/in/joy-igonoh-7a2901233",
+    image: "/teams/co.jpeg",
+    linkedin: "https://www.linkedin.com/in/elizabeth-soladoye",
   },
 ];
 
-const TeamMemberCard = ({
+// LinkedIn SVG icon (same as Laravel version)
+const LinkedInIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    className="w-3 h-3">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+  </svg>
+);
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.07, ease: "easeOut" },
+  }),
+};
+
+// ── Executive card (larger, horizontal layout) ──────────────────────────────
+const ExecutiveCard = ({
   member,
   index,
 }: {
   member: (typeof teamMembers)[0];
   index: number;
-}) => {
-  const isExecutive = member.tier === "executive";
-  const isEven = index % 2 === 0;
-
-  return (
-    <div
-      className={`relative flex items-center mb-12 md:mb-20 ${
-        isEven ? "md:flex-row" : "md:flex-row-reverse"
-      }`}>
-      {isExecutive ? (
-        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center md:hidden justify-center w-10 h-10 md:w-12 md:h-12 z-20 bg-white rounded-full border-4 border-green-500 shadow-lg">
-          <Award className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
-        </div>
-      ) : (
-        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 z-20 bg-white rounded-full border-4 border-green-500 shadow-lg">
-          <Users className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
-        </div>
-      )}
-
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.6, type: "spring", stiffness: 100 },
-        }}
-        viewport={{ once: true, margin: "-100px" }}
-        className={`w-full ${
-          isExecutive ? "md:w-7/12" : "md:w-5/12"
-        } pl-12 md:pl-0`}>
-        <div
-          className={`group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 
-            ${isExecutive ? "border-green-500 p-2 md:p-4 lg:p-8" : "border-gray-100"} 
-            lg:hover:border-green-300 lg:hover:-translate-y-2`}>
-          {isExecutive && (
-            <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10 hidden md:block">
-              Executive
-            </div>
-          )}
-
-          <div
-            className={`flex ${
-              isExecutive ? "md:flex-row flex-col" : "flex-col"
-            } items-center gap-6 p-5 md:p-6`}>
-            <div className="relative shrink-0">
-              <div className="absolute inset-0 bg-green-200 rounded-full scale-110 blur-md opacity-40 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div
-                className={`relative overflow-hidden rounded-full border-4 shadow-lg transition-all duration-300
-                ${
-                  isExecutive
-                    ? "w-32 h-32 md:w-48 md:h-48 border-green-500/30"
-                    : "w-28 h-28 md:w-36 md:h-36 border-green-500/20 lg:border-white"
-                }
-                group-active:border-green-500`}>
-                <Image
-                  width={400}
-                  height={400}
-                  src={member.image}
-                  alt={member.name}
-                  className={`w-full h-full object-cover transition-all duration-700 
-                    grayscale-0 lg:grayscale lg:group-hover:grayscale-0 lg:group-hover:scale-110`}
-                />
-              </div>
-            </div>
-
-            <div
-              className={`flex flex-col ${
-                isExecutive ? "md:flex-1 md:text-left" : ""
-              } text-center md:text-left`}>
-              <h3
-                className={`font-bold text-gray-900 lg:group-hover:text-green-700 transition-colors 
-                ${
-                  isExecutive
-                    ? "text-xl md:text-2xl mb-2"
-                    : "text-base md:text-lg mb-1"
-                }`}>
-                {member.name}
-              </h3>
-              <p
-                className={`font-semibold text-green-600 uppercase tracking-wider mb-4
-                ${isExecutive ? "text-sm md:text-base" : "text-xs"}`}>
-                {member.role}
-              </p>
-
-              <div
-                className={`flex ${
-                  isExecutive ? "md:justify-start" : ""
-                } justify-center gap-3 
-                opacity-100 lg:opacity-0 lg:group-hover:opacity-100 
-                transform lg:translate-y-4 lg:group-hover:translate-y-0 
-                transition-all duration-500`}>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 bg-green-50 lg:bg-gray-50 rounded-full text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
-                  <Linkedin size={18} />
-                </a>
-                <button className="p-2.5 bg-green-50 lg:bg-gray-50 rounded-full text-gray-500 hover:bg-green-600 hover:text-white transition-all shadow-sm">
-                  <Mail size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      <div
-        className={`hidden md:block ${isExecutive ? "md:w-5/12" : "md:w-5/12"}`}
-      />
-    </div>
-  );
-};
-
-const OurTeam = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const height = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
-    {
-      stiffness: 50,
-      damping: 30,
-      restDelta: 0.001,
-    },
-  );
-
-  return (
-    <div
-      className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 font-sans"
-      ref={containerRef}>
-      <div className="max-w-7xl mx-auto text-center mb-16 bg-neutral-50 backdrop-blur-md rounded-b-2xl p-6 shadow-sm">
-        <h2 className="text-sm font-bold text-green-600 tracking-widest uppercase">
-          Leadership
-        </h2>
-        <p className="mt-2 text-3xl font-black text-gray-900 sm:text-5xl tracking-tight">
-          Meet Our Team
-        </p>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500 items-center">
-          We lead with care{" "}
-          <span className="text-green-600 text-2xl rounded-full items-center">
-            .
-          </span>{" "}
-          Our core value{" "}
-          <span className="text-green-600 text-2xl rounded-full">.</span> And
-          shared passion for driving agricultural innovation across Africa.
-        </p>
+}) => (
+  <motion.div
+    custom={index}
+    variants={cardVariants as Variants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-60px" }}
+    className="bg-white rounded-3xl overflow-hidden border border-green-100
+               shadow-[0_4px_24px_rgba(22,163,74,0.10)]
+               hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(22,163,74,0.18)]
+               transition-all duration-500 flex flex-col">
+    {/* Photo */}
+    <div className="px-5 pt-5">
+      <div className="overflow-hidden rounded-2xl">
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={600}
+          height={380}
+          className="w-full h-[300px] object-cover object-top
+                     transition-transform duration-500 hover:scale-105"
+        />
       </div>
+    </div>
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gray-200 -translate-x-1/2 rounded-full hidden md:block" />
+    {/* Info */}
+    <div className="flex flex-col items-center text-center px-6 py-5 flex-1">
+      <h3 className="text-[1.1rem] font-semibold text-gray-900 mb-1">
+        {member.name}
+      </h3>
+      <p className="text-[11px] font-bold uppercase tracking-widest text-green-700 mb-4">
+        {member.role}
+      </p>
+      <a
+        href={member.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex items-center gap-1.5 px-3.5 py-1.5
+                   border border-green-200 rounded-full text-green-800
+                   text-[11px] font-semibold tracking-wide
+                   hover:bg-green-600 hover:border-green-600 hover:text-white
+                   transition-all duration-250 hover:scale-105">
+        <LinkedInIcon />
+        LinkedIn
+      </a>
+    </div>
+  </motion.div>
+);
 
-        <motion.div
-          style={{ height }}
-          className="absolute left-8 top-0 bottom-0 w-1 bg-green-600 -translate-x-1/2 rounded-full md:hidden"
+// ── Regular team member card ─────────────────────────────────────────────────
+const MemberCard = ({
+  member,
+  index,
+}: {
+  member: (typeof teamMembers)[0];
+  index: number;
+}) => (
+  <motion.div
+    custom={index}
+    variants={cardVariants as Variants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-60px" }}
+    className="bg-white rounded-2xl overflow-hidden border border-green-50
+               shadow-[0_2px_12px_rgba(22,163,74,0.07)]
+               hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(22,163,74,0.16)]
+               transition-all duration-500 flex flex-col">
+    {/* Photo */}
+    <div className="px-4 pt-4">
+      <div className="overflow-hidden rounded-xl">
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={400}
+          height={200}
+          className="w-full h-[150px] object-cover object-top
+                     transition-transform duration-500 hover:scale-105"
         />
+      </div>
+    </div>
 
+    {/* Info */}
+    <div className="flex flex-col items-center text-center px-4 py-4 flex-1">
+      <h3 className="text-[1rem] font-semibold text-gray-900 mb-1 leading-snug">
+        {member.name}
+      </h3>
+      <p className="text-[11px] font-bold uppercase tracking-wider text-green-700 mb-3">
+        {member.role}
+      </p>
+      <a
+        href={member.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5
+                   border border-green-200 rounded-full text-green-800
+                   text-[11px] font-semibold tracking-wide
+                   hover:bg-green-600 hover:border-green-600 hover:text-white
+                   transition-all duration-250 hover:scale-105">
+        <LinkedInIcon />
+        LinkedIn
+      </a>
+    </div>
+  </motion.div>
+);
+
+// ── Main component ────────────────────────────────────────────────────────────
+const OurTeam = () => {
+  const executives = teamMembers.filter((m) => m.tier === "executive");
+  const members = teamMembers.filter((m) => m.tier !== "executive");
+
+  return (
+    <section
+      className="py-24 px-6"
+      style={{
+        background:
+          "linear-gradient(170deg, #fafaf9 0%, #f0fdf4 60%, #fafaf9 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+      {/* ── Header ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-width-[1200px] mx-auto text-center mb-16 max-w-[1200px]">
+        {/* Eyebrow pill */}
+        <span
+          className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full
+                        bg-green-50 border border-green-200 text-green-800
+                        text-[11px] font-bold uppercase tracking-widest mb-5">
+          The People
+        </span>
+
+        <h2 className="text-[clamp(2.4rem,4.5vw,3.6rem)] font-black text-gray-900 leading-tight mb-4">
+          Meet Our <span className="text-green-600">Team</span>
+        </h2>
+        <p className="text-[1.05rem] text-gray-500 max-w-[520px] mx-auto leading-relaxed">
+          Passionate individuals driving agricultural innovation and
+          transformation across Africa.
+        </p>
+      </motion.div>
+
+      <div className="max-w-[1200px] mx-auto">
+        {/* ── Executive row (2 cards, centered, wider) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[680px] mx-auto mb-10">
+          {executives.map((member, i) => (
+            <ExecutiveCard key={member.name} member={member} index={i} />
+          ))}
+        </div>
+
+        {/* ── Divider ── */}
         <motion.div
-          style={{ height }}
-          className="absolute left-8 md:left-1/2 top-0 w-1 bg-green-600 -translate-x-1/2 rounded-full origin-top z-10 hidden md:block"
-        />
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-px bg-green-100" />
+          <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">
+            Our Talented Team
+          </span>
+          <div className="flex-1 h-px bg-green-100" />
+        </motion.div>
 
-        <div className="relative z-20">
-          {teamMembers.map((member, index) => (
-            <TeamMemberCard key={index} member={member} index={index} />
+        {/* ── Team grid (5 columns → responsive) ── */}
+        <div
+          className="grid gap-5
+                        grid-cols-2
+                        sm:grid-cols-3
+                        md:grid-cols-4
+                        lg:grid-cols-5">
+          {members.map((member, i) => (
+            <MemberCard
+              key={member.name}
+              member={member}
+              index={executives.length + i}
+            />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,23 +1,22 @@
-import React from "react";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
 
 const partners = [
-  { src: "/africarice.png", name: "Africa Rice Center" },
-  { src: "/agra.png", name: "AGRA" },
-  { src: "/disignocracy.png", name: "Disignocracy" },
-  { src: "/giz.png", name: "GIZ" },
-  { src: "/ignitia.png", name: "Ignitia" },
-  { src: "/ncx.png", name: "NCX" },
-  { src: "/smesabiOrig.png", name: "Smesabi" },
-  { src: "/sawbo.png", name: "SAWBO" },
-  { src: "/power.png", name: "Power Africa" },
-  { src: "/plantvillage.jpeg", name: "Plant Village" },
-  { src: "/cosmic sports.png", name: "Cosmic Sports" },
-  { src: "/mercy corps.png", name: "Mercy Corps" },
-  { src: "/rex.png", name: "Rex" },
-  { src: "/kick.png", name: "Kick" },
-  { src: "/asolar.png", name: "Asolar" },
-  { src: "/bayer.svg.png", name: "Bayer" },
+  { src: "/partners/africarice.png", name: "Africa Rice Center" },
+  { src: "/partners/agra.png", name: "AGRA" },
+  { src: "/partners/disignocracy.png", name: "Disignocracy" },
+  { src: "/partners/giz.png", name: "GIZ" },
+  { src: "/partners/ignitia.png", name: "Ignitia" },
+  { src: "/partners/ncx.png", name: "NCX" },
+  { src: "/partners/smesabiOrig.png", name: "Smesabi" },
+  { src: "/partners/sawbo.png", name: "SAWBO" },
+  { src: "/partners/power.png", name: "Power Africa" },
+  { src: "/partners/plantvillage.jpeg", name: "Plant Village" },
+  { src: "/partners/cosmic sports.png", name: "Cosmic Sports" },
+  { src: "/partners/mercy corps.png", name: "Mercy Corps" },
+  { src: "/partners/rex.png", name: "Rex" },
+  { src: "/partners/kick.png", name: "Kick" },
+  { src: "/partners/asolar.png", name: "Asolar" },
+  { src: "/partners/bayer.svg.png", name: "Bayer" },
 ];
 
 const row1 = partners.slice(0, partners.length / 2);
