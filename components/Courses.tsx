@@ -12,12 +12,14 @@ import {
   LayoutGrid,
   Loader2,
   AlertCircle,
+  Computer,
 } from "lucide-react";
 
 const CATEGORIES = {
   TECHNICAL_SKILLS: "23",
   AGRIBUSINESS: "24",
   SOFT_SKILLS: "22",
+  DIGITAL_SKILLS: "25",
 };
 
 type SectionHeaderProps = {
@@ -52,6 +54,9 @@ export default function CoursePage() {
   const [technicalCourses, setTechnicalCourses] = useState<Course[]>([]);
   const [agribusinessCourses, setAgribusinessCourses] = useState<Course[]>([]);
   const [softSkillsCourses, setSoftSkillsCourses] = useState<Course[]>([]);
+  const [digitalSkillsCourses, setDigitalSkillsCourses] = useState<Course[]>(
+    [],
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -59,28 +64,34 @@ export default function CoursePage() {
     async function fetchCourses() {
       try {
         setLoading(true);
-        const [technical, agribusiness, softSkills] = await Promise.all([
-          getCoursesByField({
-            field: "category",
-            value: CATEGORIES.TECHNICAL_SKILLS,
-          }),
-          getCoursesByField({
-            field: "category",
-            value: CATEGORIES.AGRIBUSINESS,
-          }),
-          getCoursesByField({
-            field: "category",
-            value: CATEGORIES.SOFT_SKILLS,
-          }),
-        ]);
+        const [technical, agribusiness, softSkills, digitalSkills] =
+          await Promise.all([
+            getCoursesByField({
+              field: "category",
+              value: CATEGORIES.TECHNICAL_SKILLS,
+            }),
+            getCoursesByField({
+              field: "category",
+              value: CATEGORIES.AGRIBUSINESS,
+            }),
+            getCoursesByField({
+              field: "category",
+              value: CATEGORIES.SOFT_SKILLS,
+            }),
+            getCoursesByField({
+              field: "category",
+              value: CATEGORIES.DIGITAL_SKILLS,
+            }),
+          ]);
 
         setTechnicalCourses(technical?.courses || []);
         setAgribusinessCourses(agribusiness?.courses || []);
         setSoftSkillsCourses(softSkills?.courses || []);
+        setDigitalSkillsCourses(digitalSkills?.courses || []);
       } catch (err) {
         console.error("Error fetching courses:", err);
         setError(
-          err instanceof Error ? err.message : "Failed to fetch courses"
+          err instanceof Error ? err.message : "Failed to fetch courses",
         );
       } finally {
         setLoading(false);
@@ -106,6 +117,11 @@ export default function CoursePage() {
       id: "soft_skills",
       label: "Soft Skills",
       icon: <Users className="w-5 h-5" />,
+    },
+    {
+      id: "digital_skills",
+      label: "Digital Skills",
+      icon: <Computer className="w-5 h-5" />,
     },
   ];
 
@@ -299,6 +315,28 @@ export default function CoursePage() {
                   )}
                 </div>
               </motion.div>
+
+              {/* Digital Skills Section */}
+              <motion.div variants={sectionVariants}>
+                <SectionHeader
+                  title="Digital Skills"
+                  icon={<Computer className="w-6 h-6" />}
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {digitalSkillsCourses.length > 0 &&
+                  digitalSkillsCourses.some(
+                    (course) => course.visible === 1,
+                  ) ? (
+                    digitalSkillsCourses.map((course) => (
+                      <CourseCard key={course.id} course={course} />
+                    ))
+                  ) : (
+                    <p className="text-gray-500 col-span-full text-center py-4">
+                      Digital skills courses coming soon.
+                    </p>
+                  )}
+                </div>
+              </motion.div>
             </motion.div>
           ) : (
             <motion.div
@@ -311,14 +349,26 @@ export default function CoursePage() {
               {(activeTab === "technical"
                 ? technicalCourses
                 : activeTab === "agribusiness"
-                ? agribusinessCourses
-                : softSkillsCourses
+                  ? agribusinessCourses
+                  : activeTab === "soft_skills"
+                    ? softSkillsCourses
+                    : activeTab === "digital_skills"
+                      ? digitalSkillsCourses.filter(
+                          (course) => course.visible === 1,
+                        )
+                      : []
               ).length > 0 ? (
                 (activeTab === "technical"
                   ? technicalCourses
                   : activeTab === "agribusiness"
-                  ? agribusinessCourses
-                  : softSkillsCourses
+                    ? agribusinessCourses
+                    : activeTab === "soft_skills"
+                      ? softSkillsCourses
+                      : activeTab === "digital_skills"
+                        ? digitalSkillsCourses.filter(
+                            (course) => course.visible === 1,
+                          )
+                        : []
                 ).map((course) => (
                   <motion.div
                     key={course.id}
@@ -333,7 +383,9 @@ export default function CoursePage() {
                   animate={{ opacity: 1 }}
                   className="col-span-full py-20 text-center bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                   <p className="text-gray-400 text-lg">
-                    No courses found in this category at the moment.
+                    {activeTab === "digital_skills"
+                      ? "Digital skills courses coming soon."
+                      : "No courses found in this category at the moment."}
                   </p>
                 </motion.div>
               )}

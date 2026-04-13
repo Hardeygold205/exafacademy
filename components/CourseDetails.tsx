@@ -186,7 +186,7 @@ export default function CourseDetail() {
                   </span>
                 ) : (
                   <span className="px-3 py-1 bg-red-500/20 border border-red-500/30 text-red-400 rounded-full text-xs font-bold uppercase tracking-wider">
-                    Closed
+                    Coming Soon
                   </span>
                 )}
               </motion.div>

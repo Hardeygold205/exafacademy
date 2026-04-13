@@ -14,6 +14,10 @@ const partners = [
   { src: "/plantvillage.jpeg", name: "Plant Village" },
   { src: "/cosmic sports.png", name: "Cosmic Sports" },
   { src: "/mercy corps.png", name: "Mercy Corps" },
+  { src: "/rex.png", name: "Rex" },
+  { src: "/kick.png", name: "Kick" },
+  { src: "/asolar.png", name: "Asolar" },
+  { src: "/bayer.svg.png", name: "Bayer" },
 ];
 
 const row1 = partners.slice(0, partners.length / 2);
@@ -25,9 +29,11 @@ function PartnerShip() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-50 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <span className="text-primary font-bold tracking-wider uppercase text-sm">
-          Our Ecosystem
-        </span>
+        <div className="inline-flex items-center px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
+          <span className="text-primary font-bold tracking-wider text-sm">
+            OUR PARTNERS
+          </span>
+        </div>
         <h2 className="text-3xl md:text-5xl text-primary mt-3 mb-3">
           Trusted by Industry Leaders
         </h2>

@@ -131,12 +131,12 @@ export default function NavBar() {
   return (
     <header
       className={cn(
-        "w-full h-auto top-0 right-0 left-0 bg-primary shadow-2xl z-50 px-2",
+        "w-full h-auto top-0 right-0 left-0 bg-primary shadow-2xl z-50 [@media(min-width:870px)]:px-2 px-1",
         isAuthPage
           ? "fixed opacity-100"
           : isFixed
-          ? "fixed opacity-0 animate-fadeInDown "
-          : "relative opacity-100"
+            ? "fixed opacity-0 animate-fadeInDown "
+            : "relative opacity-100",
       )}
       style={{
         animation:
@@ -154,8 +154,9 @@ export default function NavBar() {
             />
           </Link>
         </div>
+
         <NavigationMenu className="hidden [@media(min-width:803px)]:flex">
-          <NavigationMenuList>
+          <NavigationMenuList className="[@media(min-width:870px)]:gap-0">
             <NavigationMenuItem>
               <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -220,7 +221,7 @@ export default function NavBar() {
           <div className="hidden sm:flex flex-row gap-1 items-center">
             <Link
               href="/register"
-              className="bg-transparent text-white border px-2 py-1 md:px-4 md:py-2 rounded-md font-semibold hover:opacity-80 transition hover:-translate-y-0.5 ease-in-out duration-300">
+              className="bg-transparent text-white border px-3 py-1 [@media(min-width:870px)]:px-4 [@media(min-width:870px)]:py-2 rounded-3xl font-semibold hover:opacity-80 transition hover:-translate-y-0.5 ease-in-out duration-300">
               Register
             </Link>
             <div
@@ -229,7 +230,7 @@ export default function NavBar() {
               aria-orientation="vertical"></div>
             <Link
               href="/login"
-              className="bg-white text-primary px-2 py-1 md:px-4 md:py-2 rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
+              className="[@media(min-width:870px)]:px-4 [@media(min-width:870px)]:py-2 bg-white text-primary px-3 py-1  rounded-3xl font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
               Login
             </Link>
           </div>
@@ -292,23 +293,23 @@ export default function NavBar() {
 
             <div className="border-b pb-2">
               <Link
-                className="hover:opacity-80 hover:font-medium text-lg block py-2"
+                className="hover:opacity-80 hover:font-medium font-semibold text-lg block py-2"
                 href="/courses"
                 onClick={() => setOpen(false)}>
                 Available Courses
               </Link>
             </div>
-            <div className="flex-col gap-1 items-center justify-center flex mt-4 w-full">
+            <div className="flex-col gap-3 items-center justify-center flex mt-4 w-full">
               <Link
                 onClick={() => setOpen(false)}
                 href="/register"
-                className="bg-transparent text-primary border border-primary w-full py-4 text-center rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
+                className="bg-transparent text-primary border border-primary w-full py-4 text-center rounded-full font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
                 Register
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href="/login"
-                className="bg-primary text-white w-full text-center py-4 rounded-md font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
+                className="bg-primary text-white w-full text-center py-4 rounded-full font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
                 Login
               </Link>
             </div>
@@ -336,7 +337,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}>
           <div className="text-sm font-medium leading-none">{title}</div>
@@ -363,7 +364,7 @@ const MobileDropdown = ({ title, items, setOpen }: MobileDropdownProps) => {
     <div className="border-b border-gray-100 last:border-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between py-2 text-lg hover:font-medium hover:opacity-80 text-left">
+        className="flex w-full items-center font-semibold justify-between py-2 text-lg hover:font-medium hover:opacity-80 text-left">
         {title}
         {isOpen ? (
           <ChevronUp className="h-5 w-5 text-gray-500" />

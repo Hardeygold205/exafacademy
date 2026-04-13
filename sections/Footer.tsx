@@ -4,13 +4,6 @@ import Link from "next/link";
 import { Mail, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-// import {
-//   RiTwitterXFill,
-//   RiFacebookFill,
-//   RiLinkedinFill,
-//   RiInstagramFill,
-// } from "react-icons/ri";
-// import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

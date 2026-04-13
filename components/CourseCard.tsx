@@ -98,7 +98,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               </span>
             ) : (
               <span className="text-xs font-medium text-red-500 flex items-center gap-1">
-                <AlertCircle className="w-3.5 h-3.5" /> Closed
+                <AlertCircle className="w-3.5 h-3.5" /> Coming Soon
               </span>
             )}
             <span className="text-[10px] text-gray-400 mt-0.5">

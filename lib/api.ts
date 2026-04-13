@@ -233,9 +233,9 @@ export async function getCoursesByField(
       console.warn("API Warnings:", data.warnings);
     }
 
-    if (data.courses) {
-      data.courses = data.courses.filter((course) => course.visible === 1);
-    }
+    // if (data.courses) {
+    //   data.courses = data.courses.filter((course) => course.visible === 1);
+    // }
 
     return data;
   } catch (error) {
