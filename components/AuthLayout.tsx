@@ -181,67 +181,53 @@ function AuthLayout() {
 
   return (
     <div className="min-h-screen w-full flex bg-[#FDFCF8] text-stone-800 font-sans selection:bg-green-100">
-      <div className="hidden lg:flex lg:w-1/2 bg-emerald-900 flex-col justify-between p-12 overflow-hidden h-screen sticky top-0">
+      <div className="hidden lg:flex lg:w-1/2 bg-primary flex-col justify-between p-12 overflow-hidden h-screen sticky top-0">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/loginpage.jpg"
+            src="/bisi&musa.png"
             alt="Agriculture background"
             fill
             className="object-cover opacity-60 mix-blend-overlay"
             priority
           />
-          <div className="absolute inset-0 bg-linear-to-t from-emerald-950 via-emerald-900/80 to-emerald-900/40" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/20 to-primary/50" />
         </div>
 
-        <div></div>
-
-        <div className="relative z-10 max-w-lg justify-center flex flex-col items-center">
+        <div className="z-10 max-w-lg absolute right-0 left-0 flex-col mx-auto justify-center h-auto bottom-2 ">
           <div className="space-y-6">
-            <h1 className="text-4xl/tight font-bold text-white">
-              Cultivating Knowledge, <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-200 to-yellow-200">
-                Growing the Future.
-              </span>
+            {/* Headline */}
+            <h1 className="text-4xl font-bold text-white leading-tight">
+              Grow your knowledge. <br />
+              <span className="text-emerald-200">Transform agriculture.</span>
             </h1>
-            <p className="text-emerald-100/80 text-lg leading-relaxed">
-              Join the largest network of agricultural professionals. Access
-              resources, connect with experts, and drive sustainable growth
-              across the continent.
+
+            {/* Subtext */}
+            <p className="text-emerald-100/90 text-lg leading-relaxed">
+              Join a new generation of farmers, students, and extension agents
+              building smarter, more sustainable agricultural systems across
+              Africa.
             </p>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex items-center gap-3 pt-4">
               <div className="flex -space-x-3">
-                {[
-                  { image: "/IMG_1.jpg" },
-                  { image: "/IMG_2.jpg" },
-                  { image: "/IMG_3.jpg" },
-                  { image: "/IMG_4.jpg" },
-                ].map(({ image }, index) => (
+                {["/IMG_1.jpg", "/IMG_2.jpg", "/IMG_3.jpg"].map((img, i) => (
                   <Image
-                    key={image}
-                    src={image}
-                    alt={`Community member ${index + 1}`}
+                    key={i}
+                    src={img}
+                    alt=""
                     width={40}
                     height={40}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-white"
+                    className="rounded-full border-2 border-white"
                   />
                 ))}
-                <div className="w-10 h-10 rounded-full bg-transparent border-2 border-white flex items-center justify-center text-xs font-bold text-white">
-                  +1K
+                <div className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-xs font-bold text-white">
+                  +4K
                 </div>
               </div>
-              <div className="flex flex-col justify-center">
-                <span className="text-emerald-200 text-sm">
-                  Joined this month
-                </span>
-              </div>
+              <p className="text-emerald-200 text-sm">Learners across Africa</p>
             </div>
-          </div>
-        </div>
 
-        <div className="relative z-10 flex justify-between text-emerald-200/60 text-sm">
-          <p>© {new Date().getFullYear()} Extension Africa Academy</p>
-          <p>Privacy Policy</p>
+          </div>
         </div>
       </div>
 
@@ -261,12 +247,12 @@ function AuthLayout() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 p-1 bg-stone-100 rounded-xl">
+          <div className="grid grid-cols-2 p-1 bg-stone-100 rounded-xl sticky top-18 shadow-md z-40">
             <Link
               href="/login"
               className={`flex items-center justify-center py-2.5 text-sm font-medium rounded-lg transition-all ${
                 isLogin
-                  ? "bg-white text-stone-900 shadow-sm"
+                  ? "bg-primary text-white shadow-sm"
                   : "text-stone-500 hover:text-stone-900"
               }`}>
               Sign In
@@ -275,7 +261,7 @@ function AuthLayout() {
               href="/register"
               className={`flex items-center justify-center py-2.5 text-sm font-medium rounded-lg transition-all ${
                 !isLogin
-                  ? "bg-white text-stone-900 shadow-sm"
+                  ? "bg-primary text-white shadow-sm"
                   : "text-stone-500 hover:text-stone-900"
               }`}>
               Register
@@ -351,14 +337,17 @@ function AuthLayout() {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-12 bg-primary hover:bg-green-700 text-white rounded-xl font-semibold text-base shadow-sm hover:shadow transition-all">
+                  className="w-full h-12 bg-primary hover:bg-emerald-800 group text-white rounded-xl font-semibold text-base shadow-sm hover:shadow transition-all">
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       Signing in...
                     </>
                   ) : (
-                    "Sign In"
+                    <>
+                      Sign In{" "}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </>
                   )}
                 </Button>
 
