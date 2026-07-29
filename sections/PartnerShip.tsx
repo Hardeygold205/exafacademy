@@ -28,11 +28,11 @@ function PartnerShip() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-50 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <div className="inline-flex items-center px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
+        {/* <div className="inline-flex items-center px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
           <span className="text-primary font-bold tracking-wider text-sm">
             OUR PARTNERS
           </span>
-        </div>
+        </div> */}
         <h2 className="text-3xl md:text-5xl text-primary mt-3 mb-3">
           Trusted by Industry Leaders
         </h2>

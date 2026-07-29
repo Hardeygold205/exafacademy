@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import HoverLink from "@/components/ui/HoverLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,6 +34,112 @@ export default function Footer() {
             Building the largest network of reliable Extension Agents across
             Africa!
           </p>
+        </div>
+
+        {/* Links Grid */}
+        <div className="lg:col-span-5 grid gap-8 gap-y-8 md:gap-5 grid-cols-2 lg:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+          {/* Company */}
+          <div>
+            <h6 className="text-lg font-semibold mb-4 text-white uppercase">
+              [ Company ]
+            </h6>
+            <ul className="space-y-3">
+              {[
+                "About Us",
+                "Our Team",
+                "Careers",
+                "Terms of Use",
+                "Privacy Policy",
+              ].map((item) => (
+                <li key={item}>
+                  <HoverLink
+                    hoverColor="text-black"
+                    className="text-sm"
+                    href={
+                      item === "Careers"
+                        ? "https://career.extensionafrica.com"
+                        : item === "Our Team"
+                          ? "/our-team"
+                          : item === "Terms of Use"
+                            ? "https://extensionafrica.com/terms-of-use"
+                            : item === "Privacy Policy"
+                              ? "https://extensionafrica.com/privacy-policy"
+                              : "/about-us"
+                    }>
+                    {item}
+                  </HoverLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* {Program} */}
+          <div>
+            <h6 className="text-lg font-semibold mb-4 text-white uppercase">
+              [ Programs ]
+            </h6>
+            <ul className="space-y-3">
+              {[
+                { name: "Recent Graduate", link: "/recent-graduate" },
+                { name: "Undergraduate Training", link: "/under-graduate" },
+                { name: "Agribusiness", link: "/agribusiness" },
+                { name: "Shaping The Future", link: "/ecosystem" },
+              ].map((index, service) => (
+                <li key={service}>
+                  <HoverLink
+                    hoverColor="text-black"
+                    href={index.link}
+                    className=" text-sm flex items-start">
+                    {index.name}
+                  </HoverLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h6 className="text-lg font-semibold mb-4 text-white uppercase">
+              [ Contact Us ]
+            </h6>
+            <ul className="space-y-3 text-gray-300">
+              <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm">+234-703-562-1550</p>
+                  <p className="text-xs text-gray-400">Calls & Support</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="w-4 h-4 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm overflow-hidden text-ellipsis break-all">
+                    e-learning@extensionafrica.com
+                  </p>
+                  <p className="text-xs text-gray-400">General inquiries</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-2">
+                <Clock className="w-4 h-4 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm">24/7 Support</p>
+                  <p className="text-xs text-gray-400">Monitored 24 hours</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 border-t border-gray-400 pt-8 max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row gap-6 text-sm text-white justify-center text-center">
+            <p className="text-white text-sm">
+              &copy; {currentYear} Extension Aftrica Academy. All rights
+              reserved.
+            </p>
+          </div>
+
           <div className="social-links flex flex-rol gap-2 justify-start items-center">
             <a
               href="https://web.facebook.com/extensionafrica"
@@ -86,197 +193,6 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-
-          {/* <div className="flex gap-4 pt-2 items-center ">
-            <motion.a
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              href="https://www.instagram.com/extensionafrica"
-              className="bg-primary/10 border border-gray-400 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
-              aria-label="GitHub">
-              <RiInstagramFill className="w-5 h-5" />
-            </motion.a>
-            <div
-              className="w-px h-6 bg-gray-400"
-              role="separator"
-              aria-orientation="vertical"></div>
-            <motion.a
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              href="https://www.linkedin.com/company/extension-africa/posts/?feedView=all"
-              className="bg-primary/10 border border-gray-400 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
-              aria-label="LinkedIn">
-              <RiLinkedinFill className="w-5 h-5" />
-            </motion.a>
-            <div
-              className="w-px h-6 bg-gray-400"
-              role="separator"
-              aria-orientation="vertical"></div>
-            <motion.a
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              href="https://x.com/extensionafrica"
-              className="bg-primary/10 border border-gray-400 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
-              aria-label="Twitter">
-              <RiTwitterXFill className="w-5 h-5" />
-            </motion.a>
-            <div
-              className="w-px h-6 bg-gray-400"
-              role="separator"
-              aria-orientation="vertical"></div>
-            <motion.a
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
-              href="https://web.facebook.com/extensionafrica"
-              className="bg-primary/10 border border-gray-400 p-2 rounded-xl hover:opacity-80 hover:scale-105 ease-in-out delay-150 duration-300"
-              aria-label="Twitter">
-              <RiFacebookFill className="w-5 h-5" />
-            </motion.a>
-          </div> */}
-        </div>
-
-        {/* Links Grid */}
-        <div className="lg:col-span-5 grid gap-8 gap-y-8 md:gap-5 grid-cols-2 lg:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div>
-            <h6 className="text-lg font-semibold mb-4 text-white uppercase">Programs</h6>
-            <ul className="space-y-3">
-              {[
-                { name: "Recent Graduate", link: "/recent-graduate" },
-                { name: "Undergraduate Training", link: "/under-graduate" },
-                { name: "Agribusiness", link: "/agribusiness" },
-                { name: "Shaping The Future", link: "/ecosystem" },
-              ].map((index, service) => (
-                <li key={service}>
-                  <Link
-                    href={index.link}
-                    className="text-gray-300 hover:opacity-80 transition-colors text-sm flex items-start">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-2 shrink-0"></span>
-                    {index.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h6 className="text-lg font-semibold mb-4 text-white uppercase">Company</h6>
-            <ul className="space-y-3">
-              {["About Us", "Our Team", "Careers"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={
-                      item === "Careers"
-                        ? "https://career.extensionafrica.com"
-                        : item === "Our Team"
-                          ? "/our-team"
-                          : "/about-us"
-                    }
-                    className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h6 className="text-lg font-semibold mb-4 text-white uppercase">Products</h6>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="https://academy.extensionafrica.com"
-                  className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                  AfrExa
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://farmex.extensionafrica.com"
-                  className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                  FarmEx
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://chatbox.extensionafrica.com"
-                  className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                  AbokiNoma
-                </Link>
-              </li>
-              <li>
-                <Link
-                  target="_blank"
-                  href="https://case.extensionafrica.com"
-                  className="text-gray-300 hover:opacity-80 transition-colors text-sm">
-                  CASE
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h6 className="text-lg font-semibold mb-4 text-white uppercase">Contact Us</h6>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-start gap-2">
-                <Phone className="w-4 h-4 mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-sm">+234-703-562-1550</p>
-                  <p className="text-xs text-gray-400">Calls & Support</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail className="w-4 h-4 mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-sm overflow-hidden text-ellipsis break-all">
-                    e-learning@extensionafrica.com
-                  </p>
-                  <p className="text-xs text-gray-400">General inquiries</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock className="w-4 h-4 mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-sm">24/7 Support</p>
-                  <p className="text-xs text-gray-400">Monitored 24 hours</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-16 border-t border-gray-400 pt-8 max-w-7xl mx-auto">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col md:flex-row gap-6 text-sm text-white justify-center text-center">
-            <Link href="#" className="hover:text-gray-400 transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="hover:text-gray-400 transition-colors">
-              Privacy Policy
-            </Link>
-          </div>
-
-          <p className="text-white text-sm">
-            &copy; {currentYear} Extension Aftrica Academy. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

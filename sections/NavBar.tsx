@@ -1,22 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X, ChevronDown, ChevronUp } from "lucide-react";
-import { RiMenu2Fill } from "react-icons/ri";
-import { usePathname } from "next/navigation";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
+import { Mail, Phone } from "lucide-react";
+import Button from "@/components/ui/ReuseButton";
+import HoverLink from "@/components/ui/HoverLink";
+import { useBreakPoint } from "@/hooks/useBreakPoint";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/our-team", label: "Our Team" },
+  { href: "/programs", label: "Programs" },
+  { href: "/courses", label: "Available Courses" },
+];
 
 const services = [
   {
@@ -38,7 +38,7 @@ const services = [
   },
   {
     title: "Shaping The Future",
-    href: "ecosystem",
+    href: "/ecosystem",
     description:
       "Join the Extension Africa Academy network. We are building the largest community of reliable Extension Agents across the continent.",
   },
@@ -63,332 +63,215 @@ const products = [
   {
     title: "CASE",
     href: "https://case.extensionafrica.com",
-    description: "commercial agent search engine",
-  },
-];
-
-const aboutItems = [
-  {
-    title: "Our Company",
-    href: "/about-us",
-    description:
-      "Empowering African agriculture through knowledge sharing and innovation.",
-  },
-  {
-    title: "Careers",
-    href: "https://career.extensionafrica.com",
-    description: "See our client success stories",
-  },
-  {
-    title: "Our Team",
-    href: "/our-team",
-    description: "Learn about our mission and team",
+    description: "Commercial agent search engine",
   },
 ];
 
 export default function NavBar() {
-  const [open, setOpen] = useState(false);
-  const [isFixed, setIsFixed] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const pathname = usePathname();
-  const isAuthPage = pathname === "/login" || pathname === "/register";
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const width = useBreakPoint();
+
+  function getClosedHeight(width: number | null) {
+    if (width === null) return 90;
+    if (width < 640) return 70;
+    if (width < 768) return 80;
+    return 90;
+  }
+
+  const closedHeight = getClosedHeight(width);
+  const padding = 8;
+  const outerHeight = isOpen ? "100vh" : closedHeight + padding * 2;
 
   useEffect(() => {
-    if (isAuthPage) {
-      setIsFixed(false);
-      setShowNavbar(true);
-      return;
-    }
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    let ticking = false;
-
-    const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-      const navbarHeight = 100;
-
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (currentScrollY > navbarHeight) {
-            setIsFixed(true);
-            setTimeout(() => setShowNavbar(true), 50);
-          } else {
-            setIsFixed(false);
-            setShowNavbar(true);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", controlNavbar, { passive: true });
-
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
-      window.removeEventListener("scroll", controlNavbar);
+      document.body.style.overflow = "";
     };
-  }, [isAuthPage]);
+  }, [isOpen]);
 
   return (
-    <header
-      className={cn(
-        "w-full h-auto top-0 right-0 left-0 bg-primary shadow-2xl z-50 [@media(min-width:870px)]:px-2 px-1",
-        isAuthPage
-          ? "fixed opacity-100"
-          : isFixed
-            ? "fixed opacity-0 animate-fadeInDown "
-            : "relative opacity-100",
-      )}
-      style={{
-        animation:
-          !isAuthPage && isFixed ? "fadeInDown 0.8s ease-out forwards" : "none",
-      }}>
-      <nav className="flex justify-between items-center max-w-7xl mx-auto z-50">
-        <div>
-          <Link href="/">
-            <Image
-              src="/ExAf_logo.png"
-              alt="Afrexa Logo"
-              width={150}
-              height={150}
-              className=""
-            />
-          </Link>
-        </div>
-
-        <NavigationMenu className="hidden [@media(min-width:803px)]:flex">
-          <NavigationMenuList className="[@media(min-width:870px)]:gap-0">
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <ListItem href="/about-us" title="Our Company">
-                    Empowering African agriculture through knowledge sharing and
-                    innovation.
-                  </ListItem>
-                  <ListItem
-                    target="_blank"
-                    href="https://career.extensionafrica.com"
-                    title="Careers">
-                    See our client success stories
-                  </ListItem>
-                  <ListItem href="/our-team" title="Our Team">
-                    Learn about our mission and team
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Programs</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {services.map((service) => (
-                    <ListItem
-                      key={service.title}
-                      title={service.title}
-                      href={service.href}>
-                      {service.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  {products.map((product) => (
-                    <ListItem
-                      target="_blank"
-                      key={product.title}
-                      title={product.title}
-                      href={product.href}>
-                      {product.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link
-                className="hover:opacity-80 text-xs [@media(min-width:870px)]:text-sm font-medium text-white"
-                href="/courses">
-                Available Courses
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="mr-4 flex items-center flex-row gap-4">
-          <div className="hidden sm:flex flex-row gap-1 items-center">
-            <Link
-              href="/register"
-              className="bg-transparent text-white border px-3 py-1 [@media(min-width:870px)]:px-4 [@media(min-width:870px)]:py-2 rounded-3xl font-semibold hover:opacity-80 transition hover:-translate-y-0.5 ease-in-out duration-300">
-              Register
-            </Link>
-            <div
-              className="w-px h-6 bg-gray-300 mx-2"
-              role="separator"
-              aria-orientation="vertical"></div>
-            <Link
-              href="/login"
-              className="[@media(min-width:870px)]:px-4 [@media(min-width:870px)]:py-2 bg-white text-primary px-3 py-1  rounded-3xl font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
-              Login
-            </Link>
-          </div>
-          <div className="[@media(min-width:803px)]:hidden">
-            <div onClick={() => setOpen(!open)}>
-              {open ? (
-                <X
-                  className="w-6 h-6 transition-transform duration-300 text-white"
-                  size={32}
-                />
-              ) : (
-                <RiMenu2Fill className="w-6 h-6 text-md transition-transform duration-300 text-white" />
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`fixed top-0 left-0 h-screen w-full bg-white shadow-lg [@media(min-width:803px)]:hidden z-40 transition-transform duration-300 ease-in-out ${
-            open ? "translate-x-0" : "-translate-x-full"
-          }`}>
-          <nav className="flex justify-between z-50 bg-primary items-center px-4">
-            <div>
-              <Link href="/">
+    <motion.div
+      animate={{
+        height: outerHeight,
+        padding: isOpen ? 0 : padding,
+      }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={clsx(
+        "fixed inset-x-0 top-0 z-50 box-border transition-colors duration-300",
+        scrolled && !isOpen ? "backdrop-blur-sm" : "bg-transparent",
+      )}>
+      <motion.header
+        animate={{
+          borderRadius: isOpen ? 0 : 2,
+          backgroundColor: isOpen
+            ? "var(--color-primary)"
+            : "var(--color-primary)",
+        }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="flex h-full w-full flex-col overflow-hidden justify-start">
+        <div className="flex max-w-7xl mx-auto shrink-0 items-center justify-between px-4 md:px-6 w-full pt-2.5 pb-3">
+          <Link href="/" className="relative z-10 block w-40">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                animate={{
+                  width: isOpen
+                    ? "var(--logo-width-open)"
+                    : "var(--logo-width-closed)",
+                  height: isOpen
+                    ? "var(--logo-height-open)"
+                    : "var(--logo-height-closed)",
+                }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative
+                [--logo-width-closed:150px] [--logo-width-open:195px] [--logo-height-closed:53px] [--logo-height-open:73px]
+                sm:[--logo-width-closed:165px] sm:[--logo-width-open:225px] sm:[--logo-height-closed:66px] sm:[--logo-height-open:80px]
+                md:[--logo-width-closed:205px] md:[--logo-width-open:275px] md:[--logo-height-closed:81px] md:[--logo-height-open:99px]">
                 <Image
                   src="/ExAf_logo.png"
-                  alt="Afrexa Logo"
-                  width={150}
-                  height={150}
-                  className=""
+                  alt="Extension Africa"
+                  fill
+                  sizes="(max-width: 768px) 247px, 308px"
+                  priority
+                  className="object-contain object-left py-1.5"
                 />
-              </Link>
-            </div>
-            <div onClick={() => setOpen(!open)}>
-              <X
-                className="w-6 h-6 transition-transform duration-300 text-white mr-2"
-                size={32}
-              />
-            </div>
+              </motion.div>
+            </AnimatePresence>
+          </Link>
+
+          <nav
+            className={clsx(
+              "hidden items-center gap-5 [@media(min-width:970px)]:flex",
+              isOpen &&
+                "[@media(min-width:970px)]:invisible [@media(min-width:970px)]:opacity-0",
+            )}>
+            {navLinks.map((link) => (
+              <HoverLink
+                key={link.href}
+                href={link.href}
+                className="text-sm font-semibold tracking-tighter">
+                {link.label.toUpperCase()}
+              </HoverLink>
+            ))}
           </nav>
 
-          <div className="flex flex-col space-y-4 p-6 text-black overflow-y-auto h-[calc(100vh-180px)]">
-            <MobileDropdown
-              title="About Us"
-              items={aboutItems}
-              setOpen={setOpen}
-            />
-
-            <MobileDropdown
-              title="Programs"
-              items={services}
-              setOpen={setOpen}
-            />
-
-            <MobileDropdown
-              title="Products"
-              items={products}
-              setOpen={setOpen}
-            />
-
-            <div className="border-b pb-2">
-              <Link
-                className="hover:opacity-80 hover:font-medium font-semibold text-lg block py-2"
-                href="/courses"
-                onClick={() => setOpen(false)}>
-                Available Courses
-              </Link>
-            </div>
-            <div className="flex-col gap-3 items-center justify-center flex mt-4 w-full">
-              <Link
-                onClick={() => setOpen(false)}
+          <div className="flex items-center gap-4">
+            <div
+              className={clsx(
+                "hidden items-center gap-4 [@media(min-width:1190px)]:flex",
+                isOpen && "lg:invisible lg:opacity-0",
+              )}>
+              <Button
                 href="/register"
-                className="bg-transparent text-primary border border-primary w-full py-4 text-center rounded-full font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
-                Register
-              </Link>
-              <Link
-                onClick={() => setOpen(false)}
+                text="Register"
+                bg="bg-transparent border border-white/30"
+                px="px-6"
+                py="py-3"
+              />
+              <Button
                 href="/login"
-                className="bg-primary text-white w-full text-center py-4 rounded-full font-semibold hover:bg-gray-200 transition hover:-translate-y-0.5 ease-in-out duration-300">
-                Login
-              </Link>
+                text="Login"
+                bg="bg-white"
+                textColor="text-black"
+                px="px-6"
+                py="py-3"
+              />
             </div>
+
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              className="relative flex h-6 w-8 flex-col justify-center gap-2.5">
+              <motion.span
+                animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 7 : 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="block h-[2.2px] w-full origin-center bg-white"
+              />
+              <motion.span
+                animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -7 : 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="block h-[2.2px] w-full origin-center bg-white"
+              />
+            </button>
           </div>
         </div>
-        {open && (
-          <div
-            className="fixed inset-0 bg-transparent bg-opacity-50 md:hidden z-30"
-            onClick={() => setOpen(false)}
-          />
-        )}
-      </nav>
-    </header>
-  );
-}
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: isOpen ? 0.25 : 0, duration: 0.4 }}
+              className="flex flex-1 flex-col items-center gap-2 [@media(min-width:390px)]:gap-4 overflow-y-auto px-6 py-8 md:gap-5">
+              {navLinks.map((link) => (
+                <HoverLink
+                  hoverColor="text-black"
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="font-bold uppercase tracking-tight text-[clamp(1.4rem,min(7vw,5vh),2.5rem)] [@media(max-height:690px)]:text-[1.2rem] leading-tight">
+                  {link.label}
+                </HoverLink>
+              ))}
+
+              <div
+                className={clsx(
+                  "items-center gap-4 w-full justify-center max-w-md flex flex-col md:flex-row",
+                )}>
+                <Button
+                  href="/register"
+                  text="Register"
+                  bg="bg-transparent border border-white/30"
+                  px="px-6"
+                  py="py-3"
+                  className="w-full"
+                />
+                <Button
+                  href="/login"
+                  text="Login"
+                  bg="bg-white"
+                  textColor="text-black"
+                  px="px-6"
+                  py="py-3"
+                  className="w-full"
+                />
+              </div>
+
+              <div className="my-5 flex flex-col items-center gap-3 border-t border-white/30 pt-8 text-white/90 sm:mt-10">
+                <div className="flex flex-row gap-2 items-center">
+                  <Mail className="md:w-8 md:h-8 w-5 h-5 text-white" />
+                  <HoverLink
+                    onClick={() => setIsOpen(false)}
+                    href="mailto:info@extensionafrica.com"
+                    hoverColor="text-black"
+                    className="md:heading-h3 heading-h4">
+                    e-learning@extensionafrica.com
+                  </HoverLink>
+                </div>
+                <div className="flex flex-row gap-2 items-center">
+                  <Phone className="md:w-8 md:h-8 w-5 h-5 text-white" />
+                  <HoverLink
+                    onClick={() => setIsOpen(false)}
+                    href="tel:+2347035621550"
+                    hoverColor="text-black"
+                    className="md:heading-h3 heading-h4">
+                    +234-703-562-1550
+                  </HoverLink>
+                </div>
+              </div>
+            </motion.div>
           )}
-          {...props}>
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
+        </AnimatePresence>
+      </motion.header>
+    </motion.div>
   );
-});
-ListItem.displayName = "ListItem";
-
-interface MobileDropdownProps {
-  title: string;
-  items: { title: string; href: string; description?: string }[];
-  setOpen: (open: boolean) => void;
 }
-
-const MobileDropdown = ({ title, items, setOpen }: MobileDropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border-b border-gray-100 last:border-0">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center font-semibold justify-between py-2 text-lg hover:font-medium hover:opacity-80 text-left">
-        {title}
-        {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-gray-500" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-gray-500" />
-        )}
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100 mb-4" : "max-h-0 opacity-0"
-        }`}>
-        <ul className="flex flex-col space-y-3 pl-4 pt-2">
-          {items.map((item) => (
-            <li key={item.title}>
-              <Link
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="block text-base text-gray-600 hover:text-primary">
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};

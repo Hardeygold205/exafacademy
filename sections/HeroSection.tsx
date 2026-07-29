@@ -12,6 +12,7 @@ import {
   Globe,
 } from "lucide-react";
 import CountUp from "react-countup";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,7 +23,7 @@ export default function HeroSection() {
     {
       image: "/hero-1.jpg",
       title: "Extension Africa Academy",
-      subtitle: "PURSUE A CAREER IN AGRIBUSINESS",
+      // subtitle: "PURSUE A CAREER IN AGRIBUSINESS",
       description:
         "Building the largest network of reliable Extension Agents across Africa. Join the revolution in modern farming.",
       cta: "Register Now",
@@ -32,7 +33,7 @@ export default function HeroSection() {
     {
       image: "/IMG_9544.jpg",
       title: "Agripreneurship Training",
-      subtitle: "UNLOCK YOUR POTENTIAL",
+      // subtitle: "UNLOCK YOUR POTENTIAL",
       description:
         "Empowering Farmers, Transforming Lives. Master the business side of agriculture with expert-led modules.",
       cta: "Explore Courses",
@@ -42,7 +43,7 @@ export default function HeroSection() {
     {
       image: "/hero-3.jpg",
       title: "Collaborative Solutions",
-      subtitle: "BUILDING TOMORROW TOGETHER",
+      // subtitle: "BUILDING TOMORROW TOGETHER",
       description:
         "Join a community of forward-thinkers creating meaningful impact in the food security sector.",
       cta: "Join Community",
@@ -73,7 +74,7 @@ export default function HeroSection() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <div className="relative w-full min-h-screen h-[70vh] lg:min-h-80 lg:h-[92vh] overflow-hidden bg-gray-900 text-white">
+    <div className="relative w-full min-h-screen overflow-hidden bg-gray-900 text-white">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -96,7 +97,7 @@ export default function HeroSection() {
 
           <div className="relative h-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center py-10 sm:pt-0 pb-20">
             <div className="max-w-5xl mx-auto space-y-6">
-              <div
+              {/* <div
                 className={`inline-block overflow-hidden ${
                   index === currentSlide ? "animate-fade-in-down" : "opacity-0"
                 }`}>
@@ -106,17 +107,14 @@ export default function HeroSection() {
                     className={`w-2 h-2 rounded-full ${slide.color}`}></span>
                   {slide.subtitle}
                 </span>
-              </div>
+              </div> */}
 
-              <h1
-                className={`text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight
-                ${
-                  index === currentSlide
-                    ? "animate-fade-in-up delay-200"
-                    : "opacity-0"
-                }`}>
-                {slide.title}
-              </h1>
+              <TextReveal
+                as="h1"
+                trigger="mount"
+                text={slide.title}
+                className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white"
+              />
 
               <p
                 className={`text-md md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed
@@ -137,7 +135,7 @@ export default function HeroSection() {
                 }`}>
                 <button
                   onClick={() => router.push(slide.link)}
-                  className={`${slide.color} group relative px-8 py-4 rounded-full font-bold text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden`}>
+                  className={`${slide.color} group relative px-8 py-4 rounded-xs font-bold text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden`}>
                   <span className="relative z-10">{slide.cta}</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -145,7 +143,7 @@ export default function HeroSection() {
 
                 <button
                   onClick={() => router.push("/#learnmore")}
-                  className="px-8 py-4 rounded-full font-bold text-white border border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+                  className="px-8 py-4 rounded-xs font-bold text-white border border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
                   Learn More
                 </button>
               </div>
@@ -156,7 +154,7 @@ export default function HeroSection() {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all hidden md:block group">
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-xs bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all hidden md:block group">
         <ChevronLeft className="w-8 h-8 group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button
@@ -164,7 +162,7 @@ export default function HeroSection() {
           nextSlide();
           setIsAutoPlaying(false);
         }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all hidden md:block group">
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-xs bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white transition-all hidden md:block group">
         <ChevronRight className="w-8 h-8 group-hover:translate-x-0.5 transition-transform" />
       </button>
 

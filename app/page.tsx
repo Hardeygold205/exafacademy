@@ -4,6 +4,7 @@ import JoinCommunity from "@/sections/JoinCommunity";
 import OverView from "@/sections/OverView";
 import PartnerShip from "@/sections/PartnerShip";
 import Program from "@/sections/Program";
+import Stories from "@/sections/Stories";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function Home() {
       <Program />
       <FAQ />
       <JoinCommunity />
+      <Stories />
       <PartnerShip />
     </div>
   );
