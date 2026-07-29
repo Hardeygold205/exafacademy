@@ -79,7 +79,7 @@ export default function OverView() {
         {/* Background video */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/afrexa-video-poster.png"
+          poster="/afrexa-video-poster.webp"
           autoPlay
           muted
           loop
