@@ -232,7 +232,7 @@ function AuthLayout() {
       </div>
 
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-6 md:p-12 lg:p-20 overflow-y-auto">
-        <div className="w-full max-w-[500px] space-y-8">
+        <div className="w-full max-w-[500px] space-y-8 pt-0 lg:pt-12">
           <div
             className={`text-center ${
               isLogin ? "mt-14 lg:mt-0" : "mt-16 lg:mt-0"
