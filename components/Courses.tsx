@@ -170,7 +170,7 @@ export default function CoursePage() {
   }
 
   return (
-    <div className="relative py-20 min-h-screen overflow-hidden">
+    <div className="relative py-24 min-h-screen overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
         <div
@@ -186,16 +186,6 @@ export default function CoursePage() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16 space-y-6">
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-block mb-4">
-            <span className="px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-full text-primary text-sm font-semibold">
-              📚 Knowledge Hub
-            </span>
-          </motion.div>
 
           <h1 className="text-5xl my-5 md:text-6xl font-bold mb-6 bg-linear-to-r from-green-400 to-white via-green-700 bg-clip-text text-transparent">
             Explore Our Courses

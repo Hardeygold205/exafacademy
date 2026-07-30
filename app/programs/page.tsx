@@ -1,13 +1,13 @@
 import React from "react";
 import { Metadata } from "next";
-import OurTeam from "@/components/OurTeam";
+import Programs from "@/components/Programs";
 
 export const metadata: Metadata = {
   title: "Our Program",
 };
 
-function Programs() {
-  return <OurTeam />;
+function Program() {
+  return <Programs />;
 }
 
-export default Programs;
+export default Program;

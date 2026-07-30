@@ -228,7 +228,7 @@ const OurTeam = () => {
 
   return (
     <section
-      className="py-24 px-6"
+      className="md:py-32 p-28 px-6"
       style={{
         background:
           "linear-gradient(170deg, #fafaf9 0%, #f0fdf4 60%, #fafaf9 100%)",
@@ -242,14 +242,6 @@ const OurTeam = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="max-width-[1200px] mx-auto text-center mb-16 max-w-[1200px]">
-        {/* Eyebrow pill */}
-        <span
-          className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full
-                        bg-green-50 border border-green-200 text-green-800
-                        text-[11px] font-bold uppercase tracking-widest mb-5">
-          The People
-        </span>
-
         <h2 className="text-[clamp(2.4rem,4.5vw,3.6rem)] font-black text-gray-900 leading-tight mb-4">
           Meet Our <span className="text-green-600">Team</span>
         </h2>
