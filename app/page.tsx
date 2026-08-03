@@ -1,4 +1,5 @@
 import FAQ from "@/sections/FAQ";
+import AfricaFootprintMap from "@/sections/FootPrintMap";
 import HeroSection from "@/sections/HeroSection";
 import JoinCommunity from "@/sections/JoinCommunity";
 import OverView from "@/sections/OverView";
@@ -21,6 +22,7 @@ export default function Home() {
       <FAQ />
       <JoinCommunity />
       <Stories />
+      <AfricaFootprintMap />
       <PartnerShip />
     </div>
   );
