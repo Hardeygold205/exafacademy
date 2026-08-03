@@ -33,6 +33,6 @@ jobs:
             yarn build
 
             echo "🚀 Restarting PM2..."
-            pm2 restart exaf-web
+            pm2 restart exafacademy
 
             echo "✅ Deployment completed successfully!"
