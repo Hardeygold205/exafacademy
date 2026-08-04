@@ -1,23 +1,5 @@
 "use client";
 
-/**
- * AfricaFootprintMap
- * -------------------
- * Sticky, scroll-scrubbed reveal of country markers on the Africa map.
- * As the user scrolls through the (tall) wrapper section, the inner
- * viewport stays pinned ("sticky") while each country's connector line
- * draws in, its dot pops, and its label fades — one after another,
- * starting with Nigeria, then Kenya, then the rest.
- *
- * Usage:
- *   import AfricaFootprintMap from "@/components/AfricaFootprintMap";
- *   <AfricaFootprintMap />
- *
- * Requires: framer-motion (npm i framer-motion)
- * Put your map background at /public/map-background.png
- * (or swap MAP_IMAGE_SRC for an <img> / inline SVG of your choice).
- */
-
 import { useRef } from "react";
 import {
   motion,
@@ -29,7 +11,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 
-const MAP_IMAGE_SRC = "/map-background.png";
+const MAP_IMAGE_SRC = "/map-background2.png";
 
 type Side = "left" | "right" | "bottom";
 
@@ -45,41 +27,41 @@ interface Country {
 const COUNTRIES: Country[] = [
   {
     name: "Nigeria",
-    x: 43.2,
-    y: 53.9,
+    x: 42.8,
+    y: 56.5,
     labelX: 36.2,
     labelY: 89.5,
     side: "left",
   },
   {
     name: "Kenya",
-    x: 58.3,
-    y: 60.3,
+    x: 54.3,
+    y: 62.3,
     labelX: 68.7,
-    labelY: 60.4,
+    labelY: 62.4,
     side: "right",
   },
-  { name: "Ghana", x: 39.5, y: 54.9, labelX: 39.3, labelY: 81.8, side: "left" },
-  { name: "Mali", x: 37.9, y: 50.2, labelX: 33.9, labelY: 75.9, side: "left" },
+  { name: "Ghana", x: 39.5, y: 56.9, labelX: 39.3, labelY: 81.8, side: "left" },
+  { name: "Mali", x: 37.9, y: 52.6, labelX: 33.9, labelY: 75.9, side: "left" },
   {
     name: "Ethiopia",
     x: 55.0,
     y: 54.9,
     labelX: 66.3,
-    labelY: 54.9,
+    labelY: 55.0,
     side: "right",
   },
   {
     name: "Tanzania",
-    x: 55.5,
+    x: 53.5,
     y: 69.2,
     labelX: 74.9,
-    labelY: 67.3,
+    labelY: 69.5,
     side: "right",
   },
   {
     name: "Uganda",
-    x: 52.7,
+    x: 52.2,
     y: 61.7,
     labelX: 52.2,
     labelY: 101.9,
@@ -87,23 +69,23 @@ const COUNTRIES: Country[] = [
   },
   {
     name: "Rwanda",
-    x: 51.6,
-    y: 62.6,
+    x: 51.2,
+    y: 64.1,
     labelX: 47.8,
     labelY: 95.3,
     side: "bottom",
   },
   {
     name: "Malawi",
-    x: 52.9,
-    y: 74.9,
+    x: 53.0,
+    y: 74.2,
     labelX: 70.7,
     labelY: 78.4,
     side: "right",
   },
   {
     name: "Mozambique",
-    x: 54.1,
+    x: 53.4,
     y: 74.9,
     labelX: 66.0,
     labelY: 90.2,
@@ -198,7 +180,7 @@ function CountryLabel({ country, index, scrollYProgress }: LabelProps) {
         opacity,
         y,
       }}
-      className="pointer-events-none whitespace-nowrap rounded-md border border-neutral-200 bg-white px-3 py-1.5 text-sm font-medium text-neutral-800 shadow-sm">
+      className="pointer-events-none whitespace-nowrap rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs font-medium text-neutral-800 shadow-sm">
       {country.name}
     </motion.div>
   );
@@ -221,14 +203,10 @@ export default function AfricaFootprintMap() {
       ref={wrapperRef}
       style={{ height: reduceMotion ? "auto" : "350vh" }}
       className="relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-2">
         <h2 className="text-3xl md:text-5xl text-primary mt-3 mb-3">
           Our Vision Board
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg font-light">
-          We collaborate with world-class organizations to deliver impactful
-          agricultural solutions across Africa.
-        </p>
       </div>
       <div
         className={reduceMotion ? "" : "sticky top-0"}
