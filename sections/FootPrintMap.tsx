@@ -223,7 +223,6 @@ export default function AfricaFootprintMap() {
               fill
             />
 
-            {/* Lines + dots (SVG overlay, same box as the image) */}
             <svg
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -249,10 +248,6 @@ export default function AfricaFootprintMap() {
             ))}
           </div>
         </div>
-
-        {/* <div className="pointer-events-none absolute bottom-6 left-6 text-xs uppercase tracking-wide text-neutral-400">
-          Scroll to reveal our footprint
-        </div> */}
       </div>
     </section>
   );
