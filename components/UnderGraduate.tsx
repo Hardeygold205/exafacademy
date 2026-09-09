@@ -4,6 +4,7 @@ import React from "react";
 import { Sprout } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function UnderGraduate() {
   const router = useRouter();
@@ -113,11 +114,12 @@ export default function UnderGraduate() {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <button
-              onClick={() => router.push("/register")}
+            <Link
+              target="_blank"
+              href="https://zfrmz.com/FCYBO98k1fKA9ZxkQ4pU"
               className="bg-green-600 hover:bg-green-700 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg font-semibold shadow-lg transition w-full sm:w-auto">
-              Apply Now & Plant Your Future
-            </button>
+              Apply Now
+            </Link>
           </div>
         </div>
       </section>
