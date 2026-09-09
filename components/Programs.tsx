@@ -11,7 +11,6 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 const stages = [
   {
@@ -91,7 +90,6 @@ function Stem({
 
   return (
     <div className="flex flex-col items-center shrink-0 w-[220px] md:w-auto">
-      {/* Card */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +136,6 @@ function Stem({
         </div>
       </motion.div>
 
-      {/* Stem */}
       <div
         className={`relative w-1 ${data.stemHeight} rounded-full bg-[#132A1D]/10 overflow-hidden`}>
         <motion.div
@@ -147,7 +144,6 @@ function Stem({
         />
       </div>
 
-      {/* Icon badge at soil line */}
       <div className="relative -mt-4 flex items-center justify-center w-10 h-10 bg-white rounded-full border-4 border-[#F3EDE0] shadow-md z-10">
         <Icon className="w-4 h-4 text-[#132A1D]" />
       </div>
@@ -163,9 +159,7 @@ export default function Programs() {
   });
 
   return (
-    <section
-      className="py-24 md:py-28 overflow-hidden"
-      ref={containerRef}>
+    <section className="py-24 md:py-28 overflow-hidden" ref={containerRef}>
       <div className="text-center max-w-3xl mx-auto px-4 mb-16 md:mb-20">
         <h2 className="text-3xl md:text-5xl text-[#132A1D] font-bold mt-3 mb-3">
           Our Academy Programs
@@ -190,36 +184,22 @@ export default function Programs() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="relative z-30 mt-16 md:mt-20">
-          <CardContainer className="inter-var">
-            <CardBody className="w-full">
-              <CardItem
-                translateZ={80}
-                className="w-full max-w-4xl mx-auto bg-[#132A1D] rounded-2xl shadow-2xl p-8 md:p-10 text-center">
-                <span className="text-white text-xs font-bold tracking-[0.25em] uppercase">
-                  Open Ground
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 mt-2 text-white">
-                  Not sure where you fit in?
-                </h3>
-                <p className="text-white/70 mb-6 text-lg max-w-2xl mx-auto">
-                  Don&apos;t belong to any of the above categories? Register now
-                  to explore our library of self-study courses.
-                </p>
-                <Link
-                  href="/register"
-                  className="inline-block bg-white text-[#132A1D] font-bold py-3 px-8 rounded-full shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  Get Started Today
-                </Link>
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </motion.div>
+        <div className="w-full flex justify-center text-center items-center px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white">
+          <div className="relative z-30">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+              Not sure where you fit in?
+            </h3>
+            <p className="text-gray-600 mb-3 text-lg max-w-2xl mx-auto">
+              Don&apos;t belong to any of the above categories? Register now to
+              explore our library of Self-study courses.
+            </p>
+            <Link
+              href="/register"
+              className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-sm shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300">
+              Get Started Today
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

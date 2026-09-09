@@ -129,7 +129,7 @@ export default function AgriBusiness() {
             <button
               onClick={() => router.push("/register")}
               className="bg-green-600 hover:bg-green-700 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg font-semibold shadow-lg transition w-full sm:w-auto">
-              Apply Now & Harvest Success
+              Apply Now
             </button>
           </div>
         </div>

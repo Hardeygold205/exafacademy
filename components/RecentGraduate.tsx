@@ -120,7 +120,7 @@ export default function RecentGraduate() {
             <button
               onClick={() => router.push("/register")}
               className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full text-lg font-semibold shadow-lg transition">
-              Apply Now & Cultivate Your Growth
+              Apply Now
             </button>
           </div>
         </div>

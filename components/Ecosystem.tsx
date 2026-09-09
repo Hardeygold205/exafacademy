@@ -101,7 +101,7 @@ export default function Ecosystem() {
             <button
               onClick={() => router.push("/register")}
               className="bg-green-600 hover:bg-green-700 text-white px-3 md:px-6 py-3 md:py-6 rounded-full text-sm md:text-xl font-bold shadow-xl transition transform hover:scale-105">
-              Join the Ecosystem Today
+              Join Us Today
             </button>
           </div>
         </div>

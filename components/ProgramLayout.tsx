@@ -11,7 +11,6 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 const timelineData = [
   {
@@ -123,7 +122,6 @@ export default function ProgramLayout() {
       const viewportWidth = window.innerWidth;
       const scrollNeeded = Math.max(trackWidth - viewportWidth, 0);
       setMaxScroll(scrollNeeded);
-      // extra multiplier gives finer scroll control over the horizontal shift
       setContainerHeight(`${window.innerHeight + scrollNeeded * 1.4}px`);
     }
     updateMeasurements();
@@ -172,7 +170,6 @@ export default function ProgramLayout() {
               ref={trackRef}
               style={{ x: xSpring }}
               className="flex items-center gap-10 md:gap-16 relative h-[440px] md:h-[480px] px-6 md:px-16 w-max">
-              {/* baseline track */}
               <div className="absolute left-0 right-0 top-1/2 h-1 bg-gray-200 -translate-y-1/2 rounded-full" />
               <motion.div
                 style={{ scaleX: lineFill }}
@@ -204,34 +201,21 @@ export default function ProgramLayout() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-gray-50">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="relative z-30">
-          <CardContainer className="inter-var">
-            <CardBody className="w-full">
-              <CardItem
-                translateZ={80}
-                className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-4 text-center border-t-4 border-primary">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                  Not sure where you fit in?
-                </h3>
-                <p className="text-gray-600 mb-3 text-lg max-w-2xl mx-auto">
-                  Don&apos;t belong to any of the above categories? Register now
-                  to explore our library of Self-study courses.
-                </p>
-                <Link
-                  href="/register"
-                  className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300">
-                  Get Started Today
-                </Link>
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        </motion.div>
+      <div className="w-full flex justify-center text-center items-center px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white">
+        <div className="relative z-30">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+            Not sure where you fit in?
+          </h3>
+          <p className="text-gray-600 mb-3 text-lg max-w-2xl mx-auto">
+            Don&apos;t belong to any of the above categories? Register now to
+            explore our library of Self-study courses.
+          </p>
+          <Link
+            href="/register"
+            className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-sm shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300">
+            Get Started Today
+          </Link>
+        </div>
       </div>
     </>
   );
